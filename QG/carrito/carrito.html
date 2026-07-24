@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carrito — Química Gabriel</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script src="/qrcode.min.js"></script>
+</head>
+<body>
+
+<header>
+  <div class="wrap headbar">
+    <div class="logo"><a href="/index.html"><img src="/logo.png" alt="Química Gabriel" class="logo-img"></a></div>
+    <nav>
+      <ul>
+        <li class="has-dropdown">
+          <button class="nav-drop-btn" aria-expanded="false">Categorías
+            <svg class="chev" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4"/></svg>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="/páginas/la.html">Línea automotriz</a></li>
+            <li><a href="/páginas/lh.html">Limpieza del hogar</a></li>
+          </ul>
+        </li>
+        <li><a href="/páginas/fp.html">Formas de pago</a></li>
+        <li><a href="/páginas/nosotros.html">Nosotros</a></li>
+      </ul>
+    </nav>
+    <div class="head-actions">
+      <a class="cart-btn" href="/carrito/carrito.html" aria-label="Carrito">
+        <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1.4"/><circle cx="18" cy="21" r="1.4"/><path d="M2 3h2l2.4 12.2a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.6L21 8H6"/></svg>
+        <span class="cart-badge" data-cart-badge>0</span>
+      </a>
+      <a class="btn-account" href="/formulario/inicio.html">Ingresar</a>
+    </div>
+    <button class="burger" aria-label="Abrir menú">☰</button>
+  </div>
+  <div class="mobile-nav">
+    <button class="mobile-drop-btn">Categorías
+      <svg class="chev" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4"/></svg>
+    </button>
+    <div class="mobile-submenu">
+      <a href="/páginas/la.html">Línea automotriz</a>
+      <a href="/páginas/lh.html">Limpieza del hogar</a>
+    </div>
+    <a href="/páginas/fp.html">Formas de pago</a>
+    <a href="/páginas/nosotros.html">Nosotros</a>
+    <a href="/carrito/carrito.html">Carrito (<span data-cart-badge>0</span>)</a>
+    <a href="/formulario/inicio.html">Ingresar</a>
+  </div>
+</header>
+
+<section class="page-hero steel">
+  <div class="wrap">
+    <span class="eyebrow">Tu pedido</span>
+    <h1>Carrito</h1>
+    <p>Revisá los productos antes de coordinar tu pedido por WhatsApp. No hace falta tener cuenta para usarlo.</p>
+  </div>
+</section>
+
+<section class="section cart-section">
+  <div class="wrap">
+    <p class="cart-empty" id="cart-empty">Todavía no agregaste productos. Mirá el <a href="/páginas/la.html">catálogo automotriz</a> o el de <a href="/páginas/lh.html">limpieza del hogar</a>.</p>
+
+    <div class="cart-list" id="cart-list"></div>
+
+    <div class="cart-address" id="cart-address-wrap" style="display:none;">
+      <label for="cart-address">Dirección de entrega (si tu pedido es con envío)</label>
+      <input type="text" id="cart-address" placeholder="Calle, número, barrio">
+    </div>
+
+    <div class="cart-summary" id="cart-summary" style="display:none;">
+      <div>
+        <div class="total-count">Productos en el carrito: <strong id="cart-total-count">0</strong></div>
+        <div class="total-amount" id="cart-total-amount"></div>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <button type="button" class="btn-account" id="cart-clear-btn">Vaciar carrito</button>
+        <button type="button" class="btn-account" id="cart-qr-btn">Generar QR del pedido</button>
+        <button type="button" class="btn-whatsapp" id="cart-whatsapp-btn">Coordinar por WhatsApp</button>
+      </div>
+    </div>
+
+    <div class="qr-result" id="qr-result" style="display:none;">
+      <div id="qr-canvas"></div>
+      <div class="qr-info">
+        <p class="qr-order-id">Pedido <strong id="qr-order-id"></strong></p>
+        <p class="qr-warning" id="qr-warning" style="display:none;">Este pedido tiene muchos productos: el QR quedó con un resumen (cantidad y total). El detalle completo está en el mensaje de WhatsApp.</p>
+        <p class="qr-help">Mostrá este código en el local o adjuntalo al coordinar tu pedido. Contiene el detalle del pedido, el total y la dirección de entrega.</p>
+      </div>
+    </div>
+
+    <p class="cart-note">El precio de cada producto se confirma por WhatsApp. Todavía no procesamos pagos dentro de la web.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="logo"><img src="/logo.png" alt="Química Gabriel" class="logo-img"></div>
+        <p>Droguería especializada en productos automotrices y de limpieza del hogar. Danubio 5090, Sayago — Montevideo, Uruguay.</p>
+        <a class="wa-btn" href="https://wa.me/59897359485" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+      <div>
+        <h4>Catálogo</h4>
+        <ul>
+          <li><a href="/páginas/la.html">Línea automotriz</a></li>
+          <li><a href="/páginas/lh.html">Limpieza del hogar</a></li>
+          <li><a href="/páginas/fp.html">Formas de pago</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="/páginas/nosotros.html">Nosotros</a></li>
+          <li><a href="/páginas/nosotros.html">Contacto</a></li>
+          <li><a href="/formulario/inicio.html">Mi cuenta</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Química Gabriel</span>
+      <span>Boceto — versión de trabajo</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/script.js"></script>
+</body>
+</html>

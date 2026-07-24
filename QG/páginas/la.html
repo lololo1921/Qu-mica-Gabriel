@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Línea automotriz — Química Gabriel</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap headbar">
+    <div class="logo"><a href="/index.html"><img src="/logo.png" alt="Química Gabriel" class="logo-img"></a></div>
+    <nav>
+      <ul>
+        <li class="has-dropdown">
+          <button class="nav-drop-btn" aria-expanded="false">Categorías
+            <svg class="chev" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4"/></svg>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="/páginas/la.html">Línea automotriz</a></li>
+            <li><a href="/páginas/lh.html">Limpieza del hogar</a></li>
+          </ul>
+        </li>
+        <li><a href="/páginas/fp.html">Formas de pago</a></li>
+        <li><a href="/páginas/nosotros.html">Nosotros</a></li>
+      </ul>
+    </nav>
+    <div class="head-actions">
+      <a class="cart-btn" href="/carrito/carrito.html" aria-label="Carrito">
+        <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1.4"/><circle cx="18" cy="21" r="1.4"/><path d="M2 3h2l2.4 12.2a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.6L21 8H6"/></svg>
+        <span class="cart-badge" data-cart-badge>0</span>
+      </a>
+      <a class="btn-account" href="/formulario/inicio.html">Ingresar</a>
+    </div>
+    <button class="burger" aria-label="Abrir menú">☰</button>
+  </div>
+  <div class="mobile-nav">
+    <button class="mobile-drop-btn">Categorías
+      <svg class="chev" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4"/></svg>
+    </button>
+    <div class="mobile-submenu">
+      <a href="/páginas/la.html">Línea automotriz</a>
+      <a href="/páginas/lh.html">Limpieza del hogar</a>
+    </div>
+    <a href="/páginas/fp.html">Formas de pago</a>
+    <a href="/páginas/nosotros.html">Nosotros</a>
+    <a href="/carrito/carrito.html">Carrito (<span data-cart-badge>0</span>)</a>
+    <a href="/formulario/inicio.html">Ingresar</a>
+  </div>
+</header>
+
+<section class="page-hero steel">
+  <div class="wrap">
+    <span class="eyebrow">Catálogo</span>
+    <h1>Línea automotriz</h1>
+    <p>Desengrasantes, siliconas, limpieza, inyectores, aromatizadores, paños y aguas para el cuidado de tu vehículo.</p>
+  </div>
+</section>
+
+<section class="section steel-page">
+  <div class="wrap">
+    <div class="filter-row">
+      <button class="filter-chip active" data-category="todos">Todos</button>
+      <button class="filter-chip" data-category="desengrasantes">Desengrasantes</button>
+      <button class="filter-chip" data-category="siliconas">Siliconas / Tableros</button>
+      <button class="filter-chip" data-category="limpieza">Limpieza</button>
+      <button class="filter-chip" data-category="inyectores">Inyectores</button>
+      <button class="filter-chip" data-category="aromatizadores">Aromatizadores</button>
+      <button class="filter-chip" data-category="panos">Paños</button>
+      <button class="filter-chip" data-category="aguas">Aguas</button>
+    </div>
+
+    <div class="product-grid">
+      <div class="product-card" data-category="desengrasantes" data-id="desengrasantes-desengrasante-de-motores-mk1-5lts" data-name="Desengrasante de Motores MK1 (5LTS)" data-price="$449">
+        <img src="/productos/desengrasante-mk1-5lts.jpeg" alt="Desengrasante de Motores MK1" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Desengrasantes</span>
+          <h3>Desengrasante de Motores MK1<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+          <span class="p-price">$449</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="desengrasantes" data-id="desengrasantes-desengrasante-de-motores-mk2-mas-potente-10lts" data-name="Desengrasante de Motores MK2 (más potente) (10LTS)" data-price="$759">
+        <img src="/productos/desengrasante-mk2-10lts.png" alt="Desengrasante de Motores MK2 (más potente)" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Desengrasantes</span>
+          <h3>Desengrasante de Motores MK2 (más potente)<br><small style="font-weight:500;color:#8b928d;">10LTS</small></h3>
+          <span class="p-price">$759</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="desengrasantes" data-id="desengrasantes-limpiador-removedor-de-insectos-5lts" data-name="Limpiador Removedor de Insectos (5LTS)" data-price="$539">
+        <img src="/productos/removedor-insectos-5lts.png" alt="Limpiador Removedor de Insectos" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Desengrasantes</span>
+          <h3>Limpiador Removedor de Insectos<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+          <span class="p-price">$539</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="desengrasantes" data-id="desengrasantes-limpia-llantas-5lts" data-name="Limpia Llantas (5LTS)" data-price="$680 · 500ML: $265">
+        <img src="/productos/limpia-llantas-5lts.png" alt="Limpia Llantas" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Desengrasantes</span>
+          <h3>Limpia Llantas<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+          <span class="p-price">$680 · 500ML: $265</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="desengrasantes" data-id="desengrasantes-desengrasante-fuerte-concentrado-5lts" data-name="Desengrasante Fuerte Concentrado (5LTS)" data-price="$990">
+        <img src="/productos/desengrasante-fuerte-concentrado-5lts.png" alt="Desengrasante Fuerte Concentrado" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Desengrasantes</span>
+          <h3>Desengrasante Fuerte Concentrado<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+          <span class="p-price">$990</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="desengrasantes" data-id="desengrasantes-desengrasante-limpia-motor-5lts" data-name="Desengrasante Limpia Motor (5LTS)" data-price="$699 · 500ML: $260">
+        <img src="/productos/desengrasante-limpia-motor-5lts.png" alt="Desengrasante Limpia Motor" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Desengrasantes</span>
+          <h3>Desengrasante Limpia Motor<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+          <span class="p-price">$699 · 500ML: $260</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="desengrasantes" data-id="desengrasantes-desengrasante-biodegradable-10lts" data-name="Desengrasante Biodegradable (10LTS)" data-price="$1.338">
+        <img src="/productos/desengrasante-biodegradable-10lts.png" alt="Desengrasante Biodegradable" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Desengrasantes</span>
+          <h3>Desengrasante Biodegradable<br><small style="font-weight:500;color:#8b928d;">10LTS</small></h3>
+          <span class="p-price">$1.338</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="siliconas" data-id="siliconas-silicona-de-tableros-blanca-aromatizada-1lts" data-name="Silicona de Tableros Blanca Aromatizada (1LTS)" data-price="$398">
+        <img src="/productos/silicona-tableros-1lt.png" alt="Silicona de Tableros Blanca Aromatizada" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Siliconas / Tableros</span>
+          <h3>Silicona de Tableros Blanca Aromatizada<br><small style="font-weight:500;color:#8b928d;">1LTS</small></h3>
+          <span class="p-price">$398</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="siliconas" data-id="siliconas-silicona-premium-1lt" data-name="Silicona Premium (1LT)" data-price="$429">
+        <img src="/productos/silicona-premium-1lt.png" alt="Silicona Premium" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Siliconas / Tableros</span>
+          <h3>Silicona Premium<br><small style="font-weight:500;color:#8b928d;">1LT</small></h3>
+          <span class="p-price">$429</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="siliconas" data-id="siliconas-silicona-premium-5lts" data-name="Silicona Premium (5LTS)" data-price="$2200">
+        <img src="/productos/silicona-premium-5lts.png" alt="Silicona Premium" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Siliconas / Tableros</span>
+          <h3>Silicona Premium<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+          <span class="p-price">$2200</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="siliconas" data-id="siliconas-renovador-de-plasticos-sin-silicona-500ml" data-name="Renovador de Plásticos Sin Silicona (500ML)" data-price="$445">
+        <img src="/productos/renovador-plasticos-sin-silicona-500ml.png" alt="Renovador de Plásticos Sin Silicona" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Siliconas / Tableros</span>
+          <h3>Renovador de Plásticos Sin Silicona<br><small style="font-weight:500;color:#8b928d;">500ML</small></h3>
+          <span class="p-price">$445</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="siliconas" data-id="siliconas-renovador-de-plasticos-crema-500gr" data-name="Renovador de Plásticos Crema (500GR)" data-price="$528">
+        <img src="/productos/renovador-plasticos-crema-500gr.png" alt="Renovador de Plásticos Crema" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Siliconas / Tableros</span>
+          <h3>Renovador de Plásticos Crema<br><small style="font-weight:500;color:#8b928d;">500GR</small></h3>
+          <span class="p-price">$528</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="siliconas" data-id="siliconas-silicona-blanca-3lts-5lts" data-name="Silicona Blanca (3LTS / 5LTS)" data-price="3LTS: $724 · 5LTS: $1720">
+        <img src="/productos/silicona-blanca.png" alt="Silicona Blanca" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Siliconas / Tableros</span>
+          <h3>Silicona Blanca<br><small style="font-weight:500;color:#8b928d;">3LTS / 5LTS</small></h3>
+          <span class="p-price">3LTS: $724 · 5LTS: $1720</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="siliconas" data-id="siliconas-abrillantador-de-plasticos-aromatizada-500ml" data-name="Abrillantador de Plásticos Aromatizada (500ML)" data-price="$425">
+        <img src="/productos/abrillantador-plasticos-500ml.png" alt="Abrillantador de Plásticos Aromatizada" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Siliconas / Tableros</span>
+          <h3>Abrillantador de Plásticos Aromatizada<br><small style="font-weight:500;color:#8b928d;">500ML</small></h3>
+          <span class="p-price">$425</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="siliconas" data-id="siliconas-abrillantador-de-plasticos-aromatizada-3lts" data-name="Abrillantador de Plásticos Aromatizada (3LTS)" data-price="$1749">
+        <img src="/productos/abrillantador-plasticos-3lts.png" alt="Abrillantador de Plásticos Aromatizada" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Siliconas / Tableros</span>
+          <h3>Abrillantador de Plásticos Aromatizada<br><small style="font-weight:500;color:#8b928d;">3LTS</small></h3>
+          <span class="p-price">$1749</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="limpieza" data-id="limpieza-shampoo-con-cera-5lts" data-name="Shampoo con Cera (5LTS)" data-price="$595">
+        <img src="/productos/shampoo-con-cera-5lts.png" alt="Shampoo con Cera" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Limpieza</span>
+          <h3>Shampoo con Cera<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+          <span class="p-price">$595</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="limpieza" data-id="limpieza-shampoo-con-cera-20lts" data-name="Shampoo con Cera (20LTS)" data-price="$1605">
+        <img src="/productos/shampoo-con-cera-20lts.png" alt="Shampoo con Cera" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Limpieza</span>
+          <h3>Shampoo con Cera<br><small style="font-weight:500;color:#8b928d;">20LTS</small></h3>
+          <span class="p-price">$1605</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="limpieza" data-id="limpieza-shampoo-extra-brillo-20lts" data-name="Shampoo Extra Brillo (20LTS)" data-price="$999">
+        <img src="/productos/shampoo-extra-brillo-20lts.png" alt="Shampoo Extra Brillo" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Limpieza</span>
+          <h3>Shampoo Extra Brillo<br><small style="font-weight:500;color:#8b928d;">20LTS</small></h3>
+          <span class="p-price">$999</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="limpieza" data-id="limpieza-cera-liquida-para-autos-5lts" data-name="Cera Líquida para Autos (5LTS)" data-price="$955">
+        <img src="/productos/cera-liquida-autos-5lts-a.png" alt="Cera Líquida para Autos" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Limpieza</span>
+          <h3>Cera Líquida para Autos<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+          <span class="p-price">$955</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="limpieza" data-id="limpieza-shampoo-para-tratamientos-ceramicos-ph-neutro-5lts" data-name="Shampoo para Tratamientos Cerámicos pH Neutro (5LTS)" data-price="$895">
+        <img src="/productos/shampoo-tratamientos-ceramicos-5lts.png" alt="Shampoo para Tratamientos Cerámicos pH Neutro" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Limpieza</span>
+          <h3>Shampoo para Tratamientos Cerámicos pH Neutro<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+          <span class="p-price">$895</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="limpieza" data-id="limpieza-shampoo-para-tratamientos-ceramicos-ph-neutro-20lts" data-name="Shampoo para Tratamientos Cerámicos pH Neutro (20LTS)" data-price="$1865">
+        <img src="/productos/shampoo-tratamientos-ceramicos-20lts.png" alt="Shampoo para Tratamientos Cerámicos pH Neutro" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Limpieza</span>
+          <h3>Shampoo para Tratamientos Cerámicos pH Neutro<br><small style="font-weight:500;color:#8b928d;">20LTS</small></h3>
+          <span class="p-price">$1865</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="limpieza" data-id="limpieza-espuma-activa-kircorner-con-cera-5lts" data-name="Espuma Activa Kircorner con Cera (5LTS)" data-price="$799">
+        <img src="/productos/espuma-activa-kircorner-5lts.png" alt="Espuma Activa Kircorner con Cera" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Limpieza</span>
+          <h3>Espuma Activa Kircorner con Cera<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+          <span class="p-price">$799</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="limpieza" data-id="limpieza-cera-liquida-para-autos-500ml" data-name="Cera Líquida para Autos (500ML)" data-price="$280">
+        <img src="/productos/cera-liquida-autos-500ml.png" alt="Cera Líquida para Autos" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Limpieza</span>
+          <h3>Cera Líquida para Autos<br><small style="font-weight:500;color:#8b928d;">500ML</small></h3>
+          <span class="p-price">$280</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="limpieza" data-id="limpieza-espuma-activa-5lts" data-name="Espuma Activa (5LTS)" data-price="$799">
+        <img src="/productos/espuma-activa-5lts.png" alt="Espuma Activa" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Limpieza</span>
+          <h3>Espuma Activa<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+          <span class="p-price">$799</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="limpieza" data-id="limpieza-espuma-activa-10lts" data-name="Espuma Activa (10LTS)" data-price="$1567">
+        <img src="/productos/espuma-activa-10lts.png" alt="Espuma Activa" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Limpieza</span>
+          <h3>Espuma Activa<br><small style="font-weight:500;color:#8b928d;">10LTS</small></h3>
+          <span class="p-price">$1567</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="limpieza" data-id="limpieza-renovador-de-neumaticos-1lt" data-name="Renovador de Neumáticos (1LT)" data-price="$261">
+        <img src="/productos/renovador-neumaticos-1lt.png" alt="Renovador de Neumáticos" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Limpieza</span>
+          <h3>Renovador de Neumáticos<br><small style="font-weight:500;color:#8b928d;">1LT</small></h3>
+          <span class="p-price">$261</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="limpieza" data-id="limpieza-renovador-de-neumaticos-5lts" data-name="Renovador de Neumáticos (5LTS)" data-price="$699">
+        <img src="/productos/renovador-neumaticos-5lts.png" alt="Renovador de Neumáticos" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Limpieza</span>
+          <h3>Renovador de Neumáticos<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+          <span class="p-price">$699</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="limpieza" data-id="limpieza-cera-liquida-para-autos-formula-brillo-extra-5lts" data-name="Cera Líquida para Autos (fórmula brillo extra) (5LTS)" data-price="$990">
+        <img src="/productos/cera-liquida-autos-5lts-b.png" alt="Cera Líquida para Autos (fórmula brillo extra)" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Limpieza</span>
+          <h3>Cera Líquida para Autos (fórmula brillo extra)<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+          <span class="p-price">$990</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="limpieza" data-id="limpieza-hidratador-para-cueros-250gr" data-name="Hidratador para Cueros (250GR)" data-price="$359">
+        <img src="/productos/hidratador-cueros-250gr.png" alt="Hidratador para Cueros" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Limpieza</span>
+          <h3>Hidratador para Cueros<br><small style="font-weight:500;color:#8b928d;">250GR</small></h3>
+          <span class="p-price">$359</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="limpieza" data-id="limpieza-limpiador-multiproposito-apc-5lts" data-name="Limpiador Multipropósito APC (5LTS)" data-price="$805">
+        <img src="/productos/limpiador-apc-5lts.png" alt="Limpiador Multipropósito APC" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Limpieza</span>
+          <h3>Limpiador Multipropósito APC<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+          <span class="p-price">$805</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="limpieza" data-id="limpieza-repelente-de-agua-para-parabrisas-120ml" data-name="Repelente de Agua para Parabrisas (120ML)" data-price="$180">
+        <img src="/productos/repelente-agua-parabrisas-120ml.png" alt="Repelente de Agua para Parabrisas" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Limpieza</span>
+          <h3>Repelente de Agua para Parabrisas<br><small style="font-weight:500;color:#8b928d;">120ML</small></h3>
+          <span class="p-price">$180</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="limpieza" data-id="limpieza-removedor-de-lluvia-acida-500ml" data-name="Removedor de Lluvia Ácida (500ML)" data-price="$440">
+        <img src="/productos/removedor-lluvia-acida-500ml.png" alt="Removedor de Lluvia Ácida" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Limpieza</span>
+          <h3>Removedor de Lluvia Ácida<br><small style="font-weight:500;color:#8b928d;">500ML</small></h3>
+          <span class="p-price">$440</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="limpieza" data-id="limpieza-removedor-de-alquitran-1lt" data-name="Removedor de Alquitrán (1LT)" data-price="$404">
+        <img src="/productos/removedor-alquitran-1lt.png" alt="Removedor de Alquitrán" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Limpieza</span>
+          <h3>Removedor de Alquitrán<br><small style="font-weight:500;color:#8b928d;">1LT</small></h3>
+          <span class="p-price">$404</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="limpieza" data-id="limpieza-lubricante-de-bisagras-1lt" data-name="Lubricante de Bisagras (1LT)" data-price="$1587">
+        <img src="/productos/lubricante-colisas-1lt.png" alt="Lubricante de Bisagras" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Limpieza</span>
+          <h3>Lubricante de Bisagras<br><small style="font-weight:500;color:#8b928d;">1LT</small></h3>
+          <span class="p-price">$1587</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="limpieza" data-id="limpieza-anti-empanante-120ml" data-name="Anti Empañante (120ML)" data-price="$185">
+        <img src="/productos/anti-empanante-120ml.png" alt="Anti Empañante" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Limpieza</span>
+          <h3>Anti Empañante<br><small style="font-weight:500;color:#8b928d;">120ML</small></h3>
+          <span class="p-price">$185</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="limpieza" data-id="limpieza-lubricante-de-bisagras-60ml" data-name="Lubricante de Bisagras (60ML)" data-price="$169">
+        <img src="/productos/lubricante-colisas-60ml.png" alt="Lubricante de Bisagras" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Limpieza</span>
+          <h3>Lubricante de Bisagras<br><small style="font-weight:500;color:#8b928d;">60ML</small></h3>
+          <span class="p-price">$169</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="inyectores" data-id="inyectores-liquido-limpia-inyectores-base-agua-5lts" data-name="Líquido Limpia Inyectores Base Agua (5LTS)" data-price="$744">
+        <img src="/productos/limpia-inyectores-base-agua-5lts.jpeg" alt="Líquido Limpia Inyectores Base Agua" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Inyectores</span>
+          <h3>Líquido Limpia Inyectores Base Agua<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+          <span class="p-price">$744</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="inyectores" data-id="inyectores-liquido-limpia-inyectores-base-petroleo-5lts" data-name="Líquido Limpia Inyectores Base Petróleo (5LTS)" data-price="$2270">
+        <img src="/productos/limpia-inyectores-base-petroleo-5lts.jpeg" alt="Líquido Limpia Inyectores Base Petróleo" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Inyectores</span>
+          <h3>Líquido Limpia Inyectores Base Petróleo<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+          <span class="p-price">$2270</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="inyectores" data-id="inyectores-liquido-para-prueba-de-inyectores-base-petroleo-5lts" data-name="Líquido para Prueba de Inyectores Base Petróleo (5LTS)" data-price="$2345">
+        <img src="/productos/prueba-inyectores-base-petroleo-5lts.png" alt="Líquido para Prueba de Inyectores Base Petróleo" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Inyectores</span>
+          <h3>Líquido para Prueba de Inyectores Base Petróleo<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+          <span class="p-price">$2345</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="aromatizadores" data-id="aromatizadores-aromatizador-para-autos-vainilla-auto-nuevo-limon-o-tutti-frutti-1lt" data-name="Aromatizador para Autos (Vainilla, Auto Nuevo, Limón o Tutti Frutti) (1LT)" data-price="$398">
+        <img src="/productos/aromatizador-auto-1lt.png" alt="Aromatizador para Autos (Vainilla, Auto Nuevo, Limón o Tutti Frutti)" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Aromatizadores</span>
+          <h3>Aromatizador para Autos (Vainilla, Auto Nuevo, Limón o Tutti Frutti)<br><small style="font-weight:500;color:#8b928d;">1LT</small></h3>
+          <span class="p-price">$398</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="aromatizadores" data-id="aromatizadores-aromatizador-para-autos-vainilla-auto-nuevo-limon-o-tutti-frutti-5lts" data-name="Aromatizador para Autos (Vainilla, Auto Nuevo, Limón o Tutti Frutti) (5LTS)" data-price="$1890">
+        <img src="/productos/aromatizador-auto-5lts.png" alt="Aromatizador para Autos (Vainilla, Auto Nuevo, Limón o Tutti Frutti)" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Aromatizadores</span>
+          <h3>Aromatizador para Autos (Vainilla, Auto Nuevo, Limón o Tutti Frutti)<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+          <span class="p-price">$1890</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="panos" data-id="panos-pack-5-panos-microfibra-55x50-gris-rojo-o-verde-pack-x5" data-name="Pack 5 Paños Microfibra 55x50 (Gris, Rojo o Verde) (Pack x5)" data-price="$425">
+        <img src="/productos/panos-microfibra-pack5.png" alt="Pack 5 Paños Microfibra 55x50 (Gris, Rojo o Verde)" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Paños</span>
+          <h3>Pack 5 Paños Microfibra 55x50 (Gris, Rojo o Verde)<br><small style="font-weight:500;color:#8b928d;">Pack x5</small></h3>
+          <span class="p-price">$425</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="panos" data-id="panos-pack-10-panos-microfibra-55x50-gris-rojo-o-verde-pack-x10" data-name="Pack 10 Paños Microfibra 55x50 (Gris, Rojo o Verde) (Pack x10)" data-price="$759">
+        <img src="/productos/panos-microfibra-pack10.png" alt="Pack 10 Paños Microfibra 55x50 (Gris, Rojo o Verde)" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Paños</span>
+          <h3>Pack 10 Paños Microfibra 55x50 (Gris, Rojo o Verde)<br><small style="font-weight:500;color:#8b928d;">Pack x10</small></h3>
+          <span class="p-price">$759</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="panos" data-id="panos-pack-5-panos-extra-absorbentes-40x40-pack-x5" data-name="Pack 5 Paños Extra Absorbentes 40x40 (Pack x5)" data-price="$629">
+        <img src="/productos/panos-extra-absorbentes-pack5.png" alt="Pack 5 Paños Extra Absorbentes 40x40" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Paños</span>
+          <h3>Pack 5 Paños Extra Absorbentes 40x40<br><small style="font-weight:500;color:#8b928d;">Pack x5</small></h3>
+          <span class="p-price">$629</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="panos" data-id="panos-pack-12-panos-extra-absorbentes-40x40-pack-x12" data-name="Pack 12 Paños Extra Absorbentes 40x40 (Pack x12)" data-price="$1200">
+        <img src="/productos/panos-extra-absorbentes-pack12.png" alt="Pack 12 Paños Extra Absorbentes 40x40" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Paños</span>
+          <h3>Pack 12 Paños Extra Absorbentes 40x40<br><small style="font-weight:500;color:#8b928d;">Pack x12</small></h3>
+          <span class="p-price">$1200</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="aguas" data-id="aguas-aditivo-para-radiador-verde-5lts" data-name="Aditivo para Radiador Verde (5LTS)" data-price="$149">
+        <img src="/productos/aditivo-radiador-verde-5lts.png" alt="Aditivo para Radiador Verde" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Aguas</span>
+          <h3>Aditivo para Radiador Verde<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+          <span class="p-price">$149</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="aguas" data-id="aguas-aditivo-para-radiador-roja-5lts" data-name="Aditivo para Radiador Roja (5LTS)" data-price="$175">
+        <img src="/productos/aditivo-radiador-roja-5lts.png" alt="Aditivo para Radiador Roja" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Aguas</span>
+          <h3>Aditivo para Radiador Roja<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+          <span class="p-price">$175</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="aguas" data-id="aguas-aditivo-para-radiador-roja-o-verde-20lts" data-name="Aditivo para Radiador (Roja o Verde) (20LTS)" data-price="$499">
+        <img src="/productos/aditivo-radiador-20lts.png" alt="Aditivo para Radiador (Roja o Verde)" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Aguas</span>
+          <h3>Aditivo para Radiador (Roja o Verde)<br><small style="font-weight:500;color:#8b928d;">20LTS</small></h3>
+          <span class="p-price">$499</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="aguas" data-id="aguas-agua-bidesmineralizada-incolora-5lts" data-name="Agua Bidesmineralizada Incolora (5LTS)" data-price="$159">
+        <img src="/productos/agua-bidesmineralizada-incolora-5lts.png" alt="Agua Bidesmineralizada Incolora" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Aguas</span>
+          <h3>Agua Bidesmineralizada Incolora<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+          <span class="p-price">$159</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="aguas" data-id="aguas-agua-bidesmineralizada-amarilla-5lts" data-name="Agua Bidesmineralizada Amarilla (5LTS)" data-price="$139">
+        <img src="/productos/agua-bidesmineralizada-amarilla-5lts.png" alt="Agua Bidesmineralizada Amarilla" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Aguas</span>
+          <h3>Agua Bidesmineralizada Amarilla<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+          <span class="p-price">$139</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="aguas" data-id="aguas-liquido-para-lavaparabrisas-3lts" data-name="Líquido para Lavaparabrisas (3LTS)" data-price="$149">
+        <img src="/productos/lavaparabrisas-3lts.png" alt="Líquido para Lavaparabrisas" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Aguas</span>
+          <h3>Líquido para Lavaparabrisas<br><small style="font-weight:500;color:#8b928d;">3LTS</small></h3>
+          <span class="p-price">$149</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="aguas" data-id="aguas-pack-x4-liquido-para-lavaparabrisas-3lts-pack-x4" data-name="Pack x4 Líquido para Lavaparabrisas 3LTS (Pack x4)" data-price="$520">
+        <img src="/productos/lavaparabrisas-pack4-3lts.png" alt="Pack x4 Líquido para Lavaparabrisas 3LTS" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Aguas</span>
+          <h3>Pack x4 Líquido para Lavaparabrisas 3LTS<br><small style="font-weight:500;color:#8b928d;">Pack x4</small></h3>
+          <span class="p-price">$520</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="aguas" data-id="aguas-oyak-anticorrosivo-para-motores-rosa-5lts" data-name="OYAK Anticorrosivo para Motores — Rosa (5LTS)" data-price="Consultar precio">
+        <img src="/productos/oyak-rosa-5lts.png" alt="OYAK Anticorrosivo para Motores — Rosa" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Aguas</span>
+          <h3>OYAK Anticorrosivo para Motores — Rosa<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+          <span class="p-price">Consultar precio</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="aguas" data-id="aguas-oyak-anticorrosivo-para-motores-verde-5lts" data-name="OYAK Anticorrosivo para Motores — Verde (5LTS)" data-price="Consultar precio">
+        <img src="/productos/oyak-verde-5lts.png" alt="OYAK Anticorrosivo para Motores — Verde" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Aguas</span>
+          <h3>OYAK Anticorrosivo para Motores — Verde<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+          <span class="p-price">Consultar precio</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="aguas" data-id="aguas-oyak-anticorrosivo-para-motores-azul-5lts" data-name="OYAK Anticorrosivo para Motores — Azul (5LTS)" data-price="Consultar precio">
+        <img src="/productos/oyak-azul-5lts.jpeg" alt="OYAK Anticorrosivo para Motores — Azul" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Aguas</span>
+          <h3>OYAK Anticorrosivo para Motores — Azul<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+          <span class="p-price">Consultar precio</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+    </div>
+
+    <p class="empty-state">No hay productos en esta categoría todavía.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="logo"><img src="/logo.png" alt="Química Gabriel" class="logo-img"></div>
+        <p>Droguería especializada en productos automotrices y de limpieza del hogar. Danubio 5090, Sayago — Montevideo, Uruguay.</p>
+        <a class="wa-btn" href="https://wa.me/59897359485" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+      <div>
+        <h4>Catálogo</h4>
+        <ul>
+          <li><a href="/páginas/la.html">Línea automotriz</a></li>
+          <li><a href="/páginas/lh.html">Limpieza del hogar</a></li>
+          <li><a href="/páginas/fp.html">Formas de pago</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="/páginas/nosotros.html">Nosotros</a></li>
+          <li><a href="/páginas/nosotros.html">Contacto</a></li>
+          <li><a href="/formulario/inicio.html">Mi cuenta</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Química Gabriel</span>
+      <span>Boceto — versión de trabajo</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/script.js"></script>
+</body>
+</html>

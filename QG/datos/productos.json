@@ -1,0 +1,572 @@
+[
+  {
+    "id": "desengrasantes-desengrasante-de-motores-mk1-5lts",
+    "name": "Desengrasante de Motores MK1 (5LTS)",
+    "category": "desengrasantes",
+    "section": "autos"
+  },
+  {
+    "id": "desengrasantes-desengrasante-de-motores-mk2-mas-potente-10lts",
+    "name": "Desengrasante de Motores MK2 (más potente) (10LTS)",
+    "category": "desengrasantes",
+    "section": "autos"
+  },
+  {
+    "id": "desengrasantes-limpiador-removedor-de-insectos-5lts",
+    "name": "Limpiador Removedor de Insectos (5LTS)",
+    "category": "desengrasantes",
+    "section": "autos"
+  },
+  {
+    "id": "desengrasantes-limpia-llantas-5lts",
+    "name": "Limpia Llantas (5LTS)",
+    "category": "desengrasantes",
+    "section": "autos"
+  },
+  {
+    "id": "desengrasantes-desengrasante-fuerte-concentrado-5lts",
+    "name": "Desengrasante Fuerte Concentrado (5LTS)",
+    "category": "desengrasantes",
+    "section": "autos"
+  },
+  {
+    "id": "desengrasantes-desengrasante-limpia-motor-5lts",
+    "name": "Desengrasante Limpia Motor (5LTS)",
+    "category": "desengrasantes",
+    "section": "autos"
+  },
+  {
+    "id": "desengrasantes-desengrasante-biodegradable-10lts",
+    "name": "Desengrasante Biodegradable (10LTS)",
+    "category": "desengrasantes",
+    "section": "autos"
+  },
+  {
+    "id": "siliconas-silicona-de-tableros-blanca-aromatizada-1lts",
+    "name": "Silicona de Tableros Blanca Aromatizada (1LTS)",
+    "category": "siliconas",
+    "section": "autos"
+  },
+  {
+    "id": "siliconas-silicona-premium-1lt",
+    "name": "Silicona Premium (1LT)",
+    "category": "siliconas",
+    "section": "autos"
+  },
+  {
+    "id": "siliconas-silicona-premium-5lts",
+    "name": "Silicona Premium (5LTS)",
+    "category": "siliconas",
+    "section": "autos"
+  },
+  {
+    "id": "siliconas-renovador-de-plasticos-sin-silicona-500ml",
+    "name": "Renovador de Plásticos Sin Silicona (500ML)",
+    "category": "siliconas",
+    "section": "autos"
+  },
+  {
+    "id": "siliconas-renovador-de-plasticos-crema-500gr",
+    "name": "Renovador de Plásticos Crema (500GR)",
+    "category": "siliconas",
+    "section": "autos"
+  },
+  {
+    "id": "siliconas-silicona-blanca-3lts-5lts",
+    "name": "Silicona Blanca (3LTS / 5LTS)",
+    "category": "siliconas",
+    "section": "autos"
+  },
+  {
+    "id": "siliconas-abrillantador-de-plasticos-aromatizada-500ml",
+    "name": "Abrillantador de Plásticos Aromatizada (500ML)",
+    "category": "siliconas",
+    "section": "autos"
+  },
+  {
+    "id": "siliconas-abrillantador-de-plasticos-aromatizada-3lts",
+    "name": "Abrillantador de Plásticos Aromatizada (3LTS)",
+    "category": "siliconas",
+    "section": "autos"
+  },
+  {
+    "id": "limpieza-shampoo-con-cera-5lts",
+    "name": "Shampoo con Cera (5LTS)",
+    "category": "limpieza",
+    "section": "autos"
+  },
+  {
+    "id": "limpieza-shampoo-con-cera-20lts",
+    "name": "Shampoo con Cera (20LTS)",
+    "category": "limpieza",
+    "section": "autos"
+  },
+  {
+    "id": "limpieza-shampoo-extra-brillo-20lts",
+    "name": "Shampoo Extra Brillo (20LTS)",
+    "category": "limpieza",
+    "section": "autos"
+  },
+  {
+    "id": "limpieza-cera-liquida-para-autos-5lts",
+    "name": "Cera Líquida para Autos (5LTS)",
+    "category": "limpieza",
+    "section": "autos"
+  },
+  {
+    "id": "limpieza-shampoo-para-tratamientos-ceramicos-ph-neutro-5lts",
+    "name": "Shampoo para Tratamientos Cerámicos pH Neutro (5LTS)",
+    "category": "limpieza",
+    "section": "autos"
+  },
+  {
+    "id": "limpieza-shampoo-para-tratamientos-ceramicos-ph-neutro-20lts",
+    "name": "Shampoo para Tratamientos Cerámicos pH Neutro (20LTS)",
+    "category": "limpieza",
+    "section": "autos"
+  },
+  {
+    "id": "limpieza-espuma-activa-kircorner-con-cera-5lts",
+    "name": "Espuma Activa Kircorner con Cera (5LTS)",
+    "category": "limpieza",
+    "section": "autos"
+  },
+  {
+    "id": "limpieza-cera-liquida-para-autos-500ml",
+    "name": "Cera Líquida para Autos (500ML)",
+    "category": "limpieza",
+    "section": "autos"
+  },
+  {
+    "id": "limpieza-espuma-activa-5lts",
+    "name": "Espuma Activa (5LTS)",
+    "category": "limpieza",
+    "section": "autos"
+  },
+  {
+    "id": "limpieza-espuma-activa-10lts",
+    "name": "Espuma Activa (10LTS)",
+    "category": "limpieza",
+    "section": "autos"
+  },
+  {
+    "id": "limpieza-renovador-de-neumaticos-1lt",
+    "name": "Renovador de Neumáticos (1LT)",
+    "category": "limpieza",
+    "section": "autos"
+  },
+  {
+    "id": "limpieza-renovador-de-neumaticos-5lts",
+    "name": "Renovador de Neumáticos (5LTS)",
+    "category": "limpieza",
+    "section": "autos"
+  },
+  {
+    "id": "limpieza-cera-liquida-para-autos-formula-brillo-extra-5lts",
+    "name": "Cera Líquida para Autos (fórmula brillo extra) (5LTS)",
+    "category": "limpieza",
+    "section": "autos"
+  },
+  {
+    "id": "limpieza-hidratador-para-cueros-250gr",
+    "name": "Hidratador para Cueros (250GR)",
+    "category": "limpieza",
+    "section": "autos"
+  },
+  {
+    "id": "limpieza-limpiador-multiproposito-apc-5lts",
+    "name": "Limpiador Multipropósito APC (5LTS)",
+    "category": "limpieza",
+    "section": "autos"
+  },
+  {
+    "id": "limpieza-repelente-de-agua-para-parabrisas-120ml",
+    "name": "Repelente de Agua para Parabrisas (120ML)",
+    "category": "limpieza",
+    "section": "autos"
+  },
+  {
+    "id": "limpieza-removedor-de-lluvia-acida-500ml",
+    "name": "Removedor de Lluvia Ácida (500ML)",
+    "category": "limpieza",
+    "section": "autos"
+  },
+  {
+    "id": "limpieza-removedor-de-alquitran-1lt",
+    "name": "Removedor de Alquitrán (1LT)",
+    "category": "limpieza",
+    "section": "autos"
+  },
+  {
+    "id": "limpieza-lubricante-de-bisagras-1lt",
+    "name": "Lubricante de Bisagras (1LT)",
+    "category": "limpieza",
+    "section": "autos"
+  },
+  {
+    "id": "limpieza-anti-empanante-120ml",
+    "name": "Anti Empañante (120ML)",
+    "category": "limpieza",
+    "section": "autos"
+  },
+  {
+    "id": "limpieza-lubricante-de-bisagras-60ml",
+    "name": "Lubricante de Bisagras (60ML)",
+    "category": "limpieza",
+    "section": "autos"
+  },
+  {
+    "id": "inyectores-liquido-limpia-inyectores-base-agua-5lts",
+    "name": "Líquido Limpia Inyectores Base Agua (5LTS)",
+    "category": "inyectores",
+    "section": "autos"
+  },
+  {
+    "id": "inyectores-liquido-limpia-inyectores-base-petroleo-5lts",
+    "name": "Líquido Limpia Inyectores Base Petróleo (5LTS)",
+    "category": "inyectores",
+    "section": "autos"
+  },
+  {
+    "id": "inyectores-liquido-para-prueba-de-inyectores-base-petroleo-5lts",
+    "name": "Líquido para Prueba de Inyectores Base Petróleo (5LTS)",
+    "category": "inyectores",
+    "section": "autos"
+  },
+  {
+    "id": "aromatizadores-aromatizador-para-autos-vainilla-auto-nuevo-limon-o-tutti-frutti-1lt",
+    "name": "Aromatizador para Autos (Vainilla, Auto Nuevo, Limón o Tutti Frutti) (1LT)",
+    "category": "aromatizadores",
+    "section": "autos"
+  },
+  {
+    "id": "aromatizadores-aromatizador-para-autos-vainilla-auto-nuevo-limon-o-tutti-frutti-5lts",
+    "name": "Aromatizador para Autos (Vainilla, Auto Nuevo, Limón o Tutti Frutti) (5LTS)",
+    "category": "aromatizadores",
+    "section": "autos"
+  },
+  {
+    "id": "panos-pack-5-panos-microfibra-55x50-gris-rojo-o-verde-pack-x5",
+    "name": "Pack 5 Paños Microfibra 55x50 (Gris, Rojo o Verde) (Pack x5)",
+    "category": "panos",
+    "section": "autos"
+  },
+  {
+    "id": "panos-pack-10-panos-microfibra-55x50-gris-rojo-o-verde-pack-x10",
+    "name": "Pack 10 Paños Microfibra 55x50 (Gris, Rojo o Verde) (Pack x10)",
+    "category": "panos",
+    "section": "autos"
+  },
+  {
+    "id": "panos-pack-5-panos-extra-absorbentes-40x40-pack-x5",
+    "name": "Pack 5 Paños Extra Absorbentes 40x40 (Pack x5)",
+    "category": "panos",
+    "section": "autos"
+  },
+  {
+    "id": "panos-pack-12-panos-extra-absorbentes-40x40-pack-x12",
+    "name": "Pack 12 Paños Extra Absorbentes 40x40 (Pack x12)",
+    "category": "panos",
+    "section": "autos"
+  },
+  {
+    "id": "aguas-aditivo-para-radiador-verde-5lts",
+    "name": "Aditivo para Radiador Verde (5LTS)",
+    "category": "aguas",
+    "section": "autos"
+  },
+  {
+    "id": "aguas-aditivo-para-radiador-roja-5lts",
+    "name": "Aditivo para Radiador Roja (5LTS)",
+    "category": "aguas",
+    "section": "autos"
+  },
+  {
+    "id": "aguas-aditivo-para-radiador-roja-o-verde-20lts",
+    "name": "Aditivo para Radiador (Roja o Verde) (20LTS)",
+    "category": "aguas",
+    "section": "autos"
+  },
+  {
+    "id": "aguas-agua-bidesmineralizada-incolora-5lts",
+    "name": "Agua Bidesmineralizada Incolora (5LTS)",
+    "category": "aguas",
+    "section": "autos"
+  },
+  {
+    "id": "aguas-agua-bidesmineralizada-amarilla-5lts",
+    "name": "Agua Bidesmineralizada Amarilla (5LTS)",
+    "category": "aguas",
+    "section": "autos"
+  },
+  {
+    "id": "aguas-liquido-para-lavaparabrisas-3lts",
+    "name": "Líquido para Lavaparabrisas (3LTS)",
+    "category": "aguas",
+    "section": "autos"
+  },
+  {
+    "id": "aguas-pack-x4-liquido-para-lavaparabrisas-3lts-pack-x4",
+    "name": "Pack x4 Líquido para Lavaparabrisas 3LTS (Pack x4)",
+    "category": "aguas",
+    "section": "autos"
+  },
+  {
+    "id": "aguas-oyak-anticorrosivo-para-motores-rosa-5lts",
+    "name": "OYAK Anticorrosivo para Motores — Rosa (5LTS)",
+    "category": "aguas",
+    "section": "autos"
+  },
+  {
+    "id": "aguas-oyak-anticorrosivo-para-motores-verde-5lts",
+    "name": "OYAK Anticorrosivo para Motores — Verde (5LTS)",
+    "category": "aguas",
+    "section": "autos"
+  },
+  {
+    "id": "aguas-oyak-anticorrosivo-para-motores-azul-5lts",
+    "name": "OYAK Anticorrosivo para Motores — Azul (5LTS)",
+    "category": "aguas",
+    "section": "autos"
+  },
+  {
+    "id": "limpieza-anti-hongo-fungicida-5lts-1lts",
+    "name": "Anti Hongo Fungicida (5LTS / 1LTS)",
+    "category": "limpieza",
+    "section": "hogar"
+  },
+  {
+    "id": "limpieza-cloruro-de-benzalconio-al-1-10lts",
+    "name": "Cloruro de Benzalconio al 1% (10LTS)",
+    "category": "limpieza",
+    "section": "hogar"
+  },
+  {
+    "id": "limpieza-amonio-cuaternario-1lt-de-regalo-5lts",
+    "name": "Amonio Cuaternario + 1LT de Regalo (5LTS)",
+    "category": "limpieza",
+    "section": "hogar"
+  },
+  {
+    "id": "limpieza-percarbonato-de-sodio-1kg-5kg",
+    "name": "Percarbonato de Sodio (1KG / 5KG)",
+    "category": "limpieza",
+    "section": "hogar"
+  },
+  {
+    "id": "limpieza-bicarbonato-de-sodio-1kg-5kg",
+    "name": "Bicarbonato de Sodio (1KG / 5KG)",
+    "category": "limpieza",
+    "section": "hogar"
+  },
+  {
+    "id": "limpieza-vinagre-de-limpieza-5lts",
+    "name": "Vinagre de Limpieza (5LTS)",
+    "category": "limpieza",
+    "section": "hogar"
+  },
+  {
+    "id": "limpieza-hipoclorito-de-sodio-10lts",
+    "name": "Hipoclorito de Sodio (10LTS)",
+    "category": "limpieza",
+    "section": "hogar"
+  },
+  {
+    "id": "limpieza-2-hipocloritos-de-sodio-al-100-20lts-c-u-pack-x2",
+    "name": "2 Hipocloritos de Sodio al 100% (20LTS c/u) (Pack x2)",
+    "category": "limpieza",
+    "section": "hogar"
+  },
+  {
+    "id": "limpieza-removedor-de-cemento-industrial-10lts",
+    "name": "Removedor de Cemento Industrial (10LTS)",
+    "category": "limpieza",
+    "section": "hogar"
+  },
+  {
+    "id": "limpieza-liquido-final-de-obra",
+    "name": "Líquido Final de Obra (—)",
+    "category": "limpieza",
+    "section": "hogar"
+  },
+  {
+    "id": "limpieza-limpiador-multiuso-antibacterial-lavanda-5lts",
+    "name": "Limpiador Multiuso Antibacterial — Lavanda (5LTS)",
+    "category": "limpieza",
+    "section": "hogar"
+  },
+  {
+    "id": "limpieza-limpiador-multiuso-antibacterial-pino-5lts",
+    "name": "Limpiador Multiuso Antibacterial — Pino (5LTS)",
+    "category": "limpieza",
+    "section": "hogar"
+  },
+  {
+    "id": "limpieza-limpiador-multiuso-antibacterial-cereza-5lts",
+    "name": "Limpiador Multiuso Antibacterial — Cereza (5LTS)",
+    "category": "limpieza",
+    "section": "hogar"
+  },
+  {
+    "id": "alcoholes-alcohol-de-cereales-95-10lts",
+    "name": "Alcohol de Cereales 95° (10LTS)",
+    "category": "alcoholes",
+    "section": "hogar"
+  },
+  {
+    "id": "alcoholes-alcohol-de-cereales-96-potable-grado-alimenticio-5lts",
+    "name": "Alcohol de Cereales 96° (potable, grado alimenticio) (5LTS)",
+    "category": "alcoholes",
+    "section": "hogar"
+  },
+  {
+    "id": "alcoholes-bioetanol-10lts",
+    "name": "Bioetanol (10LTS)",
+    "category": "alcoholes",
+    "section": "hogar"
+  },
+  {
+    "id": "alcoholes-bioetanol-5lts",
+    "name": "Bioetanol (5LTS)",
+    "category": "alcoholes",
+    "section": "hogar"
+  },
+  {
+    "id": "alcoholes-bioetanol-ecologico-10lts",
+    "name": "Bioetanol Ecológico (10LTS)",
+    "category": "alcoholes",
+    "section": "hogar"
+  },
+  {
+    "id": "alcoholes-bioetanol-ecologico-5lts",
+    "name": "Bioetanol Ecológico (5LTS)",
+    "category": "alcoholes",
+    "section": "hogar"
+  },
+  {
+    "id": "alcoholes-alcohol-rectificado-al-95-5lts",
+    "name": "Alcohol Rectificado al 95° (5LTS)",
+    "category": "alcoholes",
+    "section": "hogar"
+  },
+  {
+    "id": "alcoholes-alcohol-azul-5lts",
+    "name": "Alcohol Azul (5LTS)",
+    "category": "alcoholes",
+    "section": "hogar"
+  },
+  {
+    "id": "alcoholes-alcohol-desinfectante-al-70-10lts",
+    "name": "Alcohol Desinfectante al 70° (10LTS)",
+    "category": "alcoholes",
+    "section": "hogar"
+  },
+  {
+    "id": "alcoholes-alcohol-desinfectante-al-70-5lts",
+    "name": "Alcohol Desinfectante al 70° (5LTS)",
+    "category": "alcoholes",
+    "section": "hogar"
+  },
+  {
+    "id": "alcoholes-alcohol-isopropilico-5lts-1lt",
+    "name": "Alcohol Isopropílico (5LTS / 1LT)",
+    "category": "alcoholes",
+    "section": "hogar"
+  },
+  {
+    "id": "alcoholes-alcohol-de-perfumeria-extra-refinado-5lts",
+    "name": "Alcohol de Perfumería Extra Refinado (5LTS)",
+    "category": "alcoholes",
+    "section": "hogar"
+  },
+  {
+    "id": "alcoholes-alcohol-de-perfumeria-extra-refinado-1lt",
+    "name": "Alcohol de Perfumería Extra Refinado (1LT)",
+    "category": "alcoholes",
+    "section": "hogar"
+  },
+  {
+    "id": "alcoholes-alcohol-rectificado-96-industrial-99-5lts-10lts",
+    "name": "Alcohol Rectificado 96° / Industrial 99° (5LTS / 10LTS)",
+    "category": "alcoholes",
+    "section": "hogar"
+  },
+  {
+    "id": "cuidados-aceite-para-caminadora-1lt",
+    "name": "Aceite para Caminadora (1LT)",
+    "category": "cuidados",
+    "section": "hogar"
+  },
+  {
+    "id": "cuidados-aceite-para-caminadora-500ml",
+    "name": "Aceite para Caminadora (500ML)",
+    "category": "cuidados",
+    "section": "hogar"
+  },
+  {
+    "id": "cuidados-parafina-en-trozos-1kg",
+    "name": "Parafina en Trozos (1KG)",
+    "category": "cuidados",
+    "section": "hogar"
+  },
+  {
+    "id": "cuidados-parafina-granulada-1kg-5kg",
+    "name": "Parafina Granulada (1KG / 5KG)",
+    "category": "cuidados",
+    "section": "hogar"
+  },
+  {
+    "id": "cuidados-parafina-en-plancha-5kg-25kg",
+    "name": "Parafina en Plancha (5KG / 25KG)",
+    "category": "cuidados",
+    "section": "hogar"
+  },
+  {
+    "id": "cuidados-esencia-de-citronela-pura-70ml",
+    "name": "Esencia de Citronela Pura (70ML)",
+    "category": "cuidados",
+    "section": "hogar"
+  },
+  {
+    "id": "cuidados-citronela-5lts",
+    "name": "Citronela (5LTS)",
+    "category": "cuidados",
+    "section": "hogar"
+  },
+  {
+    "id": "cuidados-citronela-1lt",
+    "name": "Citronela (1LT)",
+    "category": "cuidados",
+    "section": "hogar"
+  },
+  {
+    "id": "cuidados-azufre-en-polvo-1kg",
+    "name": "Azufre en Polvo (1KG)",
+    "category": "cuidados",
+    "section": "hogar"
+  },
+  {
+    "id": "cuidados-quita-sarro-inodoros-y-piletas-1lt",
+    "name": "Quita Sarro (Inodoros y Piletas) (1LT)",
+    "category": "cuidados",
+    "section": "hogar"
+  },
+  {
+    "id": "cuidados-absorbe-humedad-1kg-3kg",
+    "name": "Absorbe Humedad (1KG / 3KG)",
+    "category": "cuidados",
+    "section": "hogar"
+  },
+  {
+    "id": "cuidados-carbon-activado-granulado-100gr-500gr-1kg",
+    "name": "Carbón Activado Granulado (100GR / 500GR / 1KG)",
+    "category": "cuidados",
+    "section": "hogar"
+  },
+  {
+    "id": "cuidados-kerosene-5lts-10lts",
+    "name": "Kerosene (5LTS / 10LTS)",
+    "category": "cuidados",
+    "section": "hogar"
+  }
+]

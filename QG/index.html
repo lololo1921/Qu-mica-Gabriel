@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Química Gabriel — Boceto</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap headbar">
+    <div class="logo"><a href="/index.html"><img src="/logo.png" alt="Química Gabriel" class="logo-img"></a></div>
+    <nav>
+      <ul>
+        <li class="has-dropdown">
+          <button class="nav-drop-btn" aria-expanded="false">Categorías
+            <svg class="chev" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4"/></svg>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="/páginas/la.html">Línea automotriz</a></li>
+            <li><a href="/páginas/lh.html">Limpieza del hogar</a></li>
+          </ul>
+        </li>
+        <li><a href="/páginas/fp.html">Formas de pago</a></li>
+        <li><a href="/páginas/nosotros.html">Nosotros</a></li>
+      </ul>
+    </nav>
+    <div class="head-actions">
+      <a class="cart-btn" href="/carrito/carrito.html" aria-label="Carrito">
+        <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1.4"/><circle cx="18" cy="21" r="1.4"/><path d="M2 3h2l2.4 12.2a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.6L21 8H6"/></svg>
+        <span class="cart-badge" data-cart-badge>0</span>
+      </a>
+      <a class="btn-account" href="/formulario/inicio.html">Ingresar</a>
+    </div>
+    <button class="burger" aria-label="Abrir menú">☰</button>
+  </div>
+  <div class="mobile-nav">
+    <button class="mobile-drop-btn">Categorías
+      <svg class="chev" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4"/></svg>
+    </button>
+    <div class="mobile-submenu">
+      <a href="/páginas/la.html">Línea automotriz</a>
+      <a href="/páginas/lh.html">Limpieza del hogar</a>
+    </div>
+    <a href="/páginas/fp.html">Formas de pago</a>
+    <a href="/páginas/nosotros.html">Nosotros</a>
+    <a href="/carrito/carrito.html">Carrito (<span data-cart-badge>0</span>)</a>
+    <a href="/formulario/inicio.html">Ingresar</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-split">
+    <div class="hero-half steel"></div>
+    <div class="hero-half teal"></div>
+    <div class="hero-seam"></div>
+  </div>
+  <div class="hero-content">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="eyebrow">Química Automotriz · Montevideo</span>
+        <h1>Todo lo que tu auto y tu casa necesitan</h1>
+        <p>Productos de limpieza automotriz y del hogar, directo de fábrica. Consultá el catálogo y coordiná tu pedido en minutos.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-amber" href="/páginas/la.html">Ver línea automotriz</a>
+          <a class="btn btn-outline" href="/páginas/lh.html">Ver limpieza del hogar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Catálogo</span>
+      <h2>Elegí tu categoría</h2>
+    </div>
+    <div class="cat-grid">
+      <div class="cat-card steel">
+        <div class="band"></div>
+        <div class="cat-card-body">
+          <h3>Línea automotriz</h3>
+          <p>Desengrasantes, siliconas, limpieza, inyectores, aromatizadores, paños y aguas.</p>
+          <div class="chip-row">
+            <span class="chip">Desengrasantes</span>
+            <span class="chip">Siliconas</span>
+            <span class="chip">Inyectores</span>
+            <span class="chip">Aromatizadores</span>
+          </div>
+        </div>
+      </div>
+      <div class="cat-card teal">
+        <div class="band"></div>
+        <div class="cat-card-body">
+          <h3>Limpieza del hogar</h3>
+          <p>Limpieza, alcoholes y cuidados del hogar.</p>
+          <div class="chip-row">
+            <span class="chip">Limpieza</span>
+            <span class="chip">Alcoholes</span>
+            <span class="chip">Cuidados del hogar</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Lo más pedido</span>
+      <h2>Productos destacados</h2>
+    </div>
+    <div class="product-grid">
+      <div class="product-card" data-category="desengrasantes" data-id="desengrasantes-desengrasante-de-motores-mk1-5lts" data-name="Desengrasante de Motores MK1 (5LTS)" data-price="$449">
+        <img src="/productos/desengrasante-mk1-5lts.jpeg" alt="Desengrasante de Motores MK1" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Desengrasantes</span>
+          <h3>Desengrasante de Motores MK1<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+          <span class="p-price">$449</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="limpieza" data-id="limpieza-shampoo-con-cera-5lts" data-name="Shampoo con Cera (5LTS)" data-price="$595">
+        <img src="/productos/shampoo-con-cera-5lts.png" alt="Shampoo con Cera" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Limpieza</span>
+          <h3>Shampoo con Cera<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+          <span class="p-price">$595</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="alcoholes" data-id="alcoholes-alcohol-de-cereales-96-potable-grado-alimenticio-5lts" data-name="Alcohol de Cereales 96° (potable, grado alimenticio) (5LTS)" data-price="$699">
+        <img src="/productos/alcohol-cereales-5lts.png" alt="Alcohol de Cereales 96°" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Alcoholes</span>
+          <h3>Alcohol de Cereales 96°<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+          <span class="p-price">$699</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+      <div class="product-card" data-category="limpieza" data-id="limpieza-limpiador-multiuso-antibacterial-cereza-5lts" data-name="Limpiador Multiuso Antibacterial — Cereza (5LTS)" data-price="$199">
+        <img src="/productos/multiuso-cereza-5lts.png" alt="Limpiador Multiuso Antibacterial Cereza" loading="lazy">
+        <div class="product-card-body">
+          <span class="p-cat">Limpieza</span>
+          <h3>Limpiador Multiuso — Cereza<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+          <span class="p-price">$199</span>
+          <button class="btn-add">Agregar al pedido</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section pay-band">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Cómo comprar</span>
+      <h2>Formas de pago</h2>
+    </div>
+    <div class="pay-grid">
+      <div class="pay-card">
+        <div class="num">01</div>
+        <h3>En puerta</h3>
+        <p>Retirás tu pedido en el local y pagás en efectivo o débito al momento.</p>
+      </div>
+      <div class="pay-card">
+        <div class="num">02</div>
+        <h3>Transferencia</h3>
+        <p>Coordinás por WhatsApp y transferís antes del retiro o envío.</p>
+      </div>
+      <div class="pay-card">
+        <div class="num">03</div>
+        <h3>En el envío</h3>
+        <p>Pagás en efectivo al recibir tu pedido en la puerta de tu casa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="trust">
+    <div><div class="big">+7</div><div class="lbl">Años en el rubro</div></div>
+    <div><div class="big">2</div><div class="lbl">Líneas de producto</div></div>
+    <div><div class="big">100%</div><div class="lbl">Atención directa</div></div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="logo"><img src="/logo.png" alt="Química Gabriel" class="logo-img"></div>
+        <p>Química Automotriz especializada en productos automotrices y de limpieza del hogar. Danubio 5090, Sayago — Montevideo, Uruguay.</p>
+        <a class="wa-btn" href="https://wa.me/59897359485" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+      <div>
+        <h4>Catálogo</h4>
+        <ul>
+          <li><a href="/páginas/la.html">Línea automotriz</a></li>
+          <li><a href="/páginas/lh.html">Limpieza del hogar</a></li>
+          <li><a href="/páginas/fp.html">Formas de pago</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="/páginas/nosotros.html">Nosotros</a></li>
+          <li><a href="/páginas/nosotros.html">Contacto</a></li>
+          <li><a href="/formulario/inicio.html">Mi cuenta</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Química Gabriel</span>
+      <span>Boceto — versión de trabajo</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
