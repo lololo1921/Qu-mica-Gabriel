@@ -57,383 +57,751 @@
   <div class="wrap">
     <span class="eyebrow">Catálogo</span>
     <h1>Limpieza del hogar</h1>
-    <p>Limpieza general, alcoholes y cuidados del hogar. (Piscina y Baldes y Bidones se suman próximamente.)</p>
+    <p>Limpieza general, alcoholes, cuidados del hogar, piscina, y baldes y bidones.</p>
   </div>
 </section>
 
 <section class="section teal-page">
   <div class="wrap">
-    <div class="filter-row">
-      <button class="filter-chip active" data-category="todos">Todos</button>
-      <button class="filter-chip" data-category="limpieza">Limpieza</button>
-      <button class="filter-chip" data-category="alcoholes">Alcoholes</button>
-      <button class="filter-chip" data-category="cuidados">Cuidados del hogar</button>
+    <div class="search-row">
+      <div class="search-box">
+        <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>
+        </svg>
+        <input type="text" id="product-search" placeholder="Buscar producto (ej: alcohol, cloro, kerosene...)" autocomplete="off">
+        <button type="button" id="search-clear" aria-label="Limpiar búsqueda" hidden>&times;</button>
+      </div>
+      <span class="search-count" id="search-count"></span>
     </div>
 
-    <div class="product-grid">
-      <div class="product-card" data-category="limpieza" data-id="limpieza-anti-hongo-fungicida-5lts-1lts" data-name="Anti Hongo Fungicida (5LTS / 1LTS)" data-price="5LTS: $344 · 1LTS: $89">
-        <img src="/productos/anti-hongo-5lts.png" alt="Anti Hongo Fungicida" loading="lazy">
-        <div class="product-card-body">
-          <span class="p-cat">Limpieza</span>
-          <h3>Anti Hongo Fungicida<br><small style="font-weight:500;color:#8b928d;">5LTS / 1LTS</small></h3>
-          <span class="p-price">5LTS: $344 · 1LTS: $89</span>
-          <button class="btn-add">Agregar al pedido</button>
+    <div id="catalog-container">
+
+      <div class="category-block" data-category-block="limpieza">
+        <h2 class="category-title">Limpieza</h2>
+        <div class="product-grid">
+          <div class="product-card" data-category="limpieza" data-id="limpieza-anti-hongo-fungicida-5lts" data-name="Anti Hongo Fungicida (5LTS)" data-price="$344">
+            <img src="/productos/Casas/Limpieza/anti-hongo-5lts.png" alt="Anti Hongo Fungicida" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Limpieza</span>
+              <h3>Anti Hongo Fungicida<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+              <span class="p-price">$344</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="limpieza" data-id="limpieza-anti-hongo-fungicida-1lt" data-name="Anti Hongo Fungicida (1LT)" data-price="$89">
+            <img src="/productos/Casas/Limpieza/anti-hongo-1lt.png" alt="Anti Hongo Fungicida" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Limpieza</span>
+              <h3>Anti Hongo Fungicida<br><small style="font-weight:500;color:#8b928d;">1LT</small></h3>
+              <span class="p-price">$89</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="limpieza" data-id="limpieza-cloruro-de-benzalconio-al-1%25-10lts" data-name="Cloruro de Benzalconio al 1% (10LTS)" data-price="$599">
+            <img src="/productos/Casas/Limpieza/cloruro-de-benzalconeo-al-1-100-10lts.png" alt="Cloruro de Benzalconio al 1%" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Limpieza</span>
+              <h3>Cloruro de Benzalconio al 1%<br><small style="font-weight:500;color:#8b928d;">10LTS</small></h3>
+              <span class="p-price">$599</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="limpieza" data-id="limpieza-amonio-cuaternario-1lt-de-regalo-5lts" data-name="Amonio Cuaternario + 1LT de Regalo (5LTS)" data-price="$331">
+            <img src="/productos/Casas/Limpieza/amonio-cuaternario-5lts-+-1lt-regalo.png" alt="Amonio Cuaternario + 1LT de Regalo" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Limpieza</span>
+              <h3>Amonio Cuaternario + 1LT de Regalo<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+              <span class="p-price">$331</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="limpieza" data-id="limpieza-percarbonato-de-sodio-1kg-5kg" data-name="Percarbonato de Sodio (1KG / 5KG)" data-price="1KG: $220 · 5KG: $950">
+            <img src="/productos/Casas/Limpieza/percarbonato-de-sodio-1kg-5kg.png" alt="Percarbonato de Sodio" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Limpieza</span>
+              <h3>Percarbonato de Sodio<br><small style="font-weight:500;color:#8b928d;">1KG / 5KG</small></h3>
+              <span class="p-price">1KG: $220 · 5KG: $950</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="limpieza" data-id="limpieza-bicarbonato-de-sodio-1kg-5kg" data-name="Bicarbonato de Sodio (1KG / 5KG)" data-price="1KG: $93 · 5KG: $450">
+            <img src="/productos/Casas/Limpieza/bicarbonato-de-sodio-1kg-5kg.png" alt="Bicarbonato de Sodio" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Limpieza</span>
+              <h3>Bicarbonato de Sodio<br><small style="font-weight:500;color:#8b928d;">1KG / 5KG</small></h3>
+              <span class="p-price">1KG: $93 · 5KG: $450</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="limpieza" data-id="limpieza-vinagre-de-limpieza-5lts" data-name="Vinagre de Limpieza (5LTS)" data-price="$394">
+            <img src="/productos/Casas/Limpieza/vinagre-de-limpieza-5lts.png" alt="Vinagre de Limpieza" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Limpieza</span>
+              <h3>Vinagre de Limpieza<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+              <span class="p-price">$394</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="limpieza" data-id="limpieza-hipoclorito-de-sodio-al-60-10lts" data-name="Hipoclorito de Sodio al 60% (10LTS)" data-price="$299">
+            <img src="/productos/Casas/Limpieza/hipoclorito-de-sodio-60-100-10lts.png" alt="Hipoclorito de Sodio al 60%" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Limpieza</span>
+              <h3>Hipoclorito de Sodio al 60%<br><small style="font-weight:500;color:#8b928d;">10LTS</small></h3>
+              <span class="p-price">$299</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="limpieza" data-id="limpieza-hipoclorito-de-sodio-al-100-10lts" data-name="Hipoclorito de Sodio al 100% (10LTS)" data-price="$399">
+            <img src="/productos/Casas/Limpieza/hipoclorito-de-sodio-100-100-10lts.png" alt="Hipoclorito de Sodio al 100%" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Limpieza</span>
+              <h3>Hipoclorito de Sodio al 100%<br><small style="font-weight:500;color:#8b928d;">10LTS</small></h3>
+              <span class="p-price">$399</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="limpieza" data-id="limpieza-2-hipocloritos-de-sodio-al-100-20lts-c-u-pack-x2" data-name="2 Hipocloritos de Sodio al 100% (20LTS c/u) (Pack x2)" data-price="$1550">
+            <img src="/productos/Casas/Limpieza/2-hipoclorito-de-sodio-100-100.png" alt="2 Hipocloritos de Sodio al 100% (20LTS c/u)" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Limpieza</span>
+              <h3>2 Hipocloritos de Sodio al 100% (20LTS c/u)<br><small style="font-weight:500;color:#8b928d;">Pack x2</small></h3>
+              <span class="p-price">$1550</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="limpieza" data-id="limpieza-removedor-de-cemento-industrial-10lts" data-name="Removedor de Cemento Industrial (10LTS)" data-price="$963">
+            <img src="/productos/Casas/Limpieza/removedor-de-cemento-10lts.png" alt="Removedor de Cemento Industrial" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Limpieza</span>
+              <h3>Removedor de Cemento Industrial<br><small style="font-weight:500;color:#8b928d;">10LTS</small></h3>
+              <span class="p-price">$963</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="limpieza" data-id="limpieza-liquido-final-de-obra" data-name="Líquido Final de Obra (—)" data-price="$299">
+            <img src="/productos/Casas/Limpieza/liquido-final-de-obra.png" alt="Líquido Final de Obra" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Limpieza</span>
+              <h3>Líquido Final de Obra<br><small style="font-weight:500;color:#8b928d;">—</small></h3>
+              <span class="p-price">$299</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="limpieza" data-id="limpieza-limpiador-multiuso-antibacterial-lavanda-5lts" data-name="Limpiador Multiuso Antibacterial — Lavanda (5LTS)" data-price="$199">
+            <img src="/productos/Casas/Limpieza/limpiador-multiuso-lavanda-5lts.png" alt="Limpiador Multiuso Antibacterial — Lavanda" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Limpieza</span>
+              <h3>Limpiador Multiuso Antibacterial — Lavanda<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+              <span class="p-price">$199</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="limpieza" data-id="limpieza-limpiador-multiuso-antibacterial-pino-5lts" data-name="Limpiador Multiuso Antibacterial — Pino (5LTS)" data-price="$199">
+            <img src="/productos/Casas/Limpieza/limpiador-multiuso-pino-5lts.png" alt="Limpiador Multiuso Antibacterial — Pino" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Limpieza</span>
+              <h3>Limpiador Multiuso Antibacterial — Pino<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+              <span class="p-price">$199</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="limpieza" data-id="limpieza-limpiador-multiuso-antibacterial-cereza-5lts" data-name="Limpiador Multiuso Antibacterial — Cereza (5LTS)" data-price="$199">
+            <img src="/productos/Casas/Limpieza/limpiador-multiuso-cereza-5lts.png" alt="Limpiador Multiuso Antibacterial — Cereza" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Limpieza</span>
+              <h3>Limpiador Multiuso Antibacterial — Cereza<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+              <span class="p-price">$199</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="product-card" data-category="limpieza" data-id="limpieza-cloruro-de-benzalconio-al-1-10lts" data-name="Cloruro de Benzalconio al 1% (10LTS)" data-price="$599">
-        <img src="/productos/cloruro-benzalconio-10lts.png" alt="Cloruro de Benzalconio al 1%" loading="lazy">
-        <div class="product-card-body">
-          <span class="p-cat">Limpieza</span>
-          <h3>Cloruro de Benzalconio al 1%<br><small style="font-weight:500;color:#8b928d;">10LTS</small></h3>
-          <span class="p-price">$599</span>
-          <button class="btn-add">Agregar al pedido</button>
+
+      <div class="category-block" data-category-block="alcoholes">
+        <h2 class="category-title">Alcoholes</h2>
+        <div class="product-grid">
+          <div class="product-card" data-category="alcoholes" data-id="alcoholes-alcohol-de-cereales-95-10lts" data-name="Alcohol de Cereales 95° (10LTS)" data-price="$1289">
+            <img src="/productos/Casas/Alcoholes/alcohole-de-cereales-10lts.png" alt="Alcohol de Cereales 95°" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Alcoholes</span>
+              <h3>Alcohol de Cereales 95°<br><small style="font-weight:500;color:#8b928d;">10LTS</small></h3>
+              <span class="p-price">$1289</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="alcoholes" data-id="alcoholes-alcohol-de-cereales-96-potable-grado-alimenticio-5lts" data-name="Alcohol de Cereales 96° (potable, grado alimenticio) (5LTS)" data-price="$699">
+            <img src="/productos/Casas/Alcoholes/alcohol-de-cereales-5lts.png" alt="Alcohol de Cereales 96° (potable, grado alimenticio)" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Alcoholes</span>
+              <h3>Alcohol de Cereales 96° (potable, grado alimenticio)<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+              <span class="p-price">$699</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="alcoholes" data-id="alcoholes-bioetanol-10lts" data-name="Bioetanol (10LTS)" data-price="$1055">
+            <img src="/productos/Casas/Alcoholes/bioetanol-10lts.png" alt="Bioetanol" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Alcoholes</span>
+              <h3>Bioetanol<br><small style="font-weight:500;color:#8b928d;">10LTS</small></h3>
+              <span class="p-price">$1055</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="alcoholes" data-id="alcoholes-bioetanol-5lts" data-name="Bioetanol (5LTS)" data-price="$579">
+            <img src="/productos/Casas/Alcoholes/bioetanol-5lts.png" alt="Bioetanol" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Alcoholes</span>
+              <h3>Bioetanol<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+              <span class="p-price">$579</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="alcoholes" data-id="alcoholes-bioetanol-ecologico-10lts" data-name="Bioetanol Ecológico (10LTS)" data-price="$1290">
+            <img src="/productos/Casas/Alcoholes/bioetanol-ecologico-10lts.png" alt="Bioetanol Ecológico" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Alcoholes</span>
+              <h3>Bioetanol Ecológico<br><small style="font-weight:500;color:#8b928d;">10LTS</small></h3>
+              <span class="p-price">$1290</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="alcoholes" data-id="alcoholes-bioetanol-ecologico-5lts" data-name="Bioetanol Ecológico (5LTS)" data-price="$713">
+            <img src="/productos/Casas/Alcoholes/bioetanol-ecologico-5lts.png" alt="Bioetanol Ecológico" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Alcoholes</span>
+              <h3>Bioetanol Ecológico<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+              <span class="p-price">$713</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="alcoholes" data-id="alcoholes-alcohol-rectificado-al-95-5lts" data-name="Alcohol Rectificado al 95° (5LTS)" data-price="$599">
+            <img src="/productos/Casas/Alcoholes/alcohol-rectificado-95°-5lts.png" alt="Alcohol Rectificado al 95°" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Alcoholes</span>
+              <h3>Alcohol Rectificado al 95°<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+              <span class="p-price">$599</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="alcoholes" data-id="alcoholes-alcohol-rectificado-al-96-5lts" data-name="Alcohol Rectificado al 96° (5LTS)" data-price="$790">
+            <img src="/productos/Casas/Alcoholes/alcohol-rectificado-96°-5lts.png" alt="Alcohol Rectificado al 96°" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Alcoholes</span>
+              <h3>Alcohol Rectificado al 96°<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+              <span class="p-price">$790</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="alcoholes" data-id="alcoholes-alcohol-industrial-99-10lts" data-name="Alcohol Industrial 99° (10LTS)" data-price="$1120">
+            <img src="/productos/Casas/Alcoholes/alcohol-industrial-99°-10lts.png" alt="Alcohol Industrial 99°" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Alcoholes</span>
+              <h3>Alcohol Industrial 99°<br><small style="font-weight:500;color:#8b928d;">10LTS</small></h3>
+              <span class="p-price">$1120</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="alcoholes" data-id="alcoholes-alcohol-azul-5lts" data-name="Alcohol Azul (5LTS)" data-price="$529">
+            <img src="/productos/Casas/Alcoholes/alcohol-azul-5lts.png" alt="Alcohol Azul" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Alcoholes</span>
+              <h3>Alcohol Azul<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+              <span class="p-price">$529</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="alcoholes" data-id="alcoholes-alcohol-desinfectante-al-70-10lts" data-name="Alcohol Desinfectante al 70° (10LTS)" data-price="$899">
+            <img src="/productos/Casas/Alcoholes/alcohol-desinfectante-70°-10lts.png" alt="Alcohol Desinfectante al 70°" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Alcoholes</span>
+              <h3>Alcohol Desinfectante al 70°<br><small style="font-weight:500;color:#8b928d;">10LTS</small></h3>
+              <span class="p-price">$899</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="alcoholes" data-id="alcoholes-alcohol-desinfectante-al-70-5lts" data-name="Alcohol Desinfectante al 70° (5LTS)" data-price="$699">
+            <img src="/productos/Casas/Alcoholes/alcohol-desinfectante-70°-5lts.png" alt="Alcohol Desinfectante al 70°" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Alcoholes</span>
+              <h3>Alcohol Desinfectante al 70°<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+              <span class="p-price">$699</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="alcoholes" data-id="alcoholes-alcohol-isopropilico-5lts" data-name="Alcohol Isopropílico (5LTS)" data-price="$995">
+            <img src="/productos/Casas/Alcoholes/alcohol-isopropilico-5lts.png" alt="Alcohol Isopropílico" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Alcoholes</span>
+              <h3>Alcohol Isopropílico<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+              <span class="p-price">$995</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="alcoholes" data-id="alcoholes-alcohol-isopropilico-1lt" data-name="Alcohol Isopropílico (1LT)" data-price="$211">
+            <img src="/productos/Casas/Alcoholes/alcohol-isopropilico-1lt.png" alt="Alcohol Isopropílico" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Alcoholes</span>
+              <h3>Alcohol Isopropílico<br><small style="font-weight:500;color:#8b928d;">1LT</small></h3>
+              <span class="p-price">$211</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="alcoholes" data-id="alcoholes-alcohol-de-perfumeria-extra-refinado-5lts" data-name="Alcohol de Perfumería Extra Refinado (5LTS)" data-price="$1589">
+            <img src="/productos/Casas/Alcoholes/alcohol-de-perfumeria-extrarefinado-5lts.png" alt="Alcohol de Perfumería Extra Refinado" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Alcoholes</span>
+              <h3>Alcohol de Perfumería Extra Refinado<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+              <span class="p-price">$1589</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="alcoholes" data-id="alcoholes-alcohol-de-perfumeria-extra-refinado-1lt" data-name="Alcohol de Perfumería Extra Refinado (1LT)" data-price="$399">
+            <img src="/productos/Casas/Alcoholes/alcohol-de-perfumeria-extrarefinado-1lts.png" alt="Alcohol de Perfumería Extra Refinado" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Alcoholes</span>
+              <h3>Alcohol de Perfumería Extra Refinado<br><small style="font-weight:500;color:#8b928d;">1LT</small></h3>
+              <span class="p-price">$399</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="product-card" data-category="limpieza" data-id="limpieza-amonio-cuaternario-1lt-de-regalo-5lts" data-name="Amonio Cuaternario + 1LT de Regalo (5LTS)" data-price="$331">
-        <img src="/productos/amonio-cuaternario-5lts.png" alt="Amonio Cuaternario + 1LT de Regalo" loading="lazy">
-        <div class="product-card-body">
-          <span class="p-cat">Limpieza</span>
-          <h3>Amonio Cuaternario + 1LT de Regalo<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
-          <span class="p-price">$331</span>
-          <button class="btn-add">Agregar al pedido</button>
+
+      <div class="category-block" data-category-block="cuidados">
+        <h2 class="category-title">Cuidados del hogar</h2>
+        <div class="product-grid">
+          <div class="product-card" data-category="cuidados" data-id="cuidados-aceite-para-caminadora-1lt" data-name="Aceite para Caminadora (1LT)" data-price="$1299">
+            <img src="/productos/Casas/Cuidados del hogar/aceite-caminadora-1lt.png" alt="Aceite para Caminadora" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Cuidados del hogar</span>
+              <h3>Aceite para Caminadora<br><small style="font-weight:500;color:#8b928d;">1LT</small></h3>
+              <span class="p-price">$1299</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="cuidados" data-id="cuidados-aceite-para-caminadora-500ml" data-name="Aceite para Caminadora (500ML)" data-price="$690">
+            <img src="/productos/Casas/Cuidados del hogar/aceite-caminadora-500ml.png" alt="Aceite para Caminadora" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Cuidados del hogar</span>
+              <h3>Aceite para Caminadora<br><small style="font-weight:500;color:#8b928d;">500ML</small></h3>
+              <span class="p-price">$690</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="cuidados" data-id="cuidados-parafina-en-trozos-1kg" data-name="Parafina en Trozos (1KG)" data-price="$220">
+            <img src="/productos/Casas/Cuidados del hogar/parafina-trozos-1kg.png" alt="Parafina en Trozos" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Cuidados del hogar</span>
+              <h3>Parafina en Trozos<br><small style="font-weight:500;color:#8b928d;">1KG</small></h3>
+              <span class="p-price">$220</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="cuidados" data-id="cuidados-parafina-granulada-1kg" data-name="Parafina Granulada (1KG)" data-price="$390">
+            <img src="/productos/Casas/Cuidados del hogar/parafina-granulada-1kg.png" alt="Parafina Granulada" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Cuidados del hogar</span>
+              <h3>Parafina Granulada<br><small style="font-weight:500;color:#8b928d;">1KG</small></h3>
+              <span class="p-price">$390</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="cuidados" data-id="cuidados-parafina-granulada-5kg" data-name="Parafina Granulada (5KG)" data-price="$1490">
+            <img src="/productos/Casas/Cuidados del hogar/parafina-granulada-5kg.png" alt="Parafina Granulada" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Cuidados del hogar</span>
+              <h3>Parafina Granulada<br><small style="font-weight:500;color:#8b928d;">5KG</small></h3>
+              <span class="p-price">$1490</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="cuidados" data-id="cuidados-parafina-en-plancha-5kg" data-name="Parafina en Plancha (5KG)" data-price="$978">
+            <img src="/productos/Casas/Cuidados del hogar/parafina-plancha-5kg.png" alt="Parafina en Plancha" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Cuidados del hogar</span>
+              <h3>Parafina en Plancha<br><small style="font-weight:500;color:#8b928d;">5KG</small></h3>
+              <span class="p-price">$978</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="cuidados" data-id="cuidados-parafina-en-plancha-25kg" data-name="Parafina en Plancha (25KG)" data-price="$4949">
+            <img src="/productos/Casas/Cuidados del hogar/parafina-plancha-25kg.png" alt="Parafina en Plancha" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Cuidados del hogar</span>
+              <h3>Parafina en Plancha<br><small style="font-weight:500;color:#8b928d;">25KG</small></h3>
+              <span class="p-price">$4949</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="cuidados" data-id="cuidados-esencia-de-citronela-pura-70ml" data-name="Esencia de Citronela Pura (70ML)" data-price="$242">
+            <img src="/productos/Casas/Cuidados del hogar/esencia-citronela-pura-70ml.png" alt="Esencia de Citronela Pura" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Cuidados del hogar</span>
+              <h3>Esencia de Citronela Pura<br><small style="font-weight:500;color:#8b928d;">70ML</small></h3>
+              <span class="p-price">$242</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="cuidados" data-id="cuidados-citronela-5lts" data-name="Citronela (5LTS)" data-price="$1090">
+            <img src="/productos/Casas/Cuidados del hogar/citronela-5lts.png" alt="Citronela" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Cuidados del hogar</span>
+              <h3>Citronela<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+              <span class="p-price">$1090</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="cuidados" data-id="cuidados-citronela-1lt" data-name="Citronela (1LT)" data-price="$277">
+            <img src="/productos/Casas/Cuidados del hogar/citronela-1lt.png" alt="Citronela" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Cuidados del hogar</span>
+              <h3>Citronela<br><small style="font-weight:500;color:#8b928d;">1LT</small></h3>
+              <span class="p-price">$277</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="cuidados" data-id="cuidados-azufre-en-polvo-1kg-25kg" data-name="Azufre en Polvo (1KG / 25KG)" data-price="1KG: $208 · 25KG: $3999">
+            <img src="/productos/Casas/Cuidados del hogar/azufre-polvo-1kg-25kg.png" alt="Azufre en Polvo" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Cuidados del hogar</span>
+              <h3>Azufre en Polvo<br><small style="font-weight:500;color:#8b928d;">1KG / 25KG</small></h3>
+              <span class="p-price">1KG: $208 · 25KG: $3999</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="cuidados" data-id="cuidados-quita-sarro-inodoros-y-piletas-1lt" data-name="Quita Sarro (Inodoros y Piletas) (1LT)" data-price="$189">
+            <img src="/productos/Casas/Cuidados del hogar/quita-sarro-1lt.png" alt="Quita Sarro (Inodoros y Piletas)" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Cuidados del hogar</span>
+              <h3>Quita Sarro (Inodoros y Piletas)<br><small style="font-weight:500;color:#8b928d;">1LT</small></h3>
+              <span class="p-price">$189</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="cuidados" data-id="cuidados-absorbe-humedad-1kg-3kg" data-name="Absorbe Humedad (1KG / 3KG)" data-price="1KG: $99 · 3KG: $222">
+            <img src="/productos/Casas/Cuidados del hogar/absorbe-humedad-1kg-3kg.png" alt="Absorbe Humedad" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Cuidados del hogar</span>
+              <h3>Absorbe Humedad<br><small style="font-weight:500;color:#8b928d;">1KG / 3KG</small></h3>
+              <span class="p-price">1KG: $99 · 3KG: $222</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="cuidados" data-id="cuidados-carbon-activado-granulado-100gr-500gr-1kg" data-name="Carbón Activado Granulado (100GR / 500GR / 1KG)" data-price="100GR: $149 · 500GR: $612 · 1KG: $940">
+            <img src="/productos/Casas/Cuidados del hogar/carbon-activado-granulado-100gr-500gr-1kg.png" alt="Carbón Activado Granulado" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Cuidados del hogar</span>
+              <h3>Carbón Activado Granulado<br><small style="font-weight:500;color:#8b928d;">100GR / 500GR / 1KG</small></h3>
+              <span class="p-price">100GR: $149 · 500GR: $612 · 1KG: $940</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="cuidados" data-id="cuidados-kerosene-5lts" data-name="Kerosene (5LTS / 10LTS)" data-price="5LTS: $845 · 10LTS: $1456">
+            <img src="/productos/Casas/Cuidados del hogar/kerosene-5lts.png" alt="Kerosene" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Cuidados del hogar</span>
+              <h3>Kerosene<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+              <span class="p-price">5LTS: $845</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="cuidados" data-id="cuidados-kerosene-10lts" data-name="Kerosene (5LTS / 10LTS)" data-price="5LTS: $845 · 10LTS: $1456">
+            <img src="/productos/Casas/Cuidados del hogar/kerosene-10lts.png" alt="Kerosene" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Cuidados del hogar</span>
+              <h3>Kerosene<br><small style="font-weight:500;color:#8b928d;">10LTS</small></h3>
+              <span class="p-price">10LTS: $1456</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="cuidados" data-id="cuidados-alumbre-de-potasio-1kg" data-name="Alumbre de Potasio (1KG)" data-price="$319">
+            <img src="/productos/Casas/Cuidados del hogar/alubre-de-potasio-1kg.png" alt="Alumbre de Potasio" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Cuidados del hogar</span>
+              <h3>Alumbre de Potasio<br><small style="font-weight:500;color:#8b928d;">1KG</small></h3>
+              <span class="p-price">$319</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="cuidados" data-id="cuidados-sulfato-de-cobre-1kg" data-name="Sulfato de Cobre (1KG)" data-price="$538">
+            <img src="/productos/Casas/Cuidados del hogar/sulfato-de-cobre-1kg.png" alt="Sulfato de Cobre" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Cuidados del hogar</span>
+              <h3>Sulfato de Cobre<br><small style="font-weight:500;color:#8b928d;">1KG</small></h3>
+              <span class="p-price">$538</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="cuidados" data-id="cuidados-sal-de-limon-1kg" data-name="Sal de Limón (1KG)" data-price="$240">
+            <img src="/productos/Casas/Cuidados del hogar/sal-de-limon-1kg.png" alt="Sal de Limón" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Cuidados del hogar</span>
+              <h3>Sal de Limón<br><small style="font-weight:500;color:#8b928d;">1KG</small></h3>
+              <span class="p-price">$240</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="cuidados" data-id="cuidados-glicerina-pura-usp-99-7-5lts" data-name="Glicerina Pura USP 99.7% (5LTS)" data-price="$1387">
+            <img src="/productos/Casas/Cuidados del hogar/glicerina-pura-usp99.7-100-5lts.png" alt="Glicerina Pura USP 99.7%" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Cuidados del hogar</span>
+              <h3>Glicerina Pura USP 99.7%<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+              <span class="p-price">$1387</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="cuidados" data-id="cuidados-glicerina-vegetal-usp-99-7-5lts" data-name="Glicerina Vegetal USP 99.7% (5LTS)" data-price="$1415">
+            <img src="/productos/Casas/Cuidados del hogar/glicerina-vegetal-usp99.7-100-5lts.png" alt="Glicerina Vegetal USP 99.7%" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Cuidados del hogar</span>
+              <h3>Glicerina Vegetal USP 99.7%<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+              <span class="p-price">$1415</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="cuidados" data-id="cuidados-cera-al-agua-para-piso-flotante-5lts" data-name="Cera al Agua para Piso Flotante (5LTS)" data-price="$559">
+            <img src="/productos/Casas/Cuidados del hogar/cera-al-agua-pisoflotante-5lts.png" alt="Cera al Agua para Piso Flotante" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Cuidados del hogar</span>
+              <h3>Cera al Agua para Piso Flotante<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+              <span class="p-price">$559</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="cuidados" data-id="cuidados-cera-para-piso-auto-brillo-monolitico-5lts" data-name="Cera para Piso Auto Brillo Monolítico (5LTS)" data-price="$525">
+            <img src="/productos/Casas/Cuidados del hogar/cera-para-piso-auto-brillo-monolitico-5lts.png" alt="Cera para Piso Auto Brillo Monolítico" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Cuidados del hogar</span>
+              <h3>Cera para Piso Auto Brillo Monolítico<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+              <span class="p-price">$525</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="cuidados" data-id="cuidados-colorante-rojo-fluor-1lt" data-name="Colorante Rojo Flúor (1LT)" data-price="$477">
+            <img src="/productos/Casas/Cuidados del hogar/color-rojo-fluor-1lt.png" alt="Colorante Rojo Flúor" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Cuidados del hogar</span>
+              <h3>Colorante Rojo Flúor<br><small style="font-weight:500;color:#8b928d;">1LT</small></h3>
+              <span class="p-price">$477</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="product-card" data-category="limpieza" data-id="limpieza-percarbonato-de-sodio-1kg-5kg" data-name="Percarbonato de Sodio (1KG / 5KG)" data-price="1KG: $220 · 5KG: $950">
-        <img src="/productos/percarbonato-sodio.png" alt="Percarbonato de Sodio" loading="lazy">
-        <div class="product-card-body">
-          <span class="p-cat">Limpieza</span>
-          <h3>Percarbonato de Sodio<br><small style="font-weight:500;color:#8b928d;">1KG / 5KG</small></h3>
-          <span class="p-price">1KG: $220 · 5KG: $950</span>
-          <button class="btn-add">Agregar al pedido</button>
+
+      <div class="category-block" data-category-block="piscina">
+        <h2 class="category-title">Piscina</h2>
+        <div class="product-grid">
+          <div class="product-card" data-category="piscina" data-id="piscina-alguicida-para-piscina-5lts" data-name="Alguicida para Piscina (5LTS)" data-price="$419">
+            <img src="/productos/Casas/Piscina/alguicida-para-piscina-5lts.png" alt="Alguicida para Piscina" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Piscina</span>
+              <h3>Alguicida para Piscina<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+              <span class="p-price">$419</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="piscina" data-id="piscina-clarificante-floculante-5lts" data-name="Clarificante Floculante (5LTS)" data-price="$675">
+            <img src="/productos/Casas/Piscina/clarificante-floculante-5lts.png" alt="Clarificante Floculante" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Piscina</span>
+              <h3>Clarificante Floculante<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
+              <span class="p-price">$675</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="piscina" data-id="piscina-cloro-para-piscina-10lts" data-name="Cloro para Piscina (10LTS)" data-price="$459">
+            <img src="/productos/Casas/Piscina/cloro-piscina-10lts.png" alt="Cloro para Piscina" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Piscina</span>
+              <h3>Cloro para Piscina<br><small style="font-weight:500;color:#8b928d;">10LTS</small></h3>
+              <span class="p-price">$459</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="piscina" data-id="piscina-pack-piscina-alguicida-clarificante-cloro" data-name="Pack Piscina (Alguicida + Clarificante + Cloro) (—)" data-price="$990">
+            <img src="/productos/Casas/Piscina/pack-piscina(alguicida,clarificante,cloro).png" alt="Pack Piscina (Alguicida + Clarificante + Cloro)" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Piscina</span>
+              <h3>Pack Piscina (Alguicida + Clarificante + Cloro)<br><small style="font-weight:500;color:#8b928d;">—</small></h3>
+              <span class="p-price">$990</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="piscina" data-id="piscina-pack-piscina-1lt" data-name="Pack Piscina (1LT)" data-price="$580">
+            <img src="/productos/Casas/Piscina/pack-piscina-1lt.png" alt="Pack Piscina" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Piscina</span>
+              <h3>Pack Piscina<br><small style="font-weight:500;color:#8b928d;">1LT</small></h3>
+              <span class="p-price">$580</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="piscina" data-id="piscina-pack-piscina-con-pastillas-alguicida-clarificante-cloro-pastillas" data-name="Pack Piscina con Pastillas (Alguicida + Clarificante + Cloro + Pastillas) (—)" data-price="$1387">
+            <img src="/productos/Casas/Piscina/pack-piscina-con-pastillas(alguicida,clarificante,cloro,pastillas).png" alt="Pack Piscina con Pastillas" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Piscina</span>
+              <h3>Pack Piscina con Pastillas (Alguicida + Clarificante + Cloro + Pastillas)<br><small style="font-weight:500;color:#8b928d;">—</small></h3>
+              <span class="p-price">$1387</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="piscina" data-id="piscina-pastillas-de-cloro-x5" data-name="Pastillas de Cloro (Pack x5)" data-price="$295">
+            <img src="/productos/Casas/Piscina/pastillas-clorox5.png" alt="Pastillas de Cloro" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Piscina</span>
+              <h3>Pastillas de Cloro<br><small style="font-weight:500;color:#8b928d;">Pack x5</small></h3>
+              <span class="p-price">$295</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="piscina" data-id="piscina-pastillas-de-cloro-x90" data-name="Pastillas de Cloro (Pack x90)" data-price="$3870">
+            <img src="/productos/Casas/Piscina/pastillas-clorox90.png" alt="Pastillas de Cloro" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Piscina</span>
+              <h3>Pastillas de Cloro<br><small style="font-weight:500;color:#8b928d;">Pack x90</small></h3>
+              <span class="p-price">$3870</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="product-card" data-category="limpieza" data-id="limpieza-bicarbonato-de-sodio-1kg-5kg" data-name="Bicarbonato de Sodio (1KG / 5KG)" data-price="1KG: $93 · 5KG: $450">
-        <img src="/productos/bicarbonato-sodio.png" alt="Bicarbonato de Sodio" loading="lazy">
-        <div class="product-card-body">
-          <span class="p-cat">Limpieza</span>
-          <h3>Bicarbonato de Sodio<br><small style="font-weight:500;color:#8b928d;">1KG / 5KG</small></h3>
-          <span class="p-price">1KG: $93 · 5KG: $450</span>
-          <button class="btn-add">Agregar al pedido</button>
+
+      <div class="category-block" data-category-block="baldes">
+        <h2 class="category-title">Baldes y bidones</h2>
+        <div class="product-grid">
+          <div class="product-card" data-category="baldes" data-id="baldes-balde-blanco-10lts" data-name="Balde Blanco (10LTS)" data-price="$199">
+            <img src="/productos/Casas/Baldes y bidones/balde-blanco-10lts.png" alt="Balde Blanco" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Baldes y bidones</span>
+              <h3>Balde Blanco<br><small style="font-weight:500;color:#8b928d;">10LTS</small></h3>
+              <span class="p-price">$199</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="baldes" data-id="baldes-balde-blanco-20lts" data-name="Balde Blanco (20LTS)" data-price="$349">
+            <img src="/productos/Casas/Baldes y bidones/balde-blanco-20lts.png" alt="Balde Blanco" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Baldes y bidones</span>
+              <h3>Balde Blanco<br><small style="font-weight:500;color:#8b928d;">20LTS</small></h3>
+              <span class="p-price">$349</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="baldes" data-id="baldes-balde-negro-20lts" data-name="Balde Negro (20LTS)" data-price="$349">
+            <img src="/productos/Casas/Baldes y bidones/balde-negro-20lts.png" alt="Balde Negro" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Baldes y bidones</span>
+              <h3>Balde Negro<br><small style="font-weight:500;color:#8b928d;">20LTS</small></h3>
+              <span class="p-price">$349</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="baldes" data-id="baldes-balde-negro-con-pico" data-name="Balde Negro con Pico (—)" data-price="$174">
+            <img src="/productos/Casas/Baldes y bidones/balde-negro-conpico.png" alt="Balde Negro con Pico" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Baldes y bidones</span>
+              <h3>Balde Negro con Pico<br><small style="font-weight:500;color:#8b928d;">—</small></h3>
+              <span class="p-price">$174</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="baldes" data-id="baldes-pack-x10-baldes-blancos-3-6lts" data-name="Pack x10 Baldes Blancos (3.6LTS c/u)" data-price="$880">
+            <img src="/productos/Casas/Baldes y bidones/pack-10balde-blanco-3.6lts.png" alt="Pack x10 Baldes Blancos" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Baldes y bidones</span>
+              <h3>Pack x10 Baldes Blancos<br><small style="font-weight:500;color:#8b928d;">3.6LTS c/u</small></h3>
+              <span class="p-price">$880</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="baldes" data-id="baldes-pack-x10-baldes-negros-3-6lts" data-name="Pack x10 Baldes Negros (3.6LTS c/u)" data-price="$880">
+            <img src="/productos/Casas/Baldes y bidones/pack-10balde-negro-3.6lts.png" alt="Pack x10 Baldes Negros" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Baldes y bidones</span>
+              <h3>Pack x10 Baldes Negros<br><small style="font-weight:500;color:#8b928d;">3.6LTS c/u</small></h3>
+              <span class="p-price">$880</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="baldes" data-id="baldes-pack-x3-baldes-4lts" data-name="Pack x3 Baldes (4LTS c/u)" data-price="$264">
+            <img src="/productos/Casas/Baldes y bidones/pack-3baldes-4lts.png" alt="Pack x3 Baldes" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Baldes y bidones</span>
+              <h3>Pack x3 Baldes<br><small style="font-weight:500;color:#8b928d;">4LTS c/u</small></h3>
+              <span class="p-price">$264</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="baldes" data-id="baldes-pack-x5-potes-1kg" data-name="Pack x5 Potes (1KG c/u)" data-price="$319">
+            <img src="/productos/Casas/Baldes y bidones/pack-5potes-1kg.png" alt="Pack x5 Potes" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Baldes y bidones</span>
+              <h3>Pack x5 Potes<br><small style="font-weight:500;color:#8b928d;">1KG c/u</small></h3>
+              <span class="p-price">$319</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="baldes" data-id="baldes-bidones-cuadrados-blancos-o-incoloros-10lts-x10" data-name="Bidones Cuadrados Blancos o Incoloros (10LTS c/u) (Pack x10)" data-price="$1284">
+            <img src="/productos/Casas/Baldes y bidones/10-bidones-cuadradosblancosoincoloros-10lts.png" alt="Bidones Cuadrados Blancos o Incoloros" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Baldes y bidones</span>
+              <h3>Bidones Cuadrados Blancos o Incoloros<br><small style="font-weight:500;color:#8b928d;">10LTS c/u — Pack x10</small></h3>
+              <span class="p-price">$1284</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="baldes" data-id="baldes-bidones-cuadrados-5lts-x25" data-name="Bidones Cuadrados (5LTS c/u) (Pack x25)" data-price="$1951">
+            <img src="/productos/Casas/Baldes y bidones/25-bidones-cuadrados-5lts.png" alt="Bidones Cuadrados" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Baldes y bidones</span>
+              <h3>Bidones Cuadrados<br><small style="font-weight:500;color:#8b928d;">5LTS c/u — Pack x25</small></h3>
+              <span class="p-price">$1951</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="baldes" data-id="baldes-bidones-transparentes-5lts-x50" data-name="Bidones Transparentes (5LTS c/u) (Pack x50)" data-price="$1977">
+            <img src="/productos/Casas/Baldes y bidones/50-bidones-transparentes-5lts.png" alt="Bidones Transparentes" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Baldes y bidones</span>
+              <h3>Bidones Transparentes<br><small style="font-weight:500;color:#8b928d;">5LTS c/u — Pack x50</small></h3>
+              <span class="p-price">$1977</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="baldes" data-id="baldes-bidones-250ml-x100" data-name="Bidones (250ML c/u) (Pack x100)" data-price="$1790">
+            <img src="/productos/Casas/Baldes y bidones/100-bidones-250ml.png" alt="Bidones" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Baldes y bidones</span>
+              <h3>Bidones<br><small style="font-weight:500;color:#8b928d;">250ML c/u — Pack x100</small></h3>
+              <span class="p-price">$1790</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="baldes" data-id="baldes-goteros-25cc-x20" data-name="Goteros (25CC c/u) (Pack x20)" data-price="$429">
+            <img src="/productos/Casas/Baldes y bidones/20-gotero-25cc.png" alt="Goteros" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Baldes y bidones</span>
+              <h3>Goteros<br><small style="font-weight:500;color:#8b928d;">25CC c/u — Pack x20</small></h3>
+              <span class="p-price">$429</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
+          <div class="product-card" data-category="baldes" data-id="baldes-goteros-30cc-x20" data-name="Goteros (30CC c/u) (Pack x20)" data-price="$544">
+            <img src="/productos/Casas/Baldes y bidones/20-goteros-30cc.png" alt="Goteros" loading="lazy">
+            <div class="product-card-body">
+              <span class="p-cat">Baldes y bidones</span>
+              <h3>Goteros<br><small style="font-weight:500;color:#8b928d;">30CC c/u — Pack x20</small></h3>
+              <span class="p-price">$544</span>
+              <button class="btn-add">Agregar al pedido</button>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="product-card" data-category="limpieza" data-id="limpieza-vinagre-de-limpieza-5lts" data-name="Vinagre de Limpieza (5LTS)" data-price="$394">
-        <img src="/productos/vinagre-limpieza-5lts.png" alt="Vinagre de Limpieza" loading="lazy">
-        <div class="product-card-body">
-          <span class="p-cat">Limpieza</span>
-          <h3>Vinagre de Limpieza<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
-          <span class="p-price">$394</span>
-          <button class="btn-add">Agregar al pedido</button>
-        </div>
-      </div>
-      <div class="product-card" data-category="limpieza" data-id="limpieza-hipoclorito-de-sodio-10lts" data-name="Hipoclorito de Sodio (10LTS)" data-price="60%: $299 · 100%: $399">
-        <img src="/productos/hipoclorito-sodio-10lts.png" alt="Hipoclorito de Sodio" loading="lazy">
-        <div class="product-card-body">
-          <span class="p-cat">Limpieza</span>
-          <h3>Hipoclorito de Sodio<br><small style="font-weight:500;color:#8b928d;">10LTS</small></h3>
-          <span class="p-price">60%: $299 · 100%: $399</span>
-          <button class="btn-add">Agregar al pedido</button>
-        </div>
-      </div>
-      <div class="product-card" data-category="limpieza" data-id="limpieza-2-hipocloritos-de-sodio-al-100-20lts-c-u-pack-x2" data-name="2 Hipocloritos de Sodio al 100% (20LTS c/u) (Pack x2)" data-price="$1550">
-        <img src="/productos/hipoclorito-sodio-pack2-100.png" alt="2 Hipocloritos de Sodio al 100% (20LTS c/u)" loading="lazy">
-        <div class="product-card-body">
-          <span class="p-cat">Limpieza</span>
-          <h3>2 Hipocloritos de Sodio al 100% (20LTS c/u)<br><small style="font-weight:500;color:#8b928d;">Pack x2</small></h3>
-          <span class="p-price">$1550</span>
-          <button class="btn-add">Agregar al pedido</button>
-        </div>
-      </div>
-      <div class="product-card" data-category="limpieza" data-id="limpieza-removedor-de-cemento-industrial-10lts" data-name="Removedor de Cemento Industrial (10LTS)" data-price="$963">
-        <img src="/productos/removedor-cemento-10lts.png" alt="Removedor de Cemento Industrial" loading="lazy">
-        <div class="product-card-body">
-          <span class="p-cat">Limpieza</span>
-          <h3>Removedor de Cemento Industrial<br><small style="font-weight:500;color:#8b928d;">10LTS</small></h3>
-          <span class="p-price">$963</span>
-          <button class="btn-add">Agregar al pedido</button>
-        </div>
-      </div>
-      <div class="product-card" data-category="limpieza" data-id="limpieza-liquido-final-de-obra" data-name="Líquido Final de Obra (—)" data-price="$299">
-        <img src="/productos/liquido-final-obra.png" alt="Líquido Final de Obra" loading="lazy">
-        <div class="product-card-body">
-          <span class="p-cat">Limpieza</span>
-          <h3>Líquido Final de Obra<br><small style="font-weight:500;color:#8b928d;">—</small></h3>
-          <span class="p-price">$299</span>
-          <button class="btn-add">Agregar al pedido</button>
-        </div>
-      </div>
-      <div class="product-card" data-category="limpieza" data-id="limpieza-limpiador-multiuso-antibacterial-lavanda-5lts" data-name="Limpiador Multiuso Antibacterial — Lavanda (5LTS)" data-price="$199">
-        <img src="/productos/multiuso-lavanda-5lts.png" alt="Limpiador Multiuso Antibacterial — Lavanda" loading="lazy">
-        <div class="product-card-body">
-          <span class="p-cat">Limpieza</span>
-          <h3>Limpiador Multiuso Antibacterial — Lavanda<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
-          <span class="p-price">$199</span>
-          <button class="btn-add">Agregar al pedido</button>
-        </div>
-      </div>
-      <div class="product-card" data-category="limpieza" data-id="limpieza-limpiador-multiuso-antibacterial-pino-5lts" data-name="Limpiador Multiuso Antibacterial — Pino (5LTS)" data-price="$199">
-        <img src="/productos/multiuso-pino-5lts.png" alt="Limpiador Multiuso Antibacterial — Pino" loading="lazy">
-        <div class="product-card-body">
-          <span class="p-cat">Limpieza</span>
-          <h3>Limpiador Multiuso Antibacterial — Pino<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
-          <span class="p-price">$199</span>
-          <button class="btn-add">Agregar al pedido</button>
-        </div>
-      </div>
-      <div class="product-card" data-category="limpieza" data-id="limpieza-limpiador-multiuso-antibacterial-cereza-5lts" data-name="Limpiador Multiuso Antibacterial — Cereza (5LTS)" data-price="$199">
-        <img src="/productos/multiuso-cereza-5lts.png" alt="Limpiador Multiuso Antibacterial — Cereza" loading="lazy">
-        <div class="product-card-body">
-          <span class="p-cat">Limpieza</span>
-          <h3>Limpiador Multiuso Antibacterial — Cereza<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
-          <span class="p-price">$199</span>
-          <button class="btn-add">Agregar al pedido</button>
-        </div>
-      </div>
-      <div class="product-card" data-category="alcoholes" data-id="alcoholes-alcohol-de-cereales-95-10lts" data-name="Alcohol de Cereales 95° (10LTS)" data-price="$1289">
-        <img src="/productos/alcohol-cereales-10lts.png" alt="Alcohol de Cereales 95°" loading="lazy">
-        <div class="product-card-body">
-          <span class="p-cat">Alcoholes</span>
-          <h3>Alcohol de Cereales 95°<br><small style="font-weight:500;color:#8b928d;">10LTS</small></h3>
-          <span class="p-price">$1289</span>
-          <button class="btn-add">Agregar al pedido</button>
-        </div>
-      </div>
-      <div class="product-card" data-category="alcoholes" data-id="alcoholes-alcohol-de-cereales-96-potable-grado-alimenticio-5lts" data-name="Alcohol de Cereales 96° (potable, grado alimenticio) (5LTS)" data-price="$699">
-        <img src="/productos/alcohol-cereales-5lts.png" alt="Alcohol de Cereales 96° (potable, grado alimenticio)" loading="lazy">
-        <div class="product-card-body">
-          <span class="p-cat">Alcoholes</span>
-          <h3>Alcohol de Cereales 96° (potable, grado alimenticio)<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
-          <span class="p-price">$699</span>
-          <button class="btn-add">Agregar al pedido</button>
-        </div>
-      </div>
-      <div class="product-card" data-category="alcoholes" data-id="alcoholes-bioetanol-10lts" data-name="Bioetanol (10LTS)" data-price="$1055">
-        <img src="/productos/bioetanol-10lts.png" alt="Bioetanol" loading="lazy">
-        <div class="product-card-body">
-          <span class="p-cat">Alcoholes</span>
-          <h3>Bioetanol<br><small style="font-weight:500;color:#8b928d;">10LTS</small></h3>
-          <span class="p-price">$1055</span>
-          <button class="btn-add">Agregar al pedido</button>
-        </div>
-      </div>
-      <div class="product-card" data-category="alcoholes" data-id="alcoholes-bioetanol-5lts" data-name="Bioetanol (5LTS)" data-price="$579">
-        <img src="/productos/bioetanol-5lts.png" alt="Bioetanol" loading="lazy">
-        <div class="product-card-body">
-          <span class="p-cat">Alcoholes</span>
-          <h3>Bioetanol<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
-          <span class="p-price">$579</span>
-          <button class="btn-add">Agregar al pedido</button>
-        </div>
-      </div>
-      <div class="product-card" data-category="alcoholes" data-id="alcoholes-bioetanol-ecologico-10lts" data-name="Bioetanol Ecológico (10LTS)" data-price="$1290">
-        <img src="/productos/bioetanol-ecologico-10lts.png" alt="Bioetanol Ecológico" loading="lazy">
-        <div class="product-card-body">
-          <span class="p-cat">Alcoholes</span>
-          <h3>Bioetanol Ecológico<br><small style="font-weight:500;color:#8b928d;">10LTS</small></h3>
-          <span class="p-price">$1290</span>
-          <button class="btn-add">Agregar al pedido</button>
-        </div>
-      </div>
-      <div class="product-card" data-category="alcoholes" data-id="alcoholes-bioetanol-ecologico-5lts" data-name="Bioetanol Ecológico (5LTS)" data-price="$713">
-        <img src="/productos/bioetanol-ecologico-5lts.png" alt="Bioetanol Ecológico" loading="lazy">
-        <div class="product-card-body">
-          <span class="p-cat">Alcoholes</span>
-          <h3>Bioetanol Ecológico<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
-          <span class="p-price">$713</span>
-          <button class="btn-add">Agregar al pedido</button>
-        </div>
-      </div>
-      <div class="product-card" data-category="alcoholes" data-id="alcoholes-alcohol-rectificado-al-95-5lts" data-name="Alcohol Rectificado al 95° (5LTS)" data-price="$599">
-        <img src="/productos/alcohol-rectificado-95-5lts.png" alt="Alcohol Rectificado al 95°" loading="lazy">
-        <div class="product-card-body">
-          <span class="p-cat">Alcoholes</span>
-          <h3>Alcohol Rectificado al 95°<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
-          <span class="p-price">$599</span>
-          <button class="btn-add">Agregar al pedido</button>
-        </div>
-      </div>
-      <div class="product-card" data-category="alcoholes" data-id="alcoholes-alcohol-azul-5lts" data-name="Alcohol Azul (5LTS)" data-price="$529">
-        <img src="/productos/alcohol-azul-5lts.png" alt="Alcohol Azul" loading="lazy">
-        <div class="product-card-body">
-          <span class="p-cat">Alcoholes</span>
-          <h3>Alcohol Azul<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
-          <span class="p-price">$529</span>
-          <button class="btn-add">Agregar al pedido</button>
-        </div>
-      </div>
-      <div class="product-card" data-category="alcoholes" data-id="alcoholes-alcohol-desinfectante-al-70-10lts" data-name="Alcohol Desinfectante al 70° (10LTS)" data-price="$899">
-        <img src="/productos/alcohol-desinfectante-70-10lts.png" alt="Alcohol Desinfectante al 70°" loading="lazy">
-        <div class="product-card-body">
-          <span class="p-cat">Alcoholes</span>
-          <h3>Alcohol Desinfectante al 70°<br><small style="font-weight:500;color:#8b928d;">10LTS</small></h3>
-          <span class="p-price">$899</span>
-          <button class="btn-add">Agregar al pedido</button>
-        </div>
-      </div>
-      <div class="product-card" data-category="alcoholes" data-id="alcoholes-alcohol-desinfectante-al-70-5lts" data-name="Alcohol Desinfectante al 70° (5LTS)" data-price="$699">
-        <img src="/productos/alcohol-desinfectante-70-5lts.png" alt="Alcohol Desinfectante al 70°" loading="lazy">
-        <div class="product-card-body">
-          <span class="p-cat">Alcoholes</span>
-          <h3>Alcohol Desinfectante al 70°<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
-          <span class="p-price">$699</span>
-          <button class="btn-add">Agregar al pedido</button>
-        </div>
-      </div>
-      <div class="product-card" data-category="alcoholes" data-id="alcoholes-alcohol-isopropilico-5lts-1lt" data-name="Alcohol Isopropílico (5LTS / 1LT)" data-price="5LTS: $995 · 1LT: $211">
-        <img src="/productos/alcohol-isopropilico-5lts.png" alt="Alcohol Isopropílico" loading="lazy">
-        <div class="product-card-body">
-          <span class="p-cat">Alcoholes</span>
-          <h3>Alcohol Isopropílico<br><small style="font-weight:500;color:#8b928d;">5LTS / 1LT</small></h3>
-          <span class="p-price">5LTS: $995 · 1LT: $211</span>
-          <button class="btn-add">Agregar al pedido</button>
-        </div>
-      </div>
-      <div class="product-card" data-category="alcoholes" data-id="alcoholes-alcohol-de-perfumeria-extra-refinado-5lts" data-name="Alcohol de Perfumería Extra Refinado (5LTS)" data-price="$1589">
-        <img src="/productos/alcohol-perfumeria-5lts.png" alt="Alcohol de Perfumería Extra Refinado" loading="lazy">
-        <div class="product-card-body">
-          <span class="p-cat">Alcoholes</span>
-          <h3>Alcohol de Perfumería Extra Refinado<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
-          <span class="p-price">$1589</span>
-          <button class="btn-add">Agregar al pedido</button>
-        </div>
-      </div>
-      <div class="product-card" data-category="alcoholes" data-id="alcoholes-alcohol-de-perfumeria-extra-refinado-1lt" data-name="Alcohol de Perfumería Extra Refinado (1LT)" data-price="$399">
-        <img src="/productos/alcohol-perfumeria-1lt.png" alt="Alcohol de Perfumería Extra Refinado" loading="lazy">
-        <div class="product-card-body">
-          <span class="p-cat">Alcoholes</span>
-          <h3>Alcohol de Perfumería Extra Refinado<br><small style="font-weight:500;color:#8b928d;">1LT</small></h3>
-          <span class="p-price">$399</span>
-          <button class="btn-add">Agregar al pedido</button>
-        </div>
-      </div>
-      <div class="product-card" data-category="alcoholes" data-id="alcoholes-alcohol-rectificado-96-industrial-99-5lts-10lts" data-name="Alcohol Rectificado 96° / Industrial 99° (5LTS / 10LTS)" data-price="Rectificado 96° 5LTS: $790 · Industrial 99° 10LTS: $1120">
-        <img src="/productos/alcohol-rectificado-96-industrial-99.png" alt="Alcohol Rectificado 96° / Industrial 99°" loading="lazy">
-        <div class="product-card-body">
-          <span class="p-cat">Alcoholes</span>
-          <h3>Alcohol Rectificado 96° / Industrial 99°<br><small style="font-weight:500;color:#8b928d;">5LTS / 10LTS</small></h3>
-          <span class="p-price">Rectificado 96° 5LTS: $790 · Industrial 99° 10LTS: $1120</span>
-          <button class="btn-add">Agregar al pedido</button>
-        </div>
-      </div>
-      <div class="product-card" data-category="cuidados" data-id="cuidados-aceite-para-caminadora-1lt" data-name="Aceite para Caminadora (1LT)" data-price="$1299">
-        <img src="/productos/aceite-caminadora-1lt.png" alt="Aceite para Caminadora" loading="lazy">
-        <div class="product-card-body">
-          <span class="p-cat">Cuidados del hogar</span>
-          <h3>Aceite para Caminadora<br><small style="font-weight:500;color:#8b928d;">1LT</small></h3>
-          <span class="p-price">$1299</span>
-          <button class="btn-add">Agregar al pedido</button>
-        </div>
-      </div>
-      <div class="product-card" data-category="cuidados" data-id="cuidados-aceite-para-caminadora-500ml" data-name="Aceite para Caminadora (500ML)" data-price="$690">
-        <img src="/productos/aceite-caminadora-500ml.png" alt="Aceite para Caminadora" loading="lazy">
-        <div class="product-card-body">
-          <span class="p-cat">Cuidados del hogar</span>
-          <h3>Aceite para Caminadora<br><small style="font-weight:500;color:#8b928d;">500ML</small></h3>
-          <span class="p-price">$690</span>
-          <button class="btn-add">Agregar al pedido</button>
-        </div>
-      </div>
-      <div class="product-card" data-category="cuidados" data-id="cuidados-parafina-en-trozos-1kg" data-name="Parafina en Trozos (1KG)" data-price="$220">
-        <img src="/productos/parafina-trozos-1kg.png" alt="Parafina en Trozos" loading="lazy">
-        <div class="product-card-body">
-          <span class="p-cat">Cuidados del hogar</span>
-          <h3>Parafina en Trozos<br><small style="font-weight:500;color:#8b928d;">1KG</small></h3>
-          <span class="p-price">$220</span>
-          <button class="btn-add">Agregar al pedido</button>
-        </div>
-      </div>
-      <div class="product-card" data-category="cuidados" data-id="cuidados-parafina-granulada-1kg-5kg" data-name="Parafina Granulada (1KG / 5KG)" data-price="1KG: $390 · 5KG: $1490">
-        <img src="/productos/parafina-granulada.png" alt="Parafina Granulada" loading="lazy">
-        <div class="product-card-body">
-          <span class="p-cat">Cuidados del hogar</span>
-          <h3>Parafina Granulada<br><small style="font-weight:500;color:#8b928d;">1KG / 5KG</small></h3>
-          <span class="p-price">1KG: $390 · 5KG: $1490</span>
-          <button class="btn-add">Agregar al pedido</button>
-        </div>
-      </div>
-      <div class="product-card" data-category="cuidados" data-id="cuidados-parafina-en-plancha-5kg-25kg" data-name="Parafina en Plancha (5KG / 25KG)" data-price="5KG: $978 · 25KG: $4949">
-        <img src="/productos/parafina-plancha.png" alt="Parafina en Plancha" loading="lazy">
-        <div class="product-card-body">
-          <span class="p-cat">Cuidados del hogar</span>
-          <h3>Parafina en Plancha<br><small style="font-weight:500;color:#8b928d;">5KG / 25KG</small></h3>
-          <span class="p-price">5KG: $978 · 25KG: $4949</span>
-          <button class="btn-add">Agregar al pedido</button>
-        </div>
-      </div>
-      <div class="product-card" data-category="cuidados" data-id="cuidados-esencia-de-citronela-pura-70ml" data-name="Esencia de Citronela Pura (70ML)" data-price="$242">
-        <img src="/productos/esencia-citronela-70ml.png" alt="Esencia de Citronela Pura" loading="lazy">
-        <div class="product-card-body">
-          <span class="p-cat">Cuidados del hogar</span>
-          <h3>Esencia de Citronela Pura<br><small style="font-weight:500;color:#8b928d;">70ML</small></h3>
-          <span class="p-price">$242</span>
-          <button class="btn-add">Agregar al pedido</button>
-        </div>
-      </div>
-      <div class="product-card" data-category="cuidados" data-id="cuidados-citronela-5lts" data-name="Citronela (5LTS)" data-price="$1090">
-        <img src="/productos/citronela-5lts.png" alt="Citronela" loading="lazy">
-        <div class="product-card-body">
-          <span class="p-cat">Cuidados del hogar</span>
-          <h3>Citronela<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
-          <span class="p-price">$1090</span>
-          <button class="btn-add">Agregar al pedido</button>
-        </div>
-      </div>
-      <div class="product-card" data-category="cuidados" data-id="cuidados-citronela-1lt" data-name="Citronela (1LT)" data-price="$277">
-        <img src="/productos/citronela-1lt.png" alt="Citronela" loading="lazy">
-        <div class="product-card-body">
-          <span class="p-cat">Cuidados del hogar</span>
-          <h3>Citronela<br><small style="font-weight:500;color:#8b928d;">1LT</small></h3>
-          <span class="p-price">$277</span>
-          <button class="btn-add">Agregar al pedido</button>
-        </div>
-      </div>
-      <div class="product-card" data-category="cuidados" data-id="cuidados-azufre-en-polvo-1kg" data-name="Azufre en Polvo (1KG)" data-price="$208">
-        <img src="/productos/azufre-polvo-1kg.png" alt="Azufre en Polvo" loading="lazy">
-        <div class="product-card-body">
-          <span class="p-cat">Cuidados del hogar</span>
-          <h3>Azufre en Polvo<br><small style="font-weight:500;color:#8b928d;">1KG</small></h3>
-          <span class="p-price">$208</span>
-          <button class="btn-add">Agregar al pedido</button>
-        </div>
-      </div>
-      <div class="product-card" data-category="cuidados" data-id="cuidados-quita-sarro-inodoros-y-piletas-1lt" data-name="Quita Sarro (Inodoros y Piletas) (1LT)" data-price="$189">
-        <img src="/productos/quita-sarro-1lt.png" alt="Quita Sarro (Inodoros y Piletas)" loading="lazy">
-        <div class="product-card-body">
-          <span class="p-cat">Cuidados del hogar</span>
-          <h3>Quita Sarro (Inodoros y Piletas)<br><small style="font-weight:500;color:#8b928d;">1LT</small></h3>
-          <span class="p-price">$189</span>
-          <button class="btn-add">Agregar al pedido</button>
-        </div>
-      </div>
-      <div class="product-card" data-category="cuidados" data-id="cuidados-absorbe-humedad-1kg-3kg" data-name="Absorbe Humedad (1KG / 3KG)" data-price="1KG: $99 · 3KG: $222">
-        <img src="/productos/absorbe-humedad.png" alt="Absorbe Humedad" loading="lazy">
-        <div class="product-card-body">
-          <span class="p-cat">Cuidados del hogar</span>
-          <h3>Absorbe Humedad<br><small style="font-weight:500;color:#8b928d;">1KG / 3KG</small></h3>
-          <span class="p-price">1KG: $99 · 3KG: $222</span>
-          <button class="btn-add">Agregar al pedido</button>
-        </div>
-      </div>
-      <div class="product-card" data-category="cuidados" data-id="cuidados-carbon-activado-granulado-100gr-500gr-1kg" data-name="Carbón Activado Granulado (100GR / 500GR / 1KG)" data-price="100GR: $149 · 500GR: $612 · 1KG: $940">
-        <img src="/productos/carbon-activado.png" alt="Carbón Activado Granulado" loading="lazy">
-        <div class="product-card-body">
-          <span class="p-cat">Cuidados del hogar</span>
-          <h3>Carbón Activado Granulado<br><small style="font-weight:500;color:#8b928d;">100GR / 500GR / 1KG</small></h3>
-          <span class="p-price">100GR: $149 · 500GR: $612 · 1KG: $940</span>
-          <button class="btn-add">Agregar al pedido</button>
-        </div>
-      </div>
-      <div class="product-card" data-category="cuidados" data-id="cuidados-kerosene-5lts-10lts" data-name="Kerosene (5LTS / 10LTS)" data-price="5LTS: $845 · 10LTS: $1456">
-        <img src="/productos/kerosene.png" alt="Kerosene" loading="lazy">
-        <div class="product-card-body">
-          <span class="p-cat">Cuidados del hogar</span>
-          <h3>Kerosene<br><small style="font-weight:500;color:#8b928d;">5LTS / 10LTS</small></h3>
-          <span class="p-price">5LTS: $845 · 10LTS: $1456</span>
-          <button class="btn-add">Agregar al pedido</button>
-        </div>
-      </div>
+
     </div>
 
-    <p class="empty-state">No hay productos en esta categoría todavía.</p>
+    <p class="empty-state" id="empty-state" hidden>No se encontraron productos para tu búsqueda.</p>
   </div>
 </section>
 
@@ -468,6 +836,127 @@
     </div>
   </div>
 </footer>
+
+<style>
+  .search-row{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:28px;
+    flex-wrap:wrap;
+  }
+  .search-box{
+    position:relative;
+    flex:1 1 360px;
+    max-width:520px;
+  }
+  .search-box .search-icon{
+    position:absolute;
+    left:14px;
+    top:50%;
+    transform:translateY(-50%);
+    opacity:.55;
+    pointer-events:none;
+  }
+  .search-box input{
+    width:100%;
+    padding:12px 40px 12px 40px;
+    border-radius:999px;
+    border:1px solid rgba(0,0,0,.12);
+    font-family:'Work Sans',sans-serif;
+    font-size:15px;
+    outline:none;
+    background:#fff;
+    transition:box-shadow .15s ease, border-color .15s ease;
+  }
+  .search-box input:focus{
+    border-color:#3a8f7c;
+    box-shadow:0 0 0 3px rgba(58,143,124,.15);
+  }
+  #search-clear{
+    position:absolute;
+    right:10px;
+    top:50%;
+    transform:translateY(-50%);
+    border:none;
+    background:transparent;
+    font-size:20px;
+    line-height:1;
+    cursor:pointer;
+    color:#8b928d;
+    padding:4px 6px;
+  }
+  #search-clear:hover{ color:#333; }
+  .search-count{
+    font-family:'Work Sans',sans-serif;
+    font-size:13px;
+    color:#6b716d;
+  }
+  .category-title{
+    font-family:'Oswald',sans-serif;
+    font-size:22px;
+    font-weight:600;
+    margin:36px 0 16px;
+    letter-spacing:.02em;
+  }
+  .category-block:first-of-type .category-title{ margin-top:8px; }
+  .empty-state{ display:block; }
+</style>
+
+<script>
+(function(){
+  var searchInput = document.getElementById('product-search');
+  var clearBtn = document.getElementById('search-clear');
+  var countEl = document.getElementById('search-count');
+  var emptyState = document.getElementById('empty-state');
+  var blocks = Array.prototype.slice.call(document.querySelectorAll('.category-block'));
+  var allCards = Array.prototype.slice.call(document.querySelectorAll('.product-card'));
+
+  function normalize(str){
+    return str
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, ''); // strip accents
+  }
+
+  function runFilter(){
+    var raw = searchInput.value.trim();
+    var q = normalize(raw);
+    clearBtn.hidden = raw.length === 0;
+
+    var visibleCount = 0;
+
+    allCards.forEach(function(card){
+      var name = normalize(card.getAttribute('data-name') || '');
+      var match = q === '' || name.indexOf(q) !== -1;
+      card.style.display = match ? '' : 'none';
+      if (match) visibleCount++;
+    });
+
+    blocks.forEach(function(block){
+      var visibleInBlock = block.querySelectorAll('.product-card:not([style*="display: none"])').length;
+      block.style.display = visibleInBlock === 0 ? 'none' : '';
+    });
+
+    if (raw === '') {
+      countEl.textContent = '';
+    } else {
+      countEl.textContent = visibleCount + (visibleCount === 1 ? ' producto encontrado' : ' productos encontrados');
+    }
+
+    emptyState.hidden = visibleCount !== 0;
+  }
+
+  searchInput.addEventListener('input', runFilter);
+  clearBtn.addEventListener('click', function(){
+    searchInput.value = '';
+    runFilter();
+    searchInput.focus();
+  });
+
+  runFilter();
+})();
+</script>
 
 <script src="/script.js"></script>
 </body>
