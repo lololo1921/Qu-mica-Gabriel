@@ -1,3 +1,4 @@
+// ...existing code...
 // ===== Menú móvil: abre/cierra la navegación =====
 document.addEventListener('DOMContentLoaded', function () {
   const burger = document.querySelector('.burger');
@@ -44,11 +45,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // ===== Carrito (localStorage, funciona con o sin cuenta) =====
 const CART_KEY = 'qg_cart';
+const WHATSAPP_NUMBER = '59899661360';
 
 function getCart() {
   try {
-    const raw = localStorage.getItem(CART_KEY);
-    return raw ? JSON.parse(raw) : [];
+    return JSON.parse(localStorage.getItem(CART_KEY) || '[]');
   } catch (e) {
     return [];
   }
@@ -61,22 +62,36 @@ function saveCart(cart) {
 
 function addToCart(item) {
   const cart = getCart();
-  const existing = cart.find(function (p) { return p.id === item.id; });
+  const existing = cart.find(function (p) {
+    return p.id === item.id;
+  });
+
   if (existing) {
     existing.qty += 1;
   } else {
-    cart.push({ id: item.id, name: item.name, category: item.category, img: item.img, price: item.price || '', qty: 1 });
+    cart.push({
+      id: item.id,
+      name: item.name,
+      category: item.category,
+      img: item.img,
+      price: item.price || '',
+      qty: 1
+    });
   }
+
   saveCart(cart);
 }
 
 function updateCartBadges() {
-  const total = getCart().reduce(function (sum, p) { return sum + p.qty; }, 0);
+  const total = getCart().reduce(function (sum, p) {
+    return sum + p.qty;
+  }, 0);
+
   document.querySelectorAll('[data-cart-badge]').forEach(function (el) {
     el.textContent = total;
+
     if (el.classList.contains('cart-badge')) {
       el.classList.remove('bump');
-      // forzamos reflow para poder reiniciar la animación
       void el.offsetWidth;
       el.classList.add('bump');
     }
@@ -85,132 +100,126 @@ function updateCartBadges() {
 
 document.addEventListener('DOMContentLoaded', updateCartBadges);
 
-// Botón "Agregar al pedido" en las páginas de catálogo
-document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('.btn-add').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      const card = btn.closest('.product-card');
-      if (!card) return;
+function parsePrice(str) {
+  if (!str) return null;
+  const m = str.match(/\$\s*([\d]{1,3}(?:\.\d{3})*)/);
+  if (!m) return null;
+  return parseInt(m[1].replace(/\./g, ''), 10);
+}
 
-      addToCart({
-        id: card.dataset.id,
-        name: card.dataset.name,
-        category: card.dataset.category,
-        price: card.dataset.price || '',
-        img: card.querySelector('img') ? card.querySelector('img').src : ''
-      });
+function formatPrice(n) {
+  return '$' + n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+}
 
-      const original = btn.textContent;
-      btn.textContent = 'Agregado ✓';
-      btn.classList.add('added');
-      setTimeout(function () {
-        btn.textContent = original;
-        btn.classList.remove('added');
-      }, 1200);
-    });
+function buildWhatsAppMessage() {
+  const cart = getCart();
+  if (cart.length === 0) return '';
+
+  let total = 0;
+  let unpriced = 0;
+  const lines = ['Hola, quiero coordinar este pedido:'];
+
+  cart.forEach(function (item) {
+    const price = parsePrice(item.price);
+    if (price !== null) {
+      total += price * item.qty;
+    } else if (item.price) {
+      unpriced += item.qty;
+    }
+
+    lines.push('- ' + item.name + ' (' + item.qty + ')' + (item.price ? ' - ' + item.price : ''));
   });
-});
 
-// Visor de imagen ampliada: clic en la foto de un producto la muestra en grande
-document.addEventListener('DOMContentLoaded', function () {
-  const cards = document.querySelectorAll('.product-card');
-  if (!cards.length) return;
-
-  const overlay = document.createElement('div');
-  overlay.className = 'lightbox-overlay';
-  overlay.innerHTML = '<button type="button" class="lightbox-close" aria-label="Cerrar">&times;</button><img class="lightbox-img" src="" alt="">';
-  document.body.appendChild(overlay);
-  const lightboxImg = overlay.querySelector('.lightbox-img');
-
-  function closeLightbox() {
-    overlay.classList.remove('open');
+  let totalLine = 'Total aproximado: ' + formatPrice(total);
+  if (unpriced > 0) {
+    totalLine += ' (+ ' + unpriced + ' producto(s) a consultar)';
   }
 
-  overlay.addEventListener('click', function (e) {
-    if (e.target === overlay) closeLightbox();
-  });
-  overlay.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') closeLightbox();
-  });
+  lines.push('', totalLine);
 
-  cards.forEach(function (card) {
-    const img = card.querySelector('img');
-    if (!img) return;
-    img.addEventListener('click', function () {
-      lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt;
-      overlay.classList.add('open');
-    });
-  });
-});
+  const addressInput = document.getElementById('cart-address');
+  const address = addressInput ? addressInput.value.trim() : '';
 
-// Estado de stock: si un producto está marcado como agotado (ver /datos/stock.json,
-// que actualizan los scripts scripts/marcar-agotado.js y marcar-disponible.js),
-// se muestra en gris con el botón deshabilitado.
-document.addEventListener('DOMContentLoaded', function () {
-  const cards = document.querySelectorAll('.product-card');
-  if (!cards.length) return;
+  lines.push('');
+  lines.push(address ? 'Dirección de entrega: ' + address : '(Sin dirección cargada — retiro en el local o a coordinar)');
 
-  fetch('/datos/stock.json')
-    .then(function (res) { return res.json(); })
-    .then(function (data) {
-      const agotados = (data && data.agotados) || [];
-      cards.forEach(function (card) {
-        if (agotados.indexOf(card.dataset.id) === -1) return;
+  return lines.join('\n');
+}
 
-        card.classList.add('sin-stock');
+function buildQrPayloads(cart, orderId, address, fecha) {
+  const total = cart.reduce(function (sum, item) {
+    const price = parsePrice(item.price);
+    return sum + (price !== null ? price * item.qty : 0);
+  }, 0);
 
-        const badge = document.createElement('span');
-        badge.className = 'stock-badge';
-        badge.textContent = 'Sin stock';
-        card.prepend(badge);
+  const payload = [
+    'Pedido ' + orderId,
+    fecha,
+    'Total: ' + formatPrice(total),
+    address ? 'Entrega: ' + address : 'Retiro en local'
+  ].join('\n');
 
-        const btn = card.querySelector('.btn-add');
-        if (btn) {
-          btn.textContent = 'Sin stock';
-          btn.disabled = true;
-        }
-      });
-    })
-    .catch(function () {
-      // Si la página se abre sin servidor local (file://) el fetch puede fallar;
-      // en ese caso el catálogo simplemente se muestra sin marcar el stock.
-    });
-});
+  return {
+    completo: payload,
+    resumido: payload
+  };
+}
 
-// Filtro de catálogo por categoría (con o sin carrito en la misma página)
-document.addEventListener('DOMContentLoaded', function () {
-  const chips = document.querySelectorAll('.filter-chip');
-  const cards = document.querySelectorAll('.product-card');
-  const emptyState = document.querySelector('.empty-state');
-  if (!chips.length || !cards.length) return;
+async function confirmOrderToWhatsApp() {
+  const cart = getCart();
+  if (!cart.length) {
+    alert('El carrito está vacío.');
+    return;
+  }
 
-  chips.forEach(function (chip) {
-    chip.addEventListener('click', function () {
-      chips.forEach(function (c) { c.classList.remove('active'); });
-      chip.classList.add('active');
+  const total = cart.reduce(function (sum, item) {
+    const price = parsePrice(item.price);
+    return sum + (price !== null ? price * item.qty : 0);
+  }, 0);
 
-      const category = chip.dataset.category;
-      let visibleCount = 0;
+  let user;
+  try {
+    const { data, error: userError } = await supabase.auth.getUser();
+    if (userError) {
+      console.error('Auth getUser error:', userError);
+    }
+    user = data?.user;
+  } catch (e) {
+    console.error('Auth getUser threw:', e);
+    user = null;
+  }
 
-      cards.forEach(function (card) {
-        const match = category === 'todos' || card.dataset.category === category;
-        card.style.display = match ? '' : 'none';
-        if (match) visibleCount++;
-      });
-
-      if (emptyState) {
-        emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+  if (user) {
+    const orderId = 'QG-' + Date.now().toString(36).toUpperCase();
+    const payload = { user_id: user.id, items: cart, total, order_id: orderId, status: 'pendiente' };
+    try {
+      const { data: insertData, error: insertError } = await supabase.from('purchases').insert(payload);
+      if (insertError) {
+        console.error('Supabase insert error:', insertError);
+        alert('No se pudo guardar el pedido en el historial: ' + insertError.message);
+      } else {
+        console.log('Pedido guardado en historial:', insertData);
       }
-    });
-  });
-});
+    } catch (e) {
+      console.error('Supabase insert threw:', e);
+      alert('No se pudo guardar el pedido en el historial (error inesperado). El envío por WhatsApp continúa.');
+    }
+  } else {
+    alert('No estás logueado. El pedido no quedará registrado en el historial de compras.');
+  }
 
-// ===== Renderizado de la página del carrito =====
+  const msg = buildWhatsAppMessage();
+  if (!msg) {
+    alert('No hay nada para enviar por WhatsApp.');
+    return;
+  }
+
+  window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(msg), '_blank');
+}
+
 function renderCartPage() {
   const list = document.getElementById('cart-list');
-  if (!list) return; // no estamos en la página de carrito
+  if (!list) return;
 
   const qrResult = document.getElementById('qr-result');
   if (qrResult) qrResult.style.display = 'none';
@@ -253,9 +262,11 @@ function renderCartPage() {
     row.querySelector('.qty-minus').addEventListener('click', function () {
       changeQty(item.id, -1);
     });
+
     row.querySelector('.qty-plus').addEventListener('click', function () {
       changeQty(item.id, 1);
     });
+
     row.querySelector('.remove-item').addEventListener('click', function () {
       removeFromCart(item.id);
     });
@@ -268,44 +279,49 @@ function renderCartPage() {
 
 function changeQty(id, delta) {
   const cart = getCart();
-  const item = cart.find(function (p) { return p.id === id; });
+  const item = cart.find(function (p) {
+    return p.id === id;
+  });
+
   if (!item) return;
+
   item.qty += delta;
+
   if (item.qty <= 0) {
     return removeFromCart(id);
   }
+
   saveCart(cart);
   renderCartPage();
 }
 
 function removeFromCart(id) {
-  const cart = getCart().filter(function (p) { return p.id !== id; });
+  const cart = getCart().filter(function (p) {
+    return p.id !== id;
+  });
+
   saveCart(cart);
   renderCartPage();
-}
-
-function parsePrice(str) {
-  if (!str) return null;
-  const m = str.match(/\$\s*([\d]{1,3}(?:\.\d{3})*)/);
-  if (!m) return null;
-  return parseInt(m[1].replace(/\./g, ''), 10);
-}
-
-function formatPrice(n) {
-  return '$' + n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 }
 
 function updateCartTotalText() {
   const countEl = document.getElementById('cart-total-count');
   const amountEl = document.getElementById('cart-total-amount');
+
   if (!countEl) return;
+
   const cart = getCart();
-  const totalQty = cart.reduce(function (sum, p) { return sum + p.qty; }, 0);
+  const totalQty = cart.reduce(function (sum, p) {
+    return sum + p.qty;
+  }, 0);
+
   countEl.textContent = totalQty;
 
   if (!amountEl) return;
+
   let totalAmount = 0;
   let unpriced = 0;
+
   cart.forEach(function (item) {
     const price = parsePrice(item.price);
     if (price !== null) {
@@ -319,68 +335,222 @@ function updateCartTotalText() {
   if (unpriced > 0) {
     html += '<span class="unpriced-note">+ ' + unpriced + ' producto(s) a consultar precio</span>';
   }
+
   amountEl.innerHTML = html;
 }
 
-const WHATSAPP_NUMBER = '59897359485';
+function createAccountMenu(button) {
+  if (button.dataset.accountMenuAttached) return;
+  button.dataset.accountMenuAttached = 'true';
 
-function buildWhatsAppMessage() {
-  const cart = getCart();
-  if (cart.length === 0) return '';
-  let total = 0;
-  let unpriced = 0;
-  const lines = ['Hola, quiero coordinar este pedido:'];
-  cart.forEach(function (item) {
-    const price = parsePrice(item.price);
-    if (price !== null) {
-      total += price * item.qty;
-    } else if (item.price) {
-      unpriced += item.qty;
-    }
-    lines.push('- ' + item.name + ' (' + item.qty + ')' + (item.price ? ' - ' + item.price : ''));
+  button.href = '#';
+  button.setAttribute('aria-haspopup', 'true');
+  button.setAttribute('aria-expanded', 'false');
+
+  const menu = document.createElement('div');
+  menu.className = 'account-menu';
+  menu.innerHTML = `
+    <a class="account-menu-item" href="/páginas/historial.html">Historial de compras</a>
+    <a class="account-menu-item" href="/páginas/datos.html">Mis datos</a>
+    <button type="button" class="account-menu-item logout-btn">Cerrar sesión</button>
+  `;
+  button.insertAdjacentElement('afterend', menu);
+
+  button.addEventListener('click', function (event) {
+    event.preventDefault();
+    const open = menu.classList.toggle('open');
+    button.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
 
-  let totalLine = 'Total aproximado: ' + formatPrice(total);
-  if (unpriced > 0) {
-    totalLine += ' (+ ' + unpriced + ' producto(s) a consultar)';
-  }
-  lines.push('', totalLine);
+  menu.querySelector('.logout-btn').addEventListener('click', async function () {
+    await supabase.auth.signOut();
+    window.location.href = '/index.html';
+  });
 
-  const addressInput = document.getElementById('cart-address');
-  const address = addressInput ? addressInput.value.trim() : '';
-  lines.push('');
-  lines.push(address ? 'Dirección de entrega: ' + address : '(Sin dirección cargada — retiro en el local o a coordinar)');
+  document.addEventListener('click', function (event) {
+    if (!button.contains(event.target) && !menu.contains(event.target)) {
+      menu.classList.remove('open');
+      button.setAttribute('aria-expanded', 'false');
+    }
+  });
 
-  return lines.join('\n');
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') {
+      menu.classList.remove('open');
+      button.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
+
+async function updateAccountButton() {
+  const accountButtons = document.querySelectorAll('.head-actions .btn-account, .mobile-nav .btn-account');
+  if (!accountButtons.length || !window.supabase) return;
+
+  const { data, error } = await supabase.auth.getUser();
+  const user = data?.user;
+  if (error || !user) return;
+
+  const name = user.user_metadata?.nombre || user.user_metadata?.name || user.email;
+
+  accountButtons.forEach(function (btn) {
+    btn.textContent = name;
+    btn.href = '#';
+    btn.setAttribute('aria-haspopup', 'true');
+    btn.setAttribute('aria-expanded', 'false');
+    createAccountMenu(btn);
+  });
+}
+
+function renderPurchaseHistory() {
+  const container = document.getElementById('history-list');
+  if (!container) return;
+
+  container.innerHTML = '<p class="empty-state">Cargando historial...</p>';
+
+  supabase.auth.getUser().then(function (result) {
+    const user = result.data?.user;
+    if (!user) {
+      container.innerHTML = '<p class="empty-state">Inicia sesión para ver tu historial.</p>';
+      return;
+    }
+
+    supabase.from('purchases')
+      .select('id,created_at,items,total,status,order_id')
+      .eq('user_id', user.id)
+      .order('created_at', { ascending: false })
+      .then(function (response) {
+        console.log('Supabase purchases response:', response);
+        if (response.error) {
+          console.error('Supabase select error:', response.error);
+          container.innerHTML = '<p class="empty-state">No se pudo cargar el historial. Revisá la consola.</p>';
+          return;
+        }
+
+        const purchases = response.data || [];
+        if (!purchases.length) {
+          container.innerHTML = '<p class="empty-state">No hay compras registradas.</p>';
+          return;
+        }
+
+        container.innerHTML = purchases.map(function (purchase) {
+          const date = new Date(purchase.created_at).toLocaleString('es-UY', {
+            day: '2-digit',
+            month: 'long',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+          });
+
+          const itemsHtml = (purchase.items || []).map(function (item) {
+            return '<li>' +
+              '<strong>' + (item.qty || 0) + 'x</strong> ' +
+              (item.name || 'Producto') +
+              (item.price ? ' — ' + item.price : '') +
+              '</li>';
+          }).join('');
+
+          return (
+            '<article class="history-item">' +
+              '<div class="history-meta">' +
+                '<span class="history-date">' + date + '</span>' +
+                '<span class="history-status">' + (purchase.status || 'pendiente') + '</span>' +
+              '</div>' +
+              '<div class="history-card">' +
+                '<div class="history-total">Total: ' + formatPrice(parsePrice(purchase.total ? purchase.total.toString() : '') || 0) + '</div>' +
+                '<div class="history-order">ID: ' + (purchase.order_id || '-') + '</div>' +
+                '<ul class="history-products">' + itemsHtml + '</ul>' +
+              '</div>' +
+            '</article>'
+          );
+        }).join('');
+      })
+      .catch(function (err) {
+        console.error('Supabase select threw:', err);
+        container.innerHTML = '<p class="empty-state">Error al cargar historial.</p>';
+      });
+  }).catch(function () {
+    container.innerHTML = '<p class="empty-state">No se pudo validar tu sesión.</p>';
+  });
+}
+
+function renderUserProfile() {
+  const container = document.getElementById('profile-data');
+  if (!container) return;
+
+  container.innerHTML = '<p class="empty-state">Cargando datos...</p>';
+
+  supabase.auth.getUser().then(function (result) {
+    const user = result.data?.user;
+    if (!user) {
+      container.innerHTML = '<p class="empty-state">Inicia sesión para ver tus datos.</p>';
+      return;
+    }
+
+    const meta = user.user_metadata || {};
+    container.innerHTML = `
+      <div class="profile-grid">
+        <div class="profile-row">
+          <span>Nombre</span>
+          <strong>${meta.nombre || ''}</strong>
+        </div>
+        <div class="profile-row">
+          <span>Apellido</span>
+          <strong>${meta.apellido || ''}</strong>
+        </div>
+        <div class="profile-row">
+          <span>Email</span>
+          <strong>${user.email || ''}</strong>
+        </div>
+        <div class="profile-row">
+          <span>Teléfono</span>
+          <strong>${meta.telefono || 'No cargado'}</strong>
+        </div>
+        <div class="profile-row">
+          <span>Registrado</span>
+          <strong>${new Date(user.created_at).toLocaleDateString('es-UY', { day: '2-digit', month: 'long', year: 'numeric' })}</strong>
+        </div>
+      </div>
+      <button type="button" class="btn-secondary logout-btn-page">Cerrar sesión</button>
+    `;
+
+    const logoutBtn = container.querySelector('.logout-btn-page');
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', async function () {
+        await supabase.auth.signOut();
+        window.location.href = '/index.html';
+      });
+    }
+  }).catch(function () {
+    container.innerHTML = '<p class="empty-state">No se pudo validar tu sesión.</p>';
+  });
 }
 
 document.addEventListener('DOMContentLoaded', function () {
   renderCartPage();
 
   const waBtn = document.getElementById('cart-whatsapp-btn');
+  const clearBtn = document.getElementById('cart-clear-btn');
+  const qrBtn = document.getElementById('cart-qr-btn');
+
   if (waBtn) {
-    waBtn.addEventListener('click', function () {
-      const msg = buildWhatsAppMessage();
-      if (!msg) return;
-      window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(msg), '_blank');
-    });
+    waBtn.addEventListener('click', confirmOrderToWhatsApp);
   }
 
-  const clearBtn = document.getElementById('cart-clear-btn');
   if (clearBtn) {
     clearBtn.addEventListener('click', function () {
       saveCart([]);
       renderCartPage();
+
       const qrResult = document.getElementById('qr-result');
       if (qrResult) qrResult.style.display = 'none';
     });
   }
 
-  const qrBtn = document.getElementById('cart-qr-btn');
   if (qrBtn) {
     qrBtn.addEventListener('click', function () {
       const cart = getCart();
       if (cart.length === 0) return;
+
       if (typeof QRCode === 'undefined') {
         alert('No se pudo cargar el generador de QR. Revisá tu conexión a internet e intentá de nuevo.');
         return;
@@ -390,42 +560,11 @@ document.addEventListener('DOMContentLoaded', function () {
       const addressInput = document.getElementById('cart-address');
       const address = addressInput ? addressInput.value.trim() : '';
       const fecha = new Date().toLocaleString('es-UY');
-
-      let total = 0;
-      let unpriced = 0;
-      let totalQty = 0;
-      cart.forEach(function (item) {
-        const price = parsePrice(item.price);
-        if (price !== null) {
-          total += price * item.qty;
-        } else if (item.price) {
-          unpriced += item.qty;
-        }
-        totalQty += item.qty;
-      });
-      let totalLine = 'Total: ' + formatPrice(total);
-      if (unpriced > 0) totalLine += ' (+' + unpriced + ' a consultar)';
-      const entregaLine = 'Entrega: ' + (address || 'retiro en el local');
-
-      // Versión completa: un detalle por producto
-      const detalle = cart
-        .map(function (item) {
-          return item.qty + 'x ' + item.name + (item.price ? ' - ' + item.price : '');
-        })
-        .join('\n');
-      const textoCompleto = ['Pedido ' + orderId, fecha, detalle, totalLine, entregaLine].join('\n');
-
-      // Versión resumida por si el pedido tiene demasiados productos para el QR
-      const textoResumido = [
-        'Pedido ' + orderId,
-        fecha,
-        totalQty + ' producto(s) — ver detalle por WhatsApp',
-        totalLine,
-        entregaLine,
-      ].join('\n');
+      const payloads = buildQrPayloads(cart, orderId, address, fecha);
 
       const canvasWrap = document.getElementById('qr-canvas');
       const qrWarning = document.getElementById('qr-warning');
+      const qrResult = document.getElementById('qr-result');
 
       function generar(texto) {
         canvasWrap.innerHTML = '';
@@ -435,32 +574,39 @@ document.addEventListener('DOMContentLoaded', function () {
           height: 180,
           colorDark: '#1E2A28',
           colorLight: '#ffffff',
-          correctLevel: (QRCode.CorrectLevel && QRCode.CorrectLevel.L) || 1,
+          correctLevel: (QRCode.CorrectLevel && QRCode.CorrectLevel.L) || 1
         });
       }
 
       try {
-        generar(textoCompleto);
+        generar(payloads.completo);
         if (qrWarning) qrWarning.style.display = 'none';
       } catch (err) {
         console.error('QR: falló la versión completa ->', err);
+
         try {
-          generar(textoResumido);
-          if (qrWarning) qrWarning.style.display = 'block';
-        } catch (err2) {
-          console.error('QR: falló también la versión resumida ->', err2);
+          generar(payloads.resumido);
           if (qrWarning) {
-            qrWarning.textContent = 'El pedido es demasiado grande para generar un QR. Usá el botón de WhatsApp para coordinarlo. (Ver detalle del error en la consola.)';
+            qrWarning.textContent = 'Se generó un QR resumido porque el pedido es grande.';
             qrWarning.style.display = 'block';
           }
-          document.getElementById('qr-order-id').textContent = orderId;
-          document.getElementById('qr-result').style.display = 'flex';
-          return;
+        } catch (err2) {
+          console.error('QR: falló también la versión resumida ->', err2);
+
+          if (qrWarning) {
+            qrWarning.textContent = 'El pedido es demasiado grande para generar un QR. Usá el botón de WhatsApp para coordinarlo.';
+            qrWarning.style.display = 'block';
+          }
         }
       }
 
-      document.getElementById('qr-order-id').textContent = orderId;
-      document.getElementById('qr-result').style.display = 'flex';
+      if (qrResult) qrResult.style.display = 'flex';
+      const orderIdEl = document.getElementById('qr-order-id');
+      if (orderIdEl) orderIdEl.textContent = orderId;
     });
   }
+
+  updateAccountButton();
+  renderPurchaseHistory();
+  renderUserProfile();
 });

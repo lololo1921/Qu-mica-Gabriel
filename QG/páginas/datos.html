@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis datos — Química Gabriel</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header>
+  <div class="wrap headbar">
+    <div class="logo"><a href="/index.html"><img src="/logo.png" alt="Química Gabriel" class="logo-img"></a></div>
+    <nav>
+      <ul>
+        <li class="has-dropdown">
+          <button class="nav-drop-btn" aria-expanded="false">Categorías</button>
+          <ul class="dropdown-menu">
+            <li><a href="/páginas/la.html">Línea automotriz</a></li>
+            <li><a href="/páginas/lh.html">Limpieza del hogar</a></li>
+          </ul>
+        </li>
+        <li><a href="/páginas/fp.html">Formas de pago</a></li>
+        <li><a href="/páginas/nosotros.html">Nosotros</a></li>
+      </ul>
+    </nav>
+    <div class="head-actions">
+      <a class="cart-btn" href="/carrito/carrito.html" aria-label="Carrito">
+        <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1.4"/><circle cx="18" cy="21" r="1.4"/><path d="M2 3h2l2.4 12.2a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.6L21 8H6"/></svg>
+        <span class="cart-badge" data-cart-badge>0</span>
+      </a>
+      <a class="btn-account" href="/formulario/inicio.html">Ingresar</a>
+    </div>
+    <button class="burger" aria-label="Abrir menú">☰</button>
+  </div>
+  <div class="mobile-nav">
+    <button class="mobile-drop-btn">Categorías</button>
+    <div class="mobile-submenu">
+      <a href="/páginas/la.html">Línea automotriz</a>
+      <a href="/páginas/lh.html">Limpieza del hogar</a>
+    </div>
+    <a href="/páginas/fp.html">Formas de pago</a>
+    <a href="/páginas/nosotros.html">Nosotros</a>
+    <a href="/carrito/carrito.html">Carrito (<span data-cart-badge>0</span>)</a>
+    <a href="/formulario/inicio.html">Ingresar</a>
+  </div>
+</header>
+
+<section class="page-hero teal">
+  <div class="wrap">
+    <h1>Mis datos</h1>
+    <p>Revisa la información registrada en tu cuenta.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="account-panel">
+      <h2>Datos de usuario</h2>
+      <div id="profile-data" class="profile-data">
+        <p class="empty-state">Cargando datos...</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="logo"><img src="/logo.png" alt="Química Gabriel" class="logo-img"></div>
+        <p>Productos de limpieza automotriz y del hogar. Danubio 5090, Sayago — Montevideo.</p>
+      </div>
+      <div>
+        <h4>Catálogo</h4>
+        <ul>
+          <li><a href="/páginas/la.html">Línea automotriz</a></li>
+          <li><a href="/páginas/lh.html">Limpieza del hogar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="/páginas/fp.html">Formas de pago</a></li>
+          <li><a href="/páginas/nosotros.html">Nosotros</a></li>
+          <li><a href="/formulario/inicio.html">Mi cuenta</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/supabase-config.js"></script>
+<script src="/script.js"></script>
+</body>
+</html>
