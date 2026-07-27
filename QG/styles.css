@@ -313,6 +313,15 @@ nav a:hover{color:var(--amber);}
   text-transform:none;letter-spacing:0;font-weight:500;
 }
 
+/* franja roja de promo (dirección / envíos) */
+.promo-banner{background:#E63946;color:#fff;}
+.promo-content{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;padding:10px 0;font-size:13px;}
+.promo-left{display:flex;align-items:center;gap:8px;}
+.promo-icon{flex-shrink:0;}
+.promo-text{color:#fff;}
+.promo-text strong{font-weight:700;}
+.promo-right{color:#fff;font-weight:600;}
+
 /* hero */
 .hero{position:relative;overflow:hidden;}
 .hero-split{
@@ -365,6 +374,8 @@ nav a:hover{color:var(--amber);}
 .cat-card .band{height:8px;}
 .cat-card.steel .band{background:var(--steel);}
 .cat-card.teal .band{background:var(--teal);}
+.cat-card.steel{background:linear-gradient(135deg, var(--steel) 0%, #ffffff 72%);}
+.cat-card.teal{background:linear-gradient(135deg, var(--teal) 0%, #ffffff 72%);}
 .cat-card-body{padding:28px;}
 .cat-card h3{font-size:22px;margin-bottom:6px;}
 .cat-card.steel h3{color:var(--steel);}

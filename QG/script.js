@@ -43,7 +43,12 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-// ===== Carrito (localStorage, funciona con o sin cuenta) =====
+// =====================================================================
+// ===== Carrito (localStorage, funciona con o sin cuenta)           =====
+// =====================================================================
+// ESQUEMA ÚNICO usado en todo el sitio:
+// { id, name, category, price (texto para mostrar), priceNumber (numero),
+//   imageSrc, imageAlt, quantity }
 const CART_KEY = 'qg_cart';
 const WHATSAPP_NUMBER = '59899661360';
 
@@ -60,6 +65,20 @@ function saveCart(cart) {
   updateCartBadges();
 }
 
+function parsePriceNumber(raw) {
+  if (raw === null || raw === undefined) return 0;
+  // toma el primer monto tipo $1.234 o $1234 que aparezca en el texto
+  const match = String(raw).match(/\$\s*([\d.,]+)/);
+  const cleaned = match ? match[1].replace(/\./g, '').replace(',', '.') : String(raw).replace(/[^\d.,]/g, '');
+  const n = parseFloat(cleaned);
+  return Number.isFinite(n) ? n : 0;
+}
+
+function cleanText(s) {
+  if (!s) return '';
+  return String(s).replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+}
+
 function addToCart(item) {
   const cart = getCart();
   const existing = cart.find(function (p) {
@@ -67,24 +86,64 @@ function addToCart(item) {
   });
 
   if (existing) {
-    existing.qty += 1;
+    existing.quantity = (Number(existing.quantity) || 0) + 1;
   } else {
     cart.push({
       id: item.id,
       name: item.name,
-      category: item.category,
-      img: item.img,
+      category: item.category || '',
       price: item.price || '',
-      qty: 1
+      priceNumber: item.priceNumber !== undefined ? item.priceNumber : parsePriceNumber(item.price),
+      imageSrc: item.imageSrc || item.img || '',
+      imageAlt: item.imageAlt || item.name || '',
+      quantity: 1
     });
   }
 
   saveCart(cart);
 }
 
+// ===== Listener global: agrega cualquier .btn-add del catálogo (index, la, lh) =====
+// Antes esto no existía en script.js, por eso los botones de la.html / lh.html
+// no guardaban nada: no había nada escuchando el click.
+document.body.addEventListener('click', function (e) {
+  const btn = e.target.closest('.btn-add');
+  if (!btn) return;
+
+  const card = btn.closest('.product-card');
+  if (!card) return;
+
+  const id = card.dataset.id || ('prod_' + Date.now());
+  const name = cleanText(card.dataset.name || card.querySelector('h3')?.innerText || 'Producto');
+  const priceText = card.dataset.price || card.querySelector('.p-price')?.textContent || '0';
+  const priceNumber = parsePriceNumber(priceText);
+  const category = card.dataset.category || '';
+  const imgEl = card.querySelector('img');
+  const imageSrc = imgEl?.getAttribute('src') || '';
+  const imageAlt = imgEl?.alt || name;
+
+  addToCart({
+    id: id,
+    name: name,
+    price: String(priceText).trim(),
+    priceNumber: priceNumber,
+    imageSrc: imageSrc,
+    imageAlt: imageAlt,
+    category: category
+  });
+
+  const original = btn.textContent;
+  btn.textContent = 'Agregado';
+  btn.disabled = true;
+  setTimeout(function () {
+    btn.textContent = original || 'Agregar al pedido';
+    btn.disabled = false;
+  }, 900);
+});
+
 function updateCartBadges() {
   const total = getCart().reduce(function (sum, p) {
-    return sum + p.qty;
+    return sum + (Number(p.quantity) || 0);
   }, 0);
 
   document.querySelectorAll('[data-cart-badge]').forEach(function (el) {
@@ -100,15 +159,8 @@ function updateCartBadges() {
 
 document.addEventListener('DOMContentLoaded', updateCartBadges);
 
-function parsePrice(str) {
-  if (!str) return null;
-  const m = str.match(/\$\s*([\d]{1,3}(?:\.\d{3})*)/);
-  if (!m) return null;
-  return parseInt(m[1].replace(/\./g, ''), 10);
-}
-
 function formatPrice(n) {
-  return '$' + n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  return '$' + Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 }
 
 function buildWhatsAppMessage() {
@@ -120,14 +172,16 @@ function buildWhatsAppMessage() {
   const lines = ['Hola, quiero coordinar este pedido:'];
 
   cart.forEach(function (item) {
-    const price = parsePrice(item.price);
-    if (price !== null) {
-      total += price * item.qty;
+    const qty = Number(item.quantity) || 0;
+    const priceNumber = Number(item.priceNumber) || 0;
+
+    if (priceNumber > 0) {
+      total += priceNumber * qty;
     } else if (item.price) {
-      unpriced += item.qty;
+      unpriced += qty;
     }
 
-    lines.push('- ' + item.name + ' (' + item.qty + ')' + (item.price ? ' - ' + item.price : ''));
+    lines.push('- ' + item.name + ' (' + qty + ')' + (item.price ? ' - ' + item.price : ''));
   });
 
   let totalLine = 'Total aproximado: ' + formatPrice(total);
@@ -148,8 +202,9 @@ function buildWhatsAppMessage() {
 
 function buildQrPayloads(cart, orderId, address, fecha) {
   const total = cart.reduce(function (sum, item) {
-    const price = parsePrice(item.price);
-    return sum + (price !== null ? price * item.qty : 0);
+    const qty = Number(item.quantity) || 0;
+    const priceNumber = Number(item.priceNumber) || 0;
+    return sum + priceNumber * qty;
   }, 0);
 
   const payload = [
@@ -173,8 +228,9 @@ async function confirmOrderToWhatsApp() {
   }
 
   const total = cart.reduce(function (sum, item) {
-    const price = parsePrice(item.price);
-    return sum + (price !== null ? price * item.qty : 0);
+    const qty = Number(item.quantity) || 0;
+    const priceNumber = Number(item.priceNumber) || 0;
+    return sum + priceNumber * qty;
   }, 0);
 
   let user;
@@ -243,18 +299,19 @@ function renderCartPage() {
   if (addressWrap) addressWrap.style.display = 'block';
 
   cart.forEach(function (item) {
+    const qty = Number(item.quantity) || 0;
     const row = document.createElement('div');
     row.className = 'cart-item';
     row.innerHTML =
-      '<img src="' + item.img + '" alt="' + item.name + '">' +
+      '<img src="' + (item.imageSrc || '/placeholder.png') + '" alt="' + (item.imageAlt || item.name || '') + '">' +
       '<div class="cart-item-info">' +
-        '<span class="p-cat">' + item.category + '</span>' +
+        '<span class="p-cat">' + (item.category || '') + '</span>' +
         '<h3>' + item.name + '</h3>' +
         (item.price ? '<span class="p-price" style="margin:0;">' + item.price + '</span>' : '') +
       '</div>' +
       '<div class="qty-control">' +
         '<button type="button" class="qty-minus">−</button>' +
-        '<span>' + item.qty + '</span>' +
+        '<span>' + qty + '</span>' +
         '<button type="button" class="qty-plus">+</button>' +
       '</div>' +
       '<button type="button" class="remove-item">Quitar</button>';
@@ -285,9 +342,9 @@ function changeQty(id, delta) {
 
   if (!item) return;
 
-  item.qty += delta;
+  item.quantity = (Number(item.quantity) || 0) + delta;
 
-  if (item.qty <= 0) {
+  if (item.quantity <= 0) {
     return removeFromCart(id);
   }
 
@@ -312,7 +369,7 @@ function updateCartTotalText() {
 
   const cart = getCart();
   const totalQty = cart.reduce(function (sum, p) {
-    return sum + p.qty;
+    return sum + (Number(p.quantity) || 0);
   }, 0);
 
   countEl.textContent = totalQty;
@@ -323,11 +380,12 @@ function updateCartTotalText() {
   let unpriced = 0;
 
   cart.forEach(function (item) {
-    const price = parsePrice(item.price);
-    if (price !== null) {
-      totalAmount += price * item.qty;
+    const qty = Number(item.quantity) || 0;
+    const priceNumber = Number(item.priceNumber) || 0;
+    if (priceNumber > 0) {
+      totalAmount += priceNumber * qty;
     } else {
-      unpriced += item.qty;
+      unpriced += qty;
     }
   });
 
@@ -443,7 +501,7 @@ function renderPurchaseHistory() {
 
           const itemsHtml = (purchase.items || []).map(function (item) {
             return '<li>' +
-              '<strong>' + (item.qty || 0) + 'x</strong> ' +
+              '<strong>' + (item.quantity || 0) + 'x</strong> ' +
               (item.name || 'Producto') +
               (item.price ? ' — ' + item.price : '') +
               '</li>';
@@ -456,7 +514,7 @@ function renderPurchaseHistory() {
                 '<span class="history-status">' + (purchase.status || 'pendiente') + '</span>' +
               '</div>' +
               '<div class="history-card">' +
-                '<div class="history-total">Total: ' + formatPrice(parsePrice(purchase.total ? purchase.total.toString() : '') || 0) + '</div>' +
+                '<div class="history-total">Total: ' + formatPrice(Number(purchase.total) || 0) + '</div>' +
                 '<div class="history-order">ID: ' + (purchase.order_id || '-') + '</div>' +
                 '<ul class="history-products">' + itemsHtml + '</ul>' +
               '</div>' +

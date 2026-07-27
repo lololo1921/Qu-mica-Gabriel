@@ -39,19 +39,6 @@
     </div>
     <button class="burger" aria-label="Abrir menú">☰</button>
   </div>
-  <div class="mobile-nav">
-    <button class="mobile-drop-btn">Categorías
-      <svg class="chev" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4"/></svg>
-    </button>
-    <div class="mobile-submenu">
-      <a href="/páginas/la.html">Línea automotriz</a>
-      <a href="/páginas/lh.html">Limpieza del hogar</a>
-    </div>
-    <a href="/páginas/fp.html">Formas de pago</a>
-    <a href="/páginas/nosotros.html">Nosotros</a>
-    <a href="/carrito/carrito.html">Carrito (<span data-cart-badge>0</span>)</a>
-    <a href="/formulario/inicio.html">Ingresar</a>
-  </div>
 </header>
 
 <section class="page-hero steel">
@@ -79,10 +66,10 @@
         <div class="total-amount" id="cart-total-amount"></div>
       </div>
       <div style="display:flex;gap:12px;flex-wrap:wrap;">
-  <button type="button" class="btn-secondary" id="cart-clear-btn">Vaciar carrito</button>
-  <button type="button" class="btn-secondary" id="cart-qr-btn">Generar QR del pedido</button>
-  <button type="button" class="btn-whatsapp" id="cart-whatsapp-btn">Coordinar por WhatsApp</button>
-</div>
+        <button type="button" class="btn-secondary" id="cart-clear-btn">Vaciar carrito</button>
+        <button type="button" class="btn-secondary" id="cart-qr-btn">Generar QR del pedido</button>
+        <button type="button" class="btn-whatsapp" id="cart-whatsapp-btn">Coordinar por WhatsApp</button>
+      </div>
     </div>
 
     <div class="qr-result" id="qr-result" style="display:none;">
@@ -133,5 +120,6 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="/supabase-config.js"></script>
 <script src="/script.js"></script>
+
 </body>
 </html>

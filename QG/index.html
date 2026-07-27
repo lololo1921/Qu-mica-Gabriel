@@ -7,7 +7,7 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 
@@ -65,6 +65,7 @@
   </div>
 </div>
 
+<main>
 <section class="hero">
   <div class="hero-split">
     <div class="hero-half steel"></div>
@@ -97,12 +98,6 @@
         <div class="cat-card-body">
           <h3>Línea automotriz</h3>
           <p>Desengrasantes, siliconas, limpieza, inyectores, aromatizadores, paños y aguas.</p>
-          <div class="chip-row">
-            <span class="chip">Desengrasantes</span>
-            <span class="chip">Siliconas</span>
-            <span class="chip">Inyectores</span>
-            <span class="chip">Aromatizadores</span>
-          </div>
         </div>
       </a>
       <a href="/páginas/lh.html" class="cat-card teal">
@@ -110,12 +105,6 @@
         <div class="cat-card-body">
           <h3>Limpieza del hogar</h3>
           <p>Limpieza, alcoholes, cuidados del hogar, piscina y baldes y bidones.</p>
-          <div class="chip-row">
-            <span class="chip">Limpieza</span>
-            <span class="chip">Alcoholes</span>
-            <span class="chip">Cuidados del hogar</span>
-            <span class="chip">Piscina</span>
-          </div>
         </div>
       </a>
     </div>
@@ -130,39 +119,42 @@
     </div>
     <div class="product-grid">
       <div class="product-card" data-category="siliconas" data-id="siliconas-renovador-de-plasticos-crema-500gr" data-name="Renovador de Plásticos Crema (500GR)" data-price="$528">
-        <img src="/productos/Autos/Siliconas-tablero/renovador-plasticos-en-crema-500gr.png" alt="Renovador de Plásticos Crema" loading="lazy">
+        <img src="/productos/Autos/Siliconas-tablero/renovador-plasticos-en-crema-500gr.png" alt="Renovador de Plásticos Crema (500GR)" loading="lazy">
         <div class="product-card-body">
           <span class="p-cat">Siliconas / Tableros</span>
           <h3>Renovador de Plásticos Crema<br><small style="font-weight:500;color:#8b928d;">500GR</small></h3>
           <span class="p-price">$528</span>
-          <button class="btn-add">Agregar al pedido</button>
+          <button class="btn-add" type="button">Agregar al pedido</button>
         </div>
       </div>
+
       <div class="product-card" data-category="inyectores" data-id="inyectores-liquido-limpia-inyectores-base-petroleo-5lts" data-name="Líquido Limpia Inyectores Base Petróleo (5LTS)" data-price="$2270">
-        <img src="/productos/Autos/Inyectores/liquido-limpia-inyectores-base-petroleo-5lts.png" alt="Líquido Limpia Inyectores Base Petróleo" loading="lazy">
+        <img src="/productos/Autos/Inyectores/liquido-limpia-inyectores-base-petroleo-5lts.png" alt="Líquido Limpia Inyectores Base Petróleo (5LTS)" loading="lazy">
         <div class="product-card-body">
           <span class="p-cat">Inyectores</span>
           <h3>Líquido Limpia Inyectores Base Petróleo<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
           <span class="p-price">$2270</span>
-          <button class="btn-add">Agregar al pedido</button>
+          <button class="btn-add" type="button">Agregar al pedido</button>
         </div>
       </div>
+
       <div class="product-card" data-category="desengrasantes" data-id="desengrasantes-desengrasante-de-motores-mk1-5lts" data-name="Desengrasante de Motores MK1 (5LTS)" data-price="$449">
-        <img src="/productos/Autos/Desengrasantes/mk1-5lts.png" alt="Desengrasante de Motores MK1" loading="lazy">
+        <img src="/productos/Autos/Desengrasantes/mk1-5lts.png" alt="Desengrasante de Motores MK1 (5LTS)" loading="lazy">
         <div class="product-card-body">
           <span class="p-cat">Desengrasantes</span>
           <h3>Desengrasante de Motores MK1<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
           <span class="p-price">$449</span>
-          <button class="btn-add">Agregar al pedido</button>
+          <button class="btn-add" type="button">Agregar al pedido</button>
         </div>
       </div>
+
       <div class="product-card" data-category="limpieza" data-id="limpieza-shampoo-con-cera-5lts" data-name="Shampoo con Cera (5LTS)" data-price="$595">
-        <img src="/productos/Autos/Limpieza General/shampoo-con-cera-5lts.png" alt="Shampoo con Cera" loading="lazy">
+        <img src="/productos/Autos/Limpieza General/shampoo-con-cera-5lts.png" alt="Shampoo con Cera (5LTS)" loading="lazy">
         <div class="product-card-body">
           <span class="p-cat">Limpieza</span>
           <h3>Shampoo con Cera<br><small style="font-weight:500;color:#8b928d;">5LTS</small></h3>
           <span class="p-price">$595</span>
-          <button class="btn-add">Agregar al pedido</button>
+          <button class="btn-add" type="button">Agregar al pedido</button>
         </div>
       </div>
     </div>
@@ -189,21 +181,14 @@
     </div>
   </div>
 </section>
-
-<div class="wrap">
-  <div class="trust">
-    <div><div class="big">+20</div><div class="lbl">Años en el rubro</div></div>
-    <div><div class="big">2</div><div class="lbl">Líneas de producto</div></div>
-    <div><div class="big">100%</div><div class="lbl">Atención directa</div></div>
-  </div>
-</div>
+</main>
 
 <footer>
   <div class="wrap">
     <div class="foot-grid">
       <div>
         <div class="logo"><img src="/logo.png" alt="Química Gabriel" class="logo-img"></div>
-        <p>Droguería especializada en productos automotrices y de limpieza del hogar. Danubio 5090, Sayago — Montevideo, Uruguay.</p>
+        <p>Química Automotriz especializada en productos automotrices y de limpieza del hogar. Danubio 5090, Sayago — Montevideo, Uruguay.</p>
         <a class="wa-btn" href="https://wa.me/59897359485" target="_blank" rel="noopener">WhatsApp</a>
       </div>
       <div>
@@ -230,79 +215,6 @@
   </div>
 </footer>
 
-<style>
-  .promo-banner {
-    background: #e63946;
-    color: white;
-    padding: 12px 0;
-    font-size: 14px;
-    border-bottom: 2px solid #1d3557;
-  }
-
-  .promo-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .promo-left {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex: 1;
-  }
-
-  .promo-icon {
-    flex-shrink: 0;
-    opacity: 0.9;
-  }
-
-  .promo-text {
-    font-family: 'Work Sans', sans-serif;
-  }
-
-  .promo-right {
-    white-space: nowrap;
-    font-weight: 600;
-  }
-
-  @media (max-width: 768px) {
-    .promo-content {
-      flex-direction: column;
-      text-align: center;
-      gap: 8px;
-    }
-
-    .promo-left {
-      justify-content: center;
-    }
-  }
-
-  .cat-card {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-
-  .cat-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-  }
-
-  .cat-card.steel {
-    background: linear-gradient(135deg, #ffffff 0%, #2c5aa0 100%);
-  }
-
-  .cat-card.teal {
-    background: linear-gradient(135deg, #ffffff 0%, #2c7a6f 100%);
-  }
-</style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="/supabase-config.js"></script>
 <script src="/script.js"></script>
