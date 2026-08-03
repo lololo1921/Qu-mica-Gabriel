@@ -74,9 +74,11 @@
       <span class="search-count" id="search-count"></span>
     </div>
 
+    <div class="cat-filters" id="cat-filters" role="group" aria-label="Filtrar por categoría"></div>
+
     <div id="catalog-container">
 
-      <div class="category-block" data-category-block="limpieza">
+      <div class="category-block" id="cat-limpieza" data-category-block="limpieza">
         <h2 class="category-title">Limpieza</h2>
         <div class="product-grid">
           <div class="product-card" data-category="limpieza" data-id="limpieza-anti-hongo-fungicida-5lts" data-name="Anti Hongo Fungicida (5LTS)" data-price="$292">
@@ -235,7 +237,7 @@
         </div>
       </div>
 
-      <div class="category-block" data-category-block="alcoholes">
+      <div class="category-block" id="cat-alcoholes" data-category-block="alcoholes">
         <h2 class="category-title">Alcoholes</h2>
         <div class="product-grid">
           <div class="product-card" data-category="alcoholes" data-id="alcoholes-alcohol-de-cereales-95-10lts" data-name="Alcohol de Cereales 95° (10LTS)" data-price="$1097">
@@ -385,7 +387,7 @@
         </div>
       </div>
 
-      <div class="category-block" data-category-block="cuidados">
+      <div class="category-block" id="cat-cuidados" data-category-block="cuidados">
         <h2 class="category-title">Cuidados del hogar</h2>
         <div class="product-grid">
           <div class="product-card" data-category="cuidados" data-id="cuidados-aceite-para-caminadora-1lt" data-name="Aceite para Caminadora (1LT)" data-price="$1105">
@@ -644,7 +646,7 @@
         </div>
       </div>
 
-      <div class="category-block" data-category-block="piscina">
+      <div class="category-block" id="cat-piscina" data-category-block="piscina">
         <h2 class="category-title">Piscina</h2>
         <div class="product-grid">
           <div class="product-card" data-category="piscina" data-id="piscina-alguicida-para-piscina-5lts" data-name="Alguicida para Piscina (5LTS)" data-price="$356">
@@ -722,7 +724,7 @@
         </div>
       </div>
 
-      <div class="category-block" data-category-block="baldes">
+      <div class="category-block" id="cat-baldes" data-category-block="baldes">
         <h2 class="category-title">Baldes y bidones</h2>
         <div class="product-grid">
           <div class="product-card" data-category="baldes" data-id="baldes-balde-blanco-10lts" data-name="Balde Blanco (10LTS)" data-price="$169">
@@ -866,7 +868,7 @@
       <div>
         <div class="logo"><img src="/logo.png" alt="Química Gabriel" class="logo-img"></div>
         <p>Droguería especializada en productos automotrices y de limpieza del hogar. Danubio 5090, Sayago — Montevideo, Uruguay.</p>
-        <a class="wa-btn" href="https://wa.me/59897359485" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="wa-btn" href="https://wa.me/59899661360" target="_blank" rel="noopener">WhatsApp</a>
       </div>
       <div>
         <h4>Catálogo</h4>
@@ -956,6 +958,35 @@
   }
   .category-block:first-of-type .category-title{ margin-top:8px; }
   .empty-state{ display:block; }
+
+  .cat-filters{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:28px;
+  }
+  .cat-chip{
+    font-family:'Work Sans',sans-serif;
+    font-size:13px;
+    font-weight:600;
+    padding:7px 16px;
+    border-radius:999px;
+    border:1px solid rgba(0,0,0,.14);
+    background:#fff;
+    color:#4a504b;
+    cursor:pointer;
+    transition:background .15s ease, border-color .15s ease, color .15s ease;
+    white-space:nowrap;
+  }
+  .cat-chip:hover{
+    border-color:#3a8f7c;
+    color:#3a8f7c;
+  }
+  .cat-chip.active{
+    background:#3a8f7c;
+    border-color:#3a8f7c;
+    color:#fff;
+  }
 </style>
 
 <script>
@@ -964,8 +995,10 @@
   var clearBtn = document.getElementById('search-clear');
   var countEl = document.getElementById('search-count');
   var emptyState = document.getElementById('empty-state');
+  var catFiltersEl = document.getElementById('cat-filters');
   var blocks = Array.prototype.slice.call(document.querySelectorAll('.category-block'));
   var allCards = Array.prototype.slice.call(document.querySelectorAll('.product-card'));
+  var activeCat = '';
 
   function normalize(str){
     return str
@@ -973,6 +1006,58 @@
       .normalize('NFD')
       .replace(/[\u0300-\u036f]/g, ''); // strip accents
   }
+
+  // --- Construir chips de categoría a partir de los bloques existentes ---
+  function buildChips(){
+    var chipAll = document.createElement('button');
+    chipAll.type = 'button';
+    chipAll.className = 'cat-chip active';
+    chipAll.textContent = 'Todos';
+    chipAll.dataset.cat = '';
+    catFiltersEl.appendChild(chipAll);
+
+    blocks.forEach(function(block){
+      var catKey = block.getAttribute('data-category-block');
+      var titleEl = block.querySelector('.category-title');
+      var label = titleEl ? titleEl.textContent.trim() : catKey;
+
+      var chip = document.createElement('button');
+      chip.type = 'button';
+      chip.className = 'cat-chip';
+      chip.textContent = label;
+      chip.dataset.cat = catKey;
+      catFiltersEl.appendChild(chip);
+    });
+  }
+
+  function setActiveChip(cat){
+    activeCat = cat;
+    Array.prototype.forEach.call(catFiltersEl.querySelectorAll('.cat-chip'), function(c){
+      c.classList.toggle('active', c.dataset.cat === cat);
+    });
+  }
+
+  catFiltersEl.addEventListener('click', function(e){
+    var btn = e.target.closest ? e.target.closest('.cat-chip') : null;
+    if (!btn) return;
+
+    var cat = btn.dataset.cat;
+    if (cat === activeCat && cat !== '') {
+      cat = ''; // volver a tocar el chip activo lo desactiva
+    }
+
+    setActiveChip(cat);
+    runFilter();
+
+    if (cat) {
+      var target = document.querySelector('.category-block[data-category-block="' + cat + '"]');
+      if (target) {
+        setTimeout(function(){
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 50);
+      }
+    }
+  });
 
   function runFilter(){
     var raw = searchInput.value.trim();
@@ -983,7 +1068,9 @@
 
     allCards.forEach(function(card){
       var name = normalize(card.getAttribute('data-name') || '');
-      var match = q === '' || name.indexOf(q) !== -1;
+      var matchesText = q === '' || name.indexOf(q) !== -1;
+      var matchesCat = !activeCat || card.getAttribute('data-category') === activeCat;
+      var match = matchesText && matchesCat;
       card.style.display = match ? '' : 'none';
       if (match) visibleCount++;
     });
@@ -993,7 +1080,7 @@
       block.style.display = visibleInBlock === 0 ? 'none' : '';
     });
 
-    if (raw === '') {
+    if (raw === '' && !activeCat) {
       countEl.textContent = '';
     } else {
       countEl.textContent = visibleCount + (visibleCount === 1 ? ' producto encontrado' : ' productos encontrados');
@@ -1009,6 +1096,7 @@
     searchInput.focus();
   });
 
+  buildChips();
   runFilter();
 })();
 </script>

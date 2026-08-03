@@ -466,6 +466,14 @@ footer li{margin-bottom:10px;color:#C7CDC9;}
 .btn-add:disabled{background:#9aa39d;cursor:not-allowed;}
 .btn-add:disabled:hover{background:#9aa39d;}
 
+.btn-view-more{
+  display:block;width:100%;text-align:center;margin-top:8px;
+  padding:9px;border:1.5px solid var(--line);border-radius:2px;
+  font-size:12.5px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;
+  color:var(--ink);background:transparent;transition:border-color .15s ease,color .15s ease;
+}
+.btn-view-more:hover{border-color:var(--amber);color:var(--amber);}
+
 /* visor de imagen ampliada */
 .lightbox-overlay{
   position:fixed;inset:0;background:rgba(30,42,40,0.92);

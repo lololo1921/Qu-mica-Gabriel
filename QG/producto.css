@@ -1,0 +1,85 @@
+/* ============================================================
+   Estilos de la ficha de producto individual
+   Se usa junto a /styles.css (variables de color, tipografías,
+   header, footer, botones .btn-add / .wa-btn, etc ya definidos ahí).
+   ============================================================ */
+
+/* ===== Breadcrumb ===== */
+.breadcrumb{
+  padding:16px 0;
+  font-size:13px;
+  color:#6b716d;
+  border-bottom:1px solid var(--line);
+}
+.breadcrumb a{color:#6b716d;}
+.breadcrumb a:hover{color:var(--amber);}
+.breadcrumb .sep{margin:0 6px;color:#c3c8c4;}
+.breadcrumb .current{color:var(--ink);font-weight:600;}
+
+/* ===== Layout principal ===== */
+.product-detail-section{padding:44px 0 72px;}
+.product-detail-grid{
+  display:grid;
+  grid-template-columns:1.05fr 0.95fr;
+  gap:48px;
+  align-items:start;
+  margin-bottom:56px;
+}
+
+/* ===== Galería ===== */
+.product-gallery{position:sticky;top:96px;}
+.gallery-main{
+  border:1px solid var(--line);border-radius:6px;background:#fff;
+  aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;
+  overflow:hidden;margin-bottom:12px;
+}
+.gallery-main img{
+  width:100%;height:100%;object-fit:contain;padding:32px;
+  cursor:zoom-in;transition:transform .3s ease;
+}
+.gallery-thumbs{display:flex;gap:10px;flex-wrap:wrap;}
+.gallery-thumbs button{
+  width:72px;height:72px;flex-shrink:0;border:1.5px solid var(--line);border-radius:4px;
+  background:#fff;padding:6px;cursor:pointer;transition:border-color .15s ease;
+}
+.gallery-thumbs button.active,
+.gallery-thumbs button:hover{border-color:var(--amber);}
+.gallery-thumbs img{width:100%;height:100%;object-fit:contain;display:block;}
+
+/* ===== Caja de compra ===== */
+.product-buy{
+  border:1px solid var(--line);border-radius:6px;background:#fff;padding:32px;
+}
+.product-buy .buy-img{display:none;} /* solo un hook de datos para el carrito */
+.product-buy .p-cat{
+  font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--amber);
+  font-weight:600;margin-bottom:10px;display:block;
+}
+.product-title{font-size:26px;line-height:1.22;margin-bottom:6px;}
+.product-variant{font-size:13.5px;color:#8b928d;margin-bottom:18px;}
+.product-price{font-family:'Oswald',sans-serif;font-size:30px;color:var(--ink);margin-bottom:22px;}
+.product-buy .btn-add{padding:14px;font-size:13.5px;margin-bottom:10px;}
+.product-buy .wa-btn{width:100%;justify-content:center;margin-top:0;}
+.product-meta-list{
+  list-style:none;margin-top:24px;padding-top:20px;border-top:1px solid var(--line);
+  font-size:13.5px;color:#5b625f;display:flex;flex-direction:column;gap:8px;
+}
+.product-meta-list strong{color:var(--ink);}
+
+/* ===== Descripción / especificaciones ===== */
+.product-description-block{border-top:1px solid var(--line);padding-top:32px;margin-bottom:32px;}
+.product-description-block h2{font-size:19px;margin-bottom:12px;}
+.product-description-block p{color:#4a504d;font-size:14.5px;line-height:1.75;margin-bottom:10px;}
+.placeholder-copy{color:#a8ada9;font-style:italic;}
+
+.back-link{
+  display:inline-flex;align-items:center;gap:6px;margin-top:8px;
+  font-size:13.5px;font-weight:600;color:var(--ink);
+}
+.back-link:hover{color:var(--amber);}
+
+@media (max-width:860px){
+  .product-detail-grid{grid-template-columns:1fr;gap:28px;}
+  .product-gallery{position:static;}
+  .product-title{font-size:22px;}
+}

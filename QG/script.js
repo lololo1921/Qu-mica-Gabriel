@@ -157,6 +157,41 @@ function updateCartBadges() {
   });
 }
 
+// =====================================================================
+// ===== Navegación a la ficha de producto individual                =====
+// =====================================================================
+// Cada producto vive en /productos-paginas/{data-id}.html. Esto agrega
+// un botón "Ver más" a cada .product-card del catálogo (index, la, lh)
+// y hace que la card completa navegue a la ficha (salvo que el click
+// sea sobre "Agregar al pedido", que sigue agregando al carrito sin navegar).
+document.addEventListener('DOMContentLoaded', function () {
+  const grids = document.querySelectorAll('#catalog-container .product-card[data-id], .product-grid .product-card[data-id]');
+
+  grids.forEach(function (card) {
+    if (card.querySelector('.btn-view-more')) return;
+
+    const addBtn = card.querySelector('.btn-add');
+    if (!addBtn) return;
+
+    const viewBtn = document.createElement('a');
+    viewBtn.className = 'btn-view-more';
+    viewBtn.href = '/productos-paginas/' + card.dataset.id + '.html';
+    viewBtn.textContent = 'Ver más';
+
+    addBtn.insertAdjacentElement('afterend', viewBtn);
+  });
+});
+
+document.body.addEventListener('click', function (e) {
+  if (e.target.closest('.btn-add') || e.target.closest('.btn-view-more')) return;
+
+  const card = e.target.closest('.product-card[data-id]');
+  if (!card) return;
+  if (!card.closest('#catalog-container') && !card.closest('.product-grid')) return;
+
+  window.location.href = '/productos-paginas/' + card.dataset.id + '.html';
+});
+
 document.addEventListener('DOMContentLoaded', updateCartBadges);
 
 function formatPrice(n) {
