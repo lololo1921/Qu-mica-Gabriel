@@ -74,8 +74,6 @@
       <span class="search-count" id="search-count"></span>
     </div>
 
-    <div class="cat-filters" id="cat-filters" role="group" aria-label="Filtrar por categoría"></div>
-
     <div id="catalog-container">
 
       <div class="category-block" data-category-block="desengrasantes">
@@ -854,35 +852,6 @@
   }
   .category-block:first-of-type .category-title{ margin-top:8px; }
   .empty-state{ display:block; }
-
-  .cat-filters{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-    margin-bottom:28px;
-  }
-  .cat-chip{
-    font-family:'Work Sans',sans-serif;
-    font-size:13px;
-    font-weight:600;
-    padding:7px 16px;
-    border-radius:999px;
-    border:1px solid rgba(0,0,0,.14);
-    background:#fff;
-    color:#4a504b;
-    cursor:pointer;
-    transition:background .15s ease, border-color .15s ease, color .15s ease;
-    white-space:nowrap;
-  }
-  .cat-chip:hover{
-    border-color:#3a6f8f;
-    color:#3a6f8f;
-  }
-  .cat-chip.active{
-    background:#3a6f8f;
-    border-color:#3a6f8f;
-    color:#fff;
-  }
 </style>
 
 <script>
@@ -891,10 +860,8 @@
   var clearBtn = document.getElementById('search-clear');
   var countEl = document.getElementById('search-count');
   var emptyState = document.getElementById('empty-state');
-  var catFiltersEl = document.getElementById('cat-filters');
   var blocks = Array.prototype.slice.call(document.querySelectorAll('.category-block'));
   var allCards = Array.prototype.slice.call(document.querySelectorAll('.product-card'));
-  var activeCat = '';
 
   function normalize(str){
     return str
@@ -902,58 +869,6 @@
       .normalize('NFD')
       .replace(/[\u0300-\u036f]/g, '');
   }
-
-  // --- Construir chips de categoría a partir de los bloques existentes ---
-  function buildChips(){
-    var chipAll = document.createElement('button');
-    chipAll.type = 'button';
-    chipAll.className = 'cat-chip active';
-    chipAll.textContent = 'Todos';
-    chipAll.dataset.cat = '';
-    catFiltersEl.appendChild(chipAll);
-
-    blocks.forEach(function(block){
-      var catKey = block.getAttribute('data-category-block');
-      var titleEl = block.querySelector('.category-title');
-      var label = titleEl ? titleEl.textContent.trim() : catKey;
-
-      var chip = document.createElement('button');
-      chip.type = 'button';
-      chip.className = 'cat-chip';
-      chip.textContent = label;
-      chip.dataset.cat = catKey;
-      catFiltersEl.appendChild(chip);
-    });
-  }
-
-  function setActiveChip(cat){
-    activeCat = cat;
-    Array.prototype.forEach.call(catFiltersEl.querySelectorAll('.cat-chip'), function(c){
-      c.classList.toggle('active', c.dataset.cat === cat);
-    });
-  }
-
-  catFiltersEl.addEventListener('click', function(e){
-    var btn = e.target.closest ? e.target.closest('.cat-chip') : null;
-    if (!btn) return;
-
-    var cat = btn.dataset.cat;
-    if (cat === activeCat && cat !== '') {
-      cat = ''; // volver a tocar el chip activo lo desactiva
-    }
-
-    setActiveChip(cat);
-    runFilter();
-
-    if (cat) {
-      var target = document.querySelector('.category-block[data-category-block="' + cat + '"]');
-      if (target) {
-        setTimeout(function(){
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 50);
-      }
-    }
-  });
 
   function runFilter(){
     var raw = searchInput.value.trim();
@@ -964,9 +879,7 @@
 
     allCards.forEach(function(card){
       var name = normalize(card.getAttribute('data-name') || '');
-      var matchesText = q === '' || name.indexOf(q) !== -1;
-      var matchesCat = !activeCat || card.getAttribute('data-category') === activeCat;
-      var match = matchesText && matchesCat;
+      var match = q === '' || name.indexOf(q) !== -1;
       card.style.display = match ? '' : 'none';
       if (match) visibleCount++;
     });
@@ -976,7 +889,7 @@
       block.style.display = visibleInBlock === 0 ? 'none' : '';
     });
 
-    if (raw === '' && !activeCat) {
+    if (raw === '') {
       countEl.textContent = '';
     } else {
       countEl.textContent = visibleCount + (visibleCount === 1 ? ' producto encontrado' : ' productos encontrados');
@@ -992,7 +905,6 @@
     searchInput.focus();
   });
 
-  buildChips();
   runFilter();
 })();
 </script>
