@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Panel — Química Gabriel</title>
+<style>
+:root{--verde:#1f6f4a;--fondo:#f4f6f5;--texto:#1b1f1d;--borde:#c9d1cd;--rojo:#b3261e;--ambar:#fff1c2;--verdeclaro:#e3f3ea}
+*{box-sizing:border-box}
+[hidden]{display:none !important}
+body{margin:0;font:18px/1.4 system-ui,-apple-system,Segoe UI,sans-serif;background:var(--fondo);color:var(--texto);padding-bottom:110px}
+h1,h2{margin:.2em 0}
+.caja{max-width:420px;margin:12vh auto 0;background:#fff;padding:28px;border-radius:14px;box-shadow:0 2px 14px #0002}
+label{display:block;margin:14px 0 4px;font-weight:600}
+input,select{font:inherit;padding:12px;border:2px solid var(--borde);border-radius:10px;width:100%;background:#fff}
+input:focus,select:focus{outline:3px solid #1f6f4a55;border-color:var(--verde)}
+.btn{font:inherit;font-weight:600;padding:12px 18px;border:2px solid var(--borde);background:#fff;border-radius:10px;cursor:pointer}
+.btn.principal{background:var(--verde);border-color:var(--verde);color:#fff}
+.btn.grande{width:100%;margin-top:18px;padding:16px;font-size:1.1em}
+.btn:disabled{opacity:.5}
+.error{color:var(--rojo);font-weight:600;min-height:1.2em}
+.top{display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding:12px 16px;background:var(--verde);color:#fff}
+.top strong{font-size:1.15em;flex:1}
+.top span{font-size:.8em;opacity:.9}
+.top .btn{padding:8px 14px}
+.tabs{display:flex;gap:8px;padding:12px 16px 0}
+.tab{font:inherit;font-weight:600;padding:10px 20px;border:2px solid var(--borde);border-bottom:0;border-radius:10px 10px 0 0;background:#e9eeec;cursor:pointer}
+.tab.activa{background:#fff;color:var(--verde);border-color:var(--verde)}
+main{max-width:900px;margin:0 auto;padding:16px}
+.filtros{display:grid;grid-template-columns:2fr 1fr;gap:10px}
+@media(max-width:600px){.filtros{grid-template-columns:1fr}}
+.ajuste{background:#fff;border:2px solid var(--borde);border-radius:10px;padding:12px 14px;margin:12px 0}
+.ajuste summary{cursor:pointer;font-weight:600}
+.ajuste-fila{display:grid;grid-template-columns:1fr 1fr auto;gap:10px;align-items:end}
+@media(max-width:600px){.ajuste-fila{grid-template-columns:1fr}}
+.ayuda{font-size:.85em;color:#555;margin:8px 0 0}
+.fila{display:flex;justify-content:space-between;align-items:center;gap:12px;background:#fff;border:2px solid transparent;border-radius:10px;padding:10px 14px;margin-top:8px}
+.fila.cambiado{border-color:#e0a800;background:var(--ambar)}
+.fila.invalido{border-color:var(--rojo)}
+.info{display:flex;flex-direction:column;min-width:0}
+.sub{font-size:.8em;color:#5a625e}
+.precio-caja{display:flex;align-items:center;gap:6px;font-weight:700}
+.precio{width:130px;text-align:right;font-weight:700}
+#barra{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:3px solid var(--verde);padding:12px 16px;display:flex;gap:10px;align-items:center;justify-content:flex-end;flex-wrap:wrap;box-shadow:0 -4px 14px #0002}
+#barra-texto{flex:1;font-weight:700;min-width:140px}
+#modal{position:fixed;inset:0;background:#0008;display:flex;align-items:center;justify-content:center;padding:14px;z-index:10}
+.modal-caja{background:#fff;border-radius:14px;padding:20px;max-width:640px;width:100%;max-height:88vh;display:flex;flex-direction:column}
+#modal-lista{overflow:auto;flex:1;margin:10px 0}
+.mfila{display:flex;justify-content:space-between;gap:10px;padding:8px 4px;border-bottom:1px solid #e3e8e5;font-size:.95em}
+.mfila.raro{background:#ffe0dc}
+.modal-botones{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap}
+.grupo{background:#fff;border:2px solid var(--borde);border-radius:10px;padding:10px 14px;margin-top:10px}
+.grupo summary{cursor:pointer;font-weight:600}
+.grupo .btn{margin-top:12px}
+#toast{position:fixed;top:12px;left:50%;transform:translateX(-50%);padding:12px 20px;border-radius:10px;color:#fff;font-weight:700;z-index:20;max-width:92vw}
+#toast.ok{background:var(--verde)}
+#toast.mal{background:var(--rojo)}
+</style>
+</head>
+<body>
+<div id="toast" hidden></div>
+
+<section id="vista-login" class="caja">
+  <h1>Química Gabriel</h1>
+  <p>Panel de administración</p>
+  <form id="form-login">
+    <label for="email">Correo</label>
+    <input id="email" type="email" autocomplete="username" required>
+    <label for="clave">Contraseña</label>
+    <input id="clave" type="password" autocomplete="current-password" required>
+    <button class="btn principal grande" type="submit">Ingresar</button>
+    <p id="error-login" class="error"></p>
+  </form>
+</section>
+
+<section id="vista-panel" hidden>
+  <header class="top">
+    <strong>Panel de precios</strong>
+    <span id="quien"></span>
+    <button id="salir" class="btn">Salir</button>
+  </header>
+  <nav class="tabs">
+    <button class="tab activa" data-tab="precios">Precios</button>
+    <button class="tab" data-tab="historial">Historial</button>
+  </nav>
+
+  <main id="tab-precios">
+    <div class="filtros">
+      <input id="buscar" type="search" placeholder="Buscar producto…">
+      <select id="cat"></select>
+    </div>
+    <details class="ajuste">
+      <summary>Subir o bajar todos los precios que se ven en pantalla</summary>
+      <div class="ajuste-fila">
+        <div><label for="pct">Porcentaje (%)</label><input id="pct" type="number" step="0.1" placeholder="Ej: 8 (o -5 para bajar)"></div>
+        <div><label for="redondeo">Redondear a</label>
+          <select id="redondeo"><option value="1">$1</option><option value="5">$5</option><option value="10">$10</option></select></div>
+        <button id="aplicar-pct" class="btn">Preparar</button>
+      </div>
+      <p class="ayuda">Esto no guarda nada todavía: te muestra los cambios para que los revises. Aplica solo a los productos que se ven con el buscador y la categoría elegidos.</p>
+    </details>
+    <div id="lista"></div>
+    <p id="vacio" hidden>No hay productos con ese filtro.</p>
+  </main>
+
+  <main id="tab-historial" hidden>
+    <div id="lista-historial"></div>
+  </main>
+
+  <div id="barra" hidden>
+    <span id="barra-texto"></span>
+    <button id="descartar" class="btn">Descartar</button>
+    <button id="revisar" class="btn principal">Revisar y guardar</button>
+  </div>
+</section>
+
+<div id="modal" hidden>
+  <div class="modal-caja">
+    <h2>Revisá los cambios</h2>
+    <div id="modal-lista"></div>
+    <p id="modal-aviso" class="error"></p>
+    <div class="modal-botones">
+      <button id="modal-cancelar" class="btn">Volver</button>
+      <button id="modal-confirmar" class="btn principal">Confirmar y guardar</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/supabase-config.js"></script>
+<script>
+const sb = supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
+const $ = id => document.getElementById(id);
+const fmt = n => '$' + Number(n).toLocaleString('es-UY', { maximumFractionDigits: 2 });
+const norm = s => (s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+let productos = [];
+let cambios = {};
+
+function aviso(texto, malo) {
+  const t = $('toast');
+  t.textContent = texto; t.className = malo ? 'mal' : 'ok'; t.hidden = false;
+  clearTimeout(aviso.t);
+  aviso.t = setTimeout(() => { t.hidden = true; }, 4500);
+}
+
+function parsear(s) {
+  s = String(s).trim().replace(',', '.');
+  if (!/^\d+(\.\d{1,2})?$/.test(s)) return null;
+  const v = Number(s);
+  return v > 0 ? v : null;
+}
+
+// ---------- Sesión ----------
+$('form-login').addEventListener('submit', async e => {
+  e.preventDefault();
+  $('error-login').textContent = '';
+  const { error } = await sb.auth.signInWithPassword({ email: $('email').value.trim(), password: $('clave').value });
+  if (error) { $('error-login').textContent = 'Correo o contraseña incorrectos.'; return; }
+  iniciar();
+});
+
+$('salir').onclick = async () => { await sb.auth.signOut(); location.reload(); };
+
+async function iniciar() {
+  const { data: { session } } = await sb.auth.getSession();
+  if (!session) { $('vista-login').hidden = false; $('vista-panel').hidden = true; return; }
+  const { data, error } = await sb.from('admins').select('user_id').eq('user_id', session.user.id);
+  if (error || !data || !data.length) {
+    await sb.auth.signOut();
+    $('vista-login').hidden = false; $('vista-panel').hidden = true;
+    $('error-login').textContent = 'Este usuario no tiene permiso para entrar al panel.';
+    return;
+  }
+  $('quien').textContent = session.user.email;
+  $('vista-login').hidden = true; $('vista-panel').hidden = false;
+  await cargarProductos();
+}
+
+// ---------- Precios ----------
+async function cargarProductos() {
+  const { data, error } = await sb.from('productos')
+    .select('id,nombre,variante,precio,categoria,categoria_key,linea,agotado,activo')
+    .order('linea').order('categoria').order('nombre');
+  if (error) { aviso('No se pudieron cargar los productos: ' + error.message, true); return; }
+  productos = data.map(p => ({ ...p, precio: Number(p.precio) }));
+
+  const sel = $('cat'); const actual = sel.value; sel.textContent = '';
+  sel.append(new Option('Todas las categorías', ''));
+  const vistos = new Map();
+  productos.forEach(p => {
+    if (!vistos.has(p.categoria_key)) vistos.set(p.categoria_key, (p.linea === 'la' ? 'Automotriz · ' : 'Hogar · ') + p.categoria);
+  });
+  vistos.forEach((t, k) => sel.append(new Option(t, k)));
+  sel.value = actual;
+  render(); barra();
+}
+
+function filtrados() {
+  const q = norm($('buscar').value), c = $('cat').value;
+  return productos.filter(p => (!c || p.categoria_key === c) && (!q || norm(p.nombre + ' ' + p.variante).includes(q)));
+}
+
+function render() {
+  const lista = $('lista'); lista.textContent = '';
+  const arr = filtrados();
+  $('vacio').hidden = arr.length > 0;
+  arr.forEach(p => {
+    const fila = document.createElement('div'); fila.className = 'fila';
+    const info = document.createElement('div'); info.className = 'info';
+    const n = document.createElement('strong'); n.textContent = p.nombre;
+    const v = document.createElement('span'); v.className = 'sub';
+    v.textContent = [p.variante, p.categoria].filter(Boolean).join(' · ');
+    info.append(n, v);
+
+    const caja = document.createElement('div'); caja.className = 'precio-caja';
+    const signo = document.createElement('span'); signo.textContent = '$';
+    const inp = document.createElement('input'); inp.className = 'precio'; inp.inputMode = 'decimal';
+    inp.value = String(p.id in cambios ? cambios[p.id] : p.precio).replace('.', ',');
+    if (p.id in cambios) fila.classList.add('cambiado');
+
+    inp.addEventListener('input', () => {
+      const val = parsear(inp.value);
+      fila.classList.remove('invalido', 'cambiado');
+      if (val === null) { fila.classList.add('invalido'); delete cambios[p.id]; }
+      else if (val === p.precio) { delete cambios[p.id]; }
+      else { cambios[p.id] = val; fila.classList.add('cambiado'); }
+      barra();
+    });
+
+    caja.append(signo, inp);
+    fila.append(info, caja);
+    lista.append(fila);
+  });
+}
+
+function barra() {
+  const n = Object.keys(cambios).length;
+  $('barra').hidden = n === 0;
+  $('barra-texto').textContent = n + (n === 1 ? ' cambio sin guardar' : ' cambios sin guardar');
+}
+
+$('buscar').addEventListener('input', render);
+$('cat').addEventListener('change', render);
+
+$('aplicar-pct').onclick = () => {
+  const pct = Number($('pct').value);
+  if (!Number.isFinite(pct) || pct === 0) { aviso('Escribí un porcentaje, por ejemplo 8', true); return; }
+  const r = Number($('redondeo').value);
+  const arr = filtrados();
+  if (!arr.length) return;
+  if (!confirm('Se van a preparar ' + arr.length + ' productos (' + (pct > 0 ? '+' : '') + pct + '%). Todavía no se guarda nada. ¿Seguir?')) return;
+  arr.forEach(p => {
+    const nuevo = Math.max(r, Math.round(p.precio * (1 + pct / 100) / r) * r);
+    if (nuevo === p.precio) delete cambios[p.id]; else cambios[p.id] = nuevo;
+  });
+  render(); barra();
+  aviso('Cambios preparados. Tocá "Revisar y guardar".');
+};
+
+$('descartar').onclick = () => {
+  if (!confirm('¿Descartar todos los cambios sin guardar?')) return;
+  cambios = {}; render(); barra();
+};
+
+$('revisar').onclick = () => {
+  if (document.querySelector('.fila.invalido')) { aviso('Hay precios mal escritos (en rojo). Corregilos primero.', true); return; }
+  const cont = $('modal-lista'); cont.textContent = ''; let raros = 0;
+  Object.entries(cambios).forEach(([id, nuevo]) => {
+    const p = productos.find(x => x.id === id);
+    const dif = (nuevo / p.precio - 1) * 100;
+    const f = document.createElement('div'); f.className = 'mfila';
+    const a = document.createElement('span'); a.textContent = p.nombre + (p.variante ? ' (' + p.variante + ')' : '');
+    const b = document.createElement('strong');
+    b.textContent = fmt(p.precio) + ' → ' + fmt(nuevo) + '  (' + (dif > 0 ? '+' : '') + dif.toFixed(1) + '%)';
+    if (Math.abs(dif) >= 50) { f.classList.add('raro'); raros++; }
+    f.append(a, b); cont.append(f);
+  });
+  $('modal-aviso').textContent = raros ? 'Atención: ' + raros + ' precio(s) cambian un 50% o más. Revisalos bien.' : '';
+  $('modal').hidden = false;
+};
+
+$('modal-cancelar').onclick = () => { $('modal').hidden = true; };
+
+$('modal-confirmar').onclick = async () => {
+  const btn = $('modal-confirmar'); btn.disabled = true;
+  const payload = Object.entries(cambios).map(([id, precio]) => ({ id, precio }));
+  const { error } = await sb.rpc('actualizar_precios', { cambios: payload });
+  btn.disabled = false;
+  if (error) { $('modal-aviso').textContent = 'No se pudo guardar: ' + error.message; return; }
+  payload.forEach(c => { productos.find(p => p.id === c.id).precio = c.precio; });
+  cambios = {}; $('modal').hidden = true; render(); barra();
+  aviso('Listo: ' + payload.length + (payload.length === 1 ? ' precio actualizado.' : ' precios actualizados.'));
+};
+
+window.addEventListener('beforeunload', e => {
+  if (Object.keys(cambios).length) { e.preventDefault(); e.returnValue = ''; }
+});
+
+// ---------- Historial ----------
+document.querySelectorAll('.tab').forEach(b => b.onclick = () => {
+  document.querySelectorAll('.tab').forEach(x => x.classList.toggle('activa', x === b));
+  $('tab-precios').hidden = b.dataset.tab !== 'precios';
+  $('tab-historial').hidden = b.dataset.tab !== 'historial';
+  if (b.dataset.tab === 'historial') cargarHistorial();
+});
+
+async function cargarHistorial() {
+  const cont = $('lista-historial'); cont.textContent = 'Cargando…';
+  const { data, error } = await sb.from('historial_precios')
+    .select('id,lote,fecha,precio_anterior,precio_nuevo,deshecho,productos(nombre,variante)')
+    .order('fecha', { ascending: false }).limit(1000);
+  if (error) { cont.textContent = 'No se pudo cargar el historial: ' + error.message; return; }
+  const grupos = new Map();
+  data.forEach(h => {
+    const k = h.lote || ('s' + h.id);
+    if (!grupos.has(k)) grupos.set(k, { lote: h.lote, fecha: h.fecha, deshecho: h.deshecho, filas: [] });
+    grupos.get(k).filas.push(h);
+  });
+  cont.textContent = '';
+  if (!grupos.size) { cont.textContent = 'Todavía no hay cambios de precios.'; return; }
+  grupos.forEach(g => {
+    const caja = document.createElement('details'); caja.className = 'grupo';
+    const sum = document.createElement('summary');
+    const fecha = new Date(g.fecha).toLocaleString('es-UY', { dateStyle: 'medium', timeStyle: 'short' });
+    sum.textContent = fecha + ' · ' + g.filas.length + (g.filas.length === 1 ? ' precio' : ' precios') + (g.deshecho ? ' · DESHECHO' : '');
+    caja.append(sum);
+    g.filas.forEach(h => {
+      const f = document.createElement('div'); f.className = 'mfila';
+      f.textContent = (h.productos ? h.productos.nombre : '?') + ': ' + fmt(h.precio_anterior) + ' → ' + fmt(h.precio_nuevo);
+      caja.append(f);
+    });
+    if (g.lote && !g.deshecho) {
+      const b = document.createElement('button'); b.className = 'btn'; b.textContent = 'Deshacer esta actualización';
+      b.onclick = () => deshacer(g.lote);
+      caja.append(b);
+    }
+    cont.append(caja);
+  });
+}
+
+async function deshacer(lote) {
+  if (Object.keys(cambios).length && !confirm('Tenés cambios sin guardar y se van a descartar. ¿Seguir?')) return;
+  if (!confirm('¿Deshacer esta actualización? Los precios vuelven a como estaban antes de ella.')) return;
+  const { error } = await sb.rpc('deshacer_lote', { p_lote: lote });
+  if (error) { aviso('No se pudo deshacer: ' + error.message, true); return; }
+  cambios = {};
+  await cargarProductos(); await cargarHistorial(); barra();
+  aviso('Listo: precios restaurados.');
+}
+
+iniciar();
+</script>
+</body>
+</html>
