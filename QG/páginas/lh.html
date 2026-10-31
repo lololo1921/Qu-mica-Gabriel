@@ -1066,7 +1066,7 @@
 
     var visibleCount = 0;
 
-    allCards.forEach(function(card){
+    Array.prototype.slice.call(document.querySelectorAll('.product-card')).forEach(function(card){
       var name = normalize(card.getAttribute('data-name') || '');
       var matchesText = q === '' || name.indexOf(q) !== -1;
       var matchesCat = !activeCat || card.getAttribute('data-category') === activeCat;
@@ -1090,6 +1090,7 @@
   }
 
   searchInput.addEventListener('input', runFilter);
+  document.addEventListener('precios-listos', runFilter);
   clearBtn.addEventListener('click', function(){
     searchInput.value = '';
     runFilter();
