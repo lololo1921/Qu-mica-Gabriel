@@ -1,17 +1,17 @@
-// Pisa precio, stock y visibilidad de cada .product-card con los datos de Supabase.
+// Pisa precio, stock y visibilidad con los datos de Supabase y
+// actualiza los precios guardados en el carrito de cada cliente.
 (function () {
   var URL_ = window.SUPABASE_URL, KEY = window.SUPABASE_ANON_KEY;
   if (!URL_ || !KEY) return;
 
   function fmt(n) {
-    return '$' + Number(n).toLocaleString('es-UY', { maximumFractionDigits: 2 });
+    n = Number(n);
+    var partes = n.toFixed(Number.isInteger(n) ? 0 : 2).split('.');
+    partes[0] = partes[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    return '$' + partes.join(',');
   }
 
-  function aplicar(filas) {
-    var porId = {};
-    filas.forEach(function (f) { porId[f.id] = f; });
-    window.PRECIOS_SUPABASE = porId;
-
+  function aplicarEnPagina(porId) {
     document.querySelectorAll('.product-card[data-id]').forEach(function (card) {
       var f = porId[card.dataset.id];
       if (!f) return;
@@ -28,6 +28,33 @@
         if (btn) { btn.disabled = true; btn.textContent = 'Sin stock'; }
       }
     });
+  }
+
+  function aplicarEnCarrito(porId) {
+    if (typeof getCart !== 'function' || typeof saveCart !== 'function') return;
+    var cart = getCart(), cambio = false;
+    cart.forEach(function (item) {
+      var f = porId[item.id];
+      if (!f) return;
+      var n = Number(f.precio);
+      if (Number(item.priceNumber) !== n) {
+        item.priceNumber = n;
+        item.price = fmt(n);
+        cambio = true;
+      }
+    });
+    if (!cambio) return;
+    saveCart(cart);
+    // El carrito ya se dibujó con los precios viejos: se recarga una sola vez.
+    if (location.pathname.indexOf('/carrito') === 0) location.reload();
+  }
+
+  function aplicar(filas) {
+    var porId = {};
+    filas.forEach(function (f) { porId[f.id] = f; });
+    window.PRECIOS_SUPABASE = porId;
+    aplicarEnPagina(porId);
+    aplicarEnCarrito(porId);
     document.dispatchEvent(new CustomEvent('precios-listos'));
   }
 
