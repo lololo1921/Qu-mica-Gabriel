@@ -83,6 +83,7 @@ main{max-width:900px;margin:0 auto;padding:16px}
   <nav class="tabs">
     <button class="tab activa" data-tab="precios">Precios</button>
     <button class="tab" data-tab="historial">Historial</button>
+    <button class="tab" data-tab="productos">Productos</button>
   </nav>
 
   <main id="tab-precios">
@@ -106,6 +107,14 @@ main{max-width:900px;margin:0 auto;padding:16px}
 
   <main id="tab-historial" hidden>
     <div id="lista-historial"></div>
+  </main>
+
+  <main id="tab-productos" hidden>
+    <div class="filtros">
+      <input id="buscar-prod" type="search" placeholder="Buscar producto…">
+      <button id="nuevo-prod" class="btn principal">+ Nuevo producto</button>
+    </div>
+    <div id="lista-prod"></div>
   </main>
 
   <div id="barra" hidden>
@@ -181,7 +190,7 @@ async function iniciar() {
 // ---------- Precios ----------
 async function cargarProductos() {
   const { data, error } = await sb.from('productos')
-    .select('id,nombre,variante,precio,categoria,categoria_key,linea,agotado,activo')
+    .select('id,nombre,variante,precio,categoria,categoria_key,linea,agotado,activo,imagen,descripcion,modo_uso')
     .order('linea').order('categoria').order('nombre');
   if (error) { aviso('No se pudieron cargar los productos: ' + error.message, true); return; }
   productos = data.map(p => ({ ...p, precio: Number(p.precio) }));
@@ -303,6 +312,7 @@ document.querySelectorAll('.tab').forEach(b => b.onclick = () => {
   document.querySelectorAll('.tab').forEach(x => x.classList.toggle('activa', x === b));
   $('tab-precios').hidden = b.dataset.tab !== 'precios';
   $('tab-historial').hidden = b.dataset.tab !== 'historial';
+  $('tab-productos').hidden = b.dataset.tab !== 'productos';
   if (b.dataset.tab === 'historial') cargarHistorial();
 });
 
@@ -352,5 +362,6 @@ async function deshacer(lote) {
 
 iniciar();
 </script>
+<script src="/admin/productos.js"></script>
 </body>
 </html>
