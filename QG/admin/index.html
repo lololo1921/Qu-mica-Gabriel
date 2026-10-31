@@ -60,6 +60,11 @@ main{max-width:900px;margin:0 auto;padding:16px}
 </head>
 <body>
 <div id="toast" hidden></div>
+<pre id="dbg" style="color:#b3261e;white-space:pre-wrap;margin:8px"></pre>
+<script>
+window.onerror=function(m,s,l){document.getElementById("dbg").textContent+="Error: "+m+" ("+(s||"").split("/").pop()+":"+l+")\n"};
+window.addEventListener("unhandledrejection",function(e){document.getElementById("dbg").textContent+="Error: "+((e.reason&&e.reason.message)||e.reason)+"\n"});
+</script>
 
 <section id="vista-login" class="caja">
   <h1>Química Gabriel</h1>
