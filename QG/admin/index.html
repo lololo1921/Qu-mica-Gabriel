@@ -194,6 +194,9 @@ async function cargarProductos() {
     .order('linea').order('categoria').order('nombre');
   if (error) { aviso('No se pudieron cargar los productos: ' + error.message, true); return; }
   productos = data.map(p => ({ ...p, precio: Number(p.precio) }));
+  productos.sort((a, b) =>
+    a.nombre.localeCompare(b.nombre, 'es', { sensitivity: 'base' }) ||
+    (a.variante || '').localeCompare(b.variante || '', 'es', { numeric: true, sensitivity: 'base' }));
 
   const sel = $('cat'); const actual = sel.value; sel.textContent = '';
   sel.append(new Option('Todas las categorías', ''));
